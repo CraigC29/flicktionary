@@ -1,0 +1,64 @@
+.mainBody{
+  width: 100% ;
+  margin-right:auto;
+  margin-left: auto;
+  padding-top: 300px;
+
+
+}
+
+.loginBut{
+  /* height: 50px;
+  width: 200px; */
+  /* padding-left: 10px;
+  padding-top: 10px; */
+  float: right;
+  border: 0px;
+  background: transparent;
+  /* background-image: url('logobutton.png') no-repeat; */
+  /* position: fixed; */
+}
+
+.logoimage{
+  height: 30px;
+  width: auto;
+  float: right;
+  margin-left: 0px;
+  margin-top: 0px;
+  border: 0px;
+}
+
+.SiteLogo {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+
+}
+
+.bodyFlick{
+    background-color: #2f2833;
+    text-align: center;
+    color: #ed5f25;
+    font-family: "Arial Rounded MT Bold";
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.searchbar{
+  max-width: 600px
+  width: auto;
+  height: 30px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.page-footer{
+  background-color: black;
+  color: white;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  left: 0px;
+  margin-bottom: 0px;
+  font-size: medium;
+}
