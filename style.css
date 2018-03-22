@@ -1,24 +1,25 @@
+/* The width of the page is set to 100%, there is padding at the
+top of the page for 300 pixels*/
 .mainBody{
   width: 100% ;
   margin-right:auto;
   margin-left: auto;
   padding-top: 300px;
 
-
 }
 
+/* The login button is kept to the right hand side of the page,
+the background is transparent and the border is set to 0 pixels*/
 .loginBut{
-  /* height: 50px;
-  width: 200px; */
-  /* padding-left: 10px;
-  padding-top: 10px; */
   float: right;
   border: 0px;
   background: transparent;
-  /* background-image: url('logobutton.png') no-repeat; */
-  /* position: fixed; */
+
 }
 
+/* The logo button is kept to the right hand side of the page,
+the width of the page is automatically set, the image is kept to
+right of page and margins and borders are set at 0 pixels*/
 .logoimage{
   height: 30px;
   width: auto;
@@ -28,6 +29,8 @@
   border: 0px;
 }
 
+/*maximum width of the logo is 100% and the height and widths of
+the logo are automatically set*/
 .SiteLogo {
   max-width: 100%;
   height: auto;
@@ -35,6 +38,8 @@
 
 }
 
+/*background colour is set to grey, text is alligned to the centre,
+font is set, font size is selected and the weight is also set*/
 .bodyFlick{
     background-color: #2f2833;
     text-align: center;
@@ -44,6 +49,9 @@
     font-weight: bold;
 }
 
+/*the max width of the searchbar is 600 pixels, the width is automatically
+set, the height and font size are both 30 pixels and text is aligned to the
+centre of the page*/
 .searchbar{
   max-width: 600px
   width: auto;
@@ -52,6 +60,8 @@
   text-align: center;
 }
 
+/*the footer is set to black, the text colour is white, the position of the
+footer is fixed, the width is set at 100% and the font size is medium*/
 .page-footer{
   background-color: black;
   color: white;
