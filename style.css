@@ -4,18 +4,15 @@ top of the page for 300 pixels*/
   width: 100% ;
   margin-right:auto;
   margin-left: auto;
-  padding-top: 300px;
+  padding-top: 170px;
 
 }
 
 /* The login button is kept to the right hand side of the page,
 the background is transparent and the border is set to 0 pixels*/
-.loginBut{
-  float: right;
-  border: 0px;
-  background: transparent;
+/* .loginBut{
 
-}
+} */
 
 /* The logo button is kept to the right hand side of the page,
 the width of the page is automatically set, the image is kept to
@@ -47,6 +44,7 @@ font is set, font size is selected and the weight is also set*/
     font-family: "Arial Rounded MT Bold";
     font-size: xx-large;
     font-weight: bold;
+    margin: 0px;
 }
 
 
@@ -61,6 +59,69 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   left: 0px;
   margin-bottom: 0px;
   font-size: medium;
+}
+
+.headerBar{
+  font-size: 20px;
+  text-align: left;
+  width: 100%;
+  background-color: #211d23;
+  height: 40px;
+  float: left;
+  margin: 0px;
+  padding: 0px;
+}
+
+.movieButton{
+  float: left;
+  padding: 7px;
+  padding-right: 10px;
+  background-color: #211d23;
+  cursor: pointer;
+  color: #bc4f23;
+}
+
+#movieContainer{
+  background-color: #2ee1e8;
+}
+
+.seriesButton{
+  float: left;
+  padding: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #211d23;
+  cursor: pointer;
+  color: #bc4f23;
+}
+
+.itemContainer{
+  height: inherit;
+  width: 80px;
+  float: left;
+}
+
+
+
+.movieButton:hover{
+  color: #ed5f25;
+}
+
+.seriesButton:hover{
+  color: #ed5f25;
+}
+
+/* .itemContainer:hover{
+  background-color: #2ee1e8;
+} */
+
+.loginBut{
+  float: right;
+  padding: 5px;
+  padding-left: 10px;
+  border: 0px;
+  background: transparent;
+
 }
 
 /* API CSS ----------------------------- */
@@ -95,7 +156,7 @@ a {
   /* outline: 5px solid blue; */
   border: 5px solid blue;
   border-radius: 5px;
-  outline-offset: -4px;
+  /* outline-offset: -4px; */
   margin: 5px;
 }
 
@@ -138,7 +199,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  height: auto;
+  height: 0px;
   align-content: flex-start;
 }
 
@@ -148,6 +209,7 @@ a {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
+  height: 0px;
 }
 
 .large-item-2 {
