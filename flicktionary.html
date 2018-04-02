@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
-<head>
+
+<head><!--Opening head tag -->
+  <!--Linking CSS File -->
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta charset="utf-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -8,25 +10,28 @@
   <title>Flicktionary</title>
   <!-- <link rel="stylesheet" href="unsemantic-grid-responsive-tablet.css"> -->
 
-<script>
+<!-- <script>
 var screenHeight = screen.height;
 var screenWidth = screen.width;
-</script>
+</script> -->
 
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/> -->
-</head>
+</head><!--Closing head tag -->
 
-
+<!-- body tag with class bodyFilck  -->
 <body class="bodyFlick">
 
+<!--Opening a button tag, with class loginBut of type button -->
   <button class="loginBut" type="button" name="login">
+    <!--Creating logo image, with class logoimage. Calling image from file -->
     <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
-  </button>
+  </button> <!--Closing button tag -->
 
 
-
+    <!--main class-->
     <main class="mainBody">
 
+        <!--div tags with the logo image, image is called from a file -->
           <div>
               <img src="logo.png" class="SiteLogo">
           </div>
@@ -34,9 +39,11 @@ var screenWidth = screen.width;
             	<br>
             	<button id="submit">Submit</button>
 
+    <!--P tag to give the user an idea of what to search for.
+    This is so that there is no uncertainty over what the site does-->
     <p>Streamed Media Search Engine </p>
 
-  </main>
+  </main> <!--Closing main tag -->
 
   <div class="allMovies" id="allMovies">
 
@@ -70,5 +77,5 @@ var screenWidth = screen.width;
 
   <p class="page-footer">Created by Ben Martin, Craig Cargill, Gregor Davidson, Calum McGuire for CM2104 coursework</p>
 
-</body>
-</html>
+</body><!--Closing body tag -->
+</html><!--Closing html tag -->
