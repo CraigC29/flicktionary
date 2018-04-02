@@ -44,13 +44,6 @@
     font-weight: bold;
 }
 
-.searchbar{
-  max-width: 600px
-  width: auto;
-  height: 30px;
-  font-size: 30px;
-  text-align: center;
-}
 
 .page-footer{
   background-color: black;
@@ -62,3 +55,249 @@
   margin-bottom: 0px;
   font-size: medium;
 }
+
+/* API CSS ----------------------------- */
+
+.headText {
+  padding-top: 100px;
+  font-size: 200px;
+  color: #EA6B00;
+  font-family: "Century Gothic";
+  text-align: center;
+  width: screenWidth;
+
+}
+body {
+  background-color: gray;
+}
+
+a {
+  display: none;
+}
+
+.imageClick {
+  width: 154px;
+  height: 231px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.imageClick:hover{
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  /* outline: 5px solid blue; */
+  border: 5px solid blue;
+  border-radius: 5px;
+  outline-offset: -4px;
+  margin: 5px;
+}
+
+#base{
+  text-align: center;
+  font-family: "Century Gothic";
+}
+
+.item1 {
+  width: 100%;
+  /* max-width: 80%; */
+}
+
+.sideText {
+  text-align: left;
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #6A6564;
+}
+
+.thumbnailImage {
+  margin: 6px;
+  background-color: #393534;
+  text-align: center;
+  padding-top: 4px;
+  max-width: 165px;
+}
+
+.item2 {
+  max-width: 30%;
+  width: 30%;
+  visibility: hidden;
+}
+
+.allMovies {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  height: auto;
+  align-content: flex-start;
+}
+
+.large-item {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.large-item-2 {
+  /* width: 40%;
+  background-color: #6A6564;
+  height: 60%; */
+}
+
+.container {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+.titleText {
+  /* visibility: hidden; */
+}
+
+#searchInput{
+  max-width: 600px
+  width: auto;
+  height: 30px;
+  font-size: 30px;
+  text-align: center;
+}
+
+#submit{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+  font-family: "Century Gothic";
+}
+
+.lower {
+  text-align: center;
+}
+
+#loadMore {
+  visibility: hidden;
+}
+
+.thumbnailImage {
+  width: 50%;
+}
+
+.sideInfo {
+  width: 50%;
+}
+
+.gridTile {
+  color: #EA6B00;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.centerText{
+  text-align: center;
+}
+
+.sideText {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.posterImage{
+  height: 200px;
+  width: auto;
+}
+
+#apiDiv {
+    border: dashed 2px #CCC;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+    #apiDiv input, #apiDiv button {
+        font-size: 25px;
+        color: #000;
+    }
+
+    #apiDiv h4 {
+        margin: 10px 0;
+    }
+
+    #apiDiv .imageDiv {
+        text-align: center;
+    }
+
+        #apiDiv .imageDiv img {
+            display: none;
+        }
+
+    #apiDiv #message {
+        padding-top: 10px;
+    }
+
+        #apiDiv #message .resultDiv {
+            background: #FFF;
+            display: inline-block;
+        }
+
+            #apiDiv #message .resultDiv &gt; p {
+                color: #000;
+                display: inline-block;
+                width: 95%;
+                padding: 10px;
+                border-bottom: double 2px #CCC;
+            }
+
+            #apiDiv #message .resultDiv .result {
+                width: 23%;
+                height: 300px;
+                padding: 6px;
+                /* float: left; */
+                text-align: center;
+                cursor: pointer;
+                visibility: hidden;
+            }
+
+                #apiDiv #message .resultDiv .result img {
+                    width: 75%;
+                }
+
+                #apiDiv #message .resultDiv .result p {
+                    margin: 0;
+                }
+
+                    #apiDiv #message .resultDiv .result p a {
+                        color: #808080;
+                        text-decoration: none;
+                        font-size: 20px;
+                        height: 100px;
+                    }
+
+                        #apiDiv #message .resultDiv .result p a:hover {
+                            text-decoration: underline;
+                        }
+
+#myModal {
+    color: #000;
+}
+
+#reset {
+    padding: 5px 10px;
+    background: #4CAF50;
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+}
+
+    #reset:hover {
+        color: #4CAF50;
+        background: #FFF;
+    }
