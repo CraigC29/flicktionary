@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head><!--Opening head tag -->
+  <!--Linking CSS File -->
+  <link rel="stylesheet" type="text/css" href="extras/style.css">
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="extras/script.js"></script>
+  <title>Flicktionary</title>
+  <!-- <link rel="stylesheet" href="unsemantic-grid-responsive-tablet.css"> -->
+
+
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/> -->
+</head><!--Closing head tag -->
+
+<!-- body tag with class bodyFilck  -->
+<body class="bodyFlick">
+
+
+<div class="headerBar">
+  <!--Opening a button tag, with class loginBut of type button -->
+  <div class="itemContainer" id="movieContainer">
+    <div class="movieButton" onclick="changeToMovie()">Movies</div>
+  </div>
+  <!--Opening a button tag, with class loginBut of type button -->
+  <div class="itemContainer" id="seriesContainer">
+    <div class="seriesButton" onclick="changeToSeries()">Series</div>
+  </div>
+  <!--Opening a button tag, with class loginBut of type button -->
+  <button class="loginBut" type="button" name="login">
+    <!--Creating logo image, with class logoimage. Calling image from file -->
+    <img class="logoimage" src="assets/loginButtonImage.png" alt="Login Button"/>
+  </button> <!--Closing button tag -->
+</div>
+
+  <!--main class-->
+  <main class="mainBody" id="mainBody">
+
+    <!--div tags with the logo image, image is called from a file -->
+    <div>
+      <img src="assets/logo.png" class="SiteLogo">
+    </div>
+    <input type="text" class="searchbar" id="searchInput" name="Search Media" placeholder="Search Media"> </input>
+    <br>
+    <button id="submit">Submit</button>
+
+    <!--P tag to give the user an idea of what to search for.
+    This is so that there is no uncertainty over what the site does-->
+    <p>Streamed Media Search Engine </p>
+
+  </main> <!--Closing main tag -->
+
+  <div class="allMovies" id="allMovies">
+
+
+    <div class="item1" id="movieBar">
+      <div class="large-item">
+
+        <div id="message"></div>
+        <ul id="pagination"></ul>
+
+        <div id="resultsbox"  >
+
+          <div id="results">
+            <!-- content will be loaded here (promise) -->
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="item2" id="sideBar">
+
+      <div class="large-item-2" id="moreDetails">
+        <p>Movie:</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="page-footer">Created by Ben Martin, Craig Cargill, Gregor Davidson, Calum McGuire for CM2104 coursework</p>
+
+</body><!--Closing body tag -->
+</html><!--Closing html tag -->
