@@ -63,7 +63,7 @@ $(document).ready(function () {
                       var movieid = result["results"][i]["id"];
                       var movieLocation = i;
                       console.log(movieid);
-                      var image = result["results"][i]["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+                      var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
                       allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openSide()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                   }
@@ -138,7 +138,7 @@ $(document).ready(function () {
                     var movieid = result["results"][i]["id"];
                     var movieLocation = i;
                     console.log(movieid);
-                    var image = result["results"][i]["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+                    var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
                     allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openSide()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                 }
@@ -174,7 +174,7 @@ $(document).ready(function () {
                     var tvid = result["results"][i]["id"];
                     var tvLocation = i;
                     console.log(tvid);
-                    var image = result["results"][i]["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+                    var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
                     allResults.append("<div id=" + tvid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openSide()' id=" + tvLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                 }
@@ -215,7 +215,7 @@ $(document).ready(function () {
                       var tvid = result["results"][i]["id"];
                       var tvLocation = i;
                       console.log(tvid);
-                      var image = result["results"][i]["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+                      var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
                       allResults.append("<div id=" + tvid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["name"] + "\">" + "<img onClick='openSide()' id=" + tvLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                   }
