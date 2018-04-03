@@ -325,7 +325,7 @@ function openSide(){
     res.render('mediaMovies', {
       movieid: movieid
     });
-  }
+  });
 
 
 
