@@ -7,7 +7,7 @@ app.set('view engine', 'ejs');
 // use res.render to load up an ejs view file
 // index page
 app.get('/', function(req, res) {
- res.render('pages/flicktionary');
+ res.render('pages/flicktionaryEJS');
 });
 app.listen(8080);
 console.log('8080 is the magic port');
