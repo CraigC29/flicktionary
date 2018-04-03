@@ -79,10 +79,11 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   background-color: #211d23;
   cursor: pointer;
   color: #bc4f23;
+  width: inherit;
 }
 
 #movieContainer{
-  background-color: #2ee1e8;
+  background-color: #ed5f25;
 }
 
 .seriesButton{
@@ -93,12 +94,14 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   background-color: #211d23;
   cursor: pointer;
   color: #bc4f23;
+  width: inherit;
 }
 
 .itemContainer{
   height: inherit;
-  width: 80px;
+  width: 75px;
   float: left;
+  font-family: "Arial Rounded MT Bold";
 }
 
 

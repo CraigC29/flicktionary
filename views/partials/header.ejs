@@ -1,14 +1,15 @@
-<nav class="navbar navbar-default" role="navigation">
-<div class="container-fluid">
- <div class="navbar-header">
- <a class="navbar-brand" href="#">
- <span class="glyphicon glyphicon glyphicon-tree-deciduous"></span>
- EJS Is Fun
- </a>
- <ul class="nav navbar-nav">
- <li><a href="/">Home</a></li>
- <li><a href="/about">About</a></li>
- </ul>
- </div>
+<div class="headerBar">
+  <!--Opening a button tag, with class loginBut of type button -->
+  <div class="itemContainer" id="movieContainer">
+    <div class="movieButton" onclick="changeToMovie()">Movies</div>
+  </div>
+  <!--Opening a button tag, with class loginBut of type button -->
+  <div class="itemContainer" id="seriesContainer">
+    <div class="seriesButton" onclick="changeToSeries()">Series</div>
+  </div>
+  <!--Opening a button tag, with class loginBut of type button -->
+  <button class="loginBut" type="button" name="login">
+    <!--Creating logo image, with class logoimage. Calling image from file -->
+    <img class="logoimage" src="assets/loginButtonImage.png" alt="Login Button"/>
+  </button> <!--Closing button tag -->
 </div>
-</nav>

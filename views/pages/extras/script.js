@@ -63,7 +63,7 @@ $(document).ready(function () {
                       var movieid = result["results"][i]["id"];
                       var movieLocation = i;
                       console.log(movieid);
-                      var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+                      var image = result["results"][i]["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
                       allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openSide()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                   }
@@ -138,7 +138,7 @@ $(document).ready(function () {
                     var movieid = result["results"][i]["id"];
                     var movieLocation = i;
                     console.log(movieid);
-                    var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+                    var image = result["results"][i]["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
                     allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openSide()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                 }
@@ -174,7 +174,7 @@ $(document).ready(function () {
                     var tvid = result["results"][i]["id"];
                     var tvLocation = i;
                     console.log(tvid);
-                    var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+                    var image = result["results"][i]["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
                     allResults.append("<div id=" + tvid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openSide()' id=" + tvLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                 }
@@ -215,7 +215,7 @@ $(document).ready(function () {
                       var tvid = result["results"][i]["id"];
                       var tvLocation = i;
                       console.log(tvid);
-                      var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+                      var image = result["results"][i]["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
                       allResults.append("<div id=" + tvid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["name"] + "\">" + "<img onClick='openSide()' id=" + tvLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                   }
@@ -266,7 +266,7 @@ function closeSide(){
 function changeToMovie(){
   searchType = "movie";
   console.log("Movie");
-  document.getElementById('movieContainer').style.backgroundColor = "#2ee1e8";
+  document.getElementById('movieContainer').style.backgroundColor = "#ed5f25";
   document.getElementById('seriesContainer').style.backgroundColor = "transparent";
   document.getElementById('mainBody').style.paddingTop = "170px";
   $("#message").html("");
@@ -275,48 +275,58 @@ function changeToMovie(){
 function changeToSeries(){
   searchType = "series";
   console.log("Series");
-  document.getElementById('seriesContainer').style.backgroundColor = "#2ee1e8";
+  document.getElementById('seriesContainer').style.backgroundColor = "#ed5f25";
   document.getElementById('movieContainer').style.backgroundColor = "transparent";
   document.getElementById('mainBody').style.paddingTop = "170px";
   $("#message").html("");
 }
 
 function openSide(){
-  console.log(event);
-        var bar = document.getElementById("sideBar");
-        bar.style.width = "30%";
-        bar.style.visibility = "visible";
+  // console.log(event);
+  //       var bar = document.getElementById("sideBar");
+  //       bar.style.width = "30%";
+  //       bar.style.visibility = "visible";
+  //
+  //       var main = document.getElementById("movieBar");
+  //       main.style.width = "70%";
+  //
+  //       var movieLocation = event.path[0].id;
+  //       console.log(movieLocation);
+  //
+  //       var movieid = event.path[1].id;
+  //       console.log(movieid);
+  //
+  //       $.ajax({
+  //           url: "https://api.themoviedb.org/3/movie/" + movieid,
+  //           data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
+  //           dataType: "json",
+  //           success: function (result, status, xhr) {
+  //                   var resultHtml = $('<div class="sideText">');
+  //                   console.log(movieLocation);
+  //
+  //
+  //                   var image = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
+  //
+  //                   resultHtml.append("<div class='thumbnailImage'> <img src=\"" + image + "\"/>" + "</div> <div class='sideInfo'>" + result["title"] + "<br><br>" + "Description: " + result["overview"])
+  //
+  //               resultHtml.append("</div>");
+  //               $("#moreDetails").html(resultHtml);
+  //
+  //           },
+  //           error: function (xhr, status, error) {
+  //               $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+  //           }
+  //       });
 
-        var main = document.getElementById("movieBar");
-        main.style.width = "70%";
+  app.get('/', function(req, res){
+    var movieid = event.path[1].id;
+    console.log(movieid);
 
-        var movieLocation = event.path[0].id;
-        console.log(movieLocation);
+    res.render('mediaMovies', {
+      movieid: movieid
+    })
+  }
 
-        var movieid = event.path[1].id;
-        console.log(movieid);
-
-        $.ajax({
-            url: "https://api.themoviedb.org/3/movie/" + movieid,
-            data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
-            dataType: "json",
-            success: function (result, status, xhr) {
-                    var resultHtml = $('<div class="sideText">');
-                    console.log(movieLocation);
-
-
-                    var image = result["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
-
-                    resultHtml.append("<div class='thumbnailImage'> <img src=\"" + image + "\"/>" + "</div> <div class='sideInfo'>" + result["title"] + "<br><br>" + "Description: " + result["overview"])
-
-                resultHtml.append("</div>");
-                $("#moreDetails").html(resultHtml);
-
-            },
-            error: function (xhr, status, error) {
-                $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-            }
-        });
 
 
 };
