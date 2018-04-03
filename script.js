@@ -13,16 +13,6 @@ $(function(){
     return false;
   });
 
-  // var movieButton = document.getElementById('movieButton');
-  // movieButton.onClick = function(){
-  //   changeToMovie();
-  // };
-  //
-  // var seriesButton = document.getElementById('seriesButton');
-  // movieButton.onClick = function(){
-  //   changeToSeries();
-  // };
-
 });
 
 $(document).ready(function () {
@@ -65,7 +55,7 @@ $(document).ready(function () {
                       console.log(movieid);
                       var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-                      allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openSide()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
+                      allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                   }
 
                 if (amountPages == 1){
@@ -140,7 +130,7 @@ $(document).ready(function () {
                     console.log(movieid);
                     var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-                    allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openSide()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
+                    allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                 }
 
                 if (amountPages == page){
@@ -176,7 +166,7 @@ $(document).ready(function () {
                     console.log(tvid);
                     var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-                    allResults.append("<div id=" + tvid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openSide()' id=" + tvLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
+                    allResults.append("<div id=" + tvid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + tvLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                 }
 
                 if (amountPages == page){
@@ -217,7 +207,7 @@ $(document).ready(function () {
                       console.log(tvid);
                       var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-                      allResults.append("<div id=" + tvid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["name"] + "\">" + "<img onClick='openSide()' id=" + tvLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
+                      allResults.append("<div id=" + tvid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["name"] + "\">" + "<img onClick='openPage()' id=" + tvLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
                   }
 
                 if (amountPages == 1){
@@ -281,52 +271,92 @@ function changeToSeries(){
   $("#message").html("");
 }
 
-function openSide(){
-  // console.log(event);
-  //       var bar = document.getElementById("sideBar");
-  //       bar.style.width = "30%";
-  //       bar.style.visibility = "visible";
-  //
-  //       var main = document.getElementById("movieBar");
-  //       main.style.width = "70%";
-  //
-  //       var movieLocation = event.path[0].id;
-  //       console.log(movieLocation);
-  //
-  //       var movieid = event.path[1].id;
-  //       console.log(movieid);
-  //
-  //       $.ajax({
-  //           url: "https://api.themoviedb.org/3/movie/" + movieid,
-  //           data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
-  //           dataType: "json",
-  //           success: function (result, status, xhr) {
-  //                   var resultHtml = $('<div class="sideText">');
-  //                   console.log(movieLocation);
-  //
-  //
-  //                   var image = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
-  //
-  //                   resultHtml.append("<div class='thumbnailImage'> <img src=\"" + image + "\"/>" + "</div> <div class='sideInfo'>" + result["title"] + "<br><br>" + "Description: " + result["overview"])
-  //
-  //               resultHtml.append("</div>");
-  //               $("#moreDetails").html(resultHtml);
-  //
-  //           },
-  //           error: function (xhr, status, error) {
-  //               $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-  //           }
-  //       });
+function loadMovies(){
+  var movieID = getUrlVars()["id"];
+  loadAllMovieMedia(movieID);
+}
+function loadSeries(){
+  var tvID = getUrlVars()["id"];
+  loadAllTVMedia(tvID);
+}
 
-  app.get('/', function(req, res){
+function loadAllMovieMedia(movieid) {
+  $.ajax({
+      url: "https://api.themoviedb.org/3/movie/" + movieid,
+      data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
+      dataType: "json",
+      success: function (result, status, xhr) {
+              var image = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w342/" + result["poster_path"];
+              image = "<img src=\"" + image + "\"/>"
+              var movieTitle = result["title"];
+              var description = result["overview"];
+              console.log("Test");
+          $("#mainImage").html(image);
+          $("#mainTitle").html(movieTitle);
+          $("#mainDesc").html(description);
+      },
+      error: function (xhr, status, error) {
+          $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+      }
+  });
+}
+
+  function loadAllTVMedia(tvID) {
+    $.ajax({
+        url: "https://api.themoviedb.org/3/tv/" + tvID,
+        data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
+        dataType: "json",
+        success: function (result, status, xhr) {
+                var image = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w342/" + result["poster_path"];
+                image = "<img src=\"" + image + "\"/>"
+                var seriesTitle = result["name"];
+                var description = result["overview"];
+                var numSeries = result["number_of_seasons"];
+
+                console.log("Test");
+
+            $("#seriesInfo").html(numSeries + " Season");
+            if (numSeries > 1){$("#seriesInfo").append("s");}
+
+            $("#mainImage").html(image);
+            $("#mainTitle").html(seriesTitle);
+            $("#mainDesc").html(description);
+        },
+        error: function (xhr, status, error) {
+            $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+        }
+    });
+}
+
+function getUrlVars() {
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    vars[key] = value;
+  });
+  return vars;
+}
+
+function returnHome(){
+  window.location.replace("flicktionary.html");
+}
+
+
+function openPage(){
+  console.log(event);
+
+  var main = document.getElementById("movieBar");
+  main.style.width = "70%";
+
+  if(searchType == "movie"){
     var movieid = event.path[1].id;
     console.log(movieid);
-
-    res.render('mediaMovies', {
-      movieid: movieid
-    });
-  });
-
-
+    var urlMediaMovies = "mediaMovies.html?id=" + movieid;
+    window.location.replace(urlMediaMovies);
+  } else {
+    var tvid = event.path[1].id;
+    console.log(tvid);
+    var urlMediaSeries = "mediaSeries.html?id=" + tvid;
+    window.location.replace(urlMediaSeries);
+  }
 
 };

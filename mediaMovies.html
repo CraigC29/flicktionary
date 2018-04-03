@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head><!--Opening head tag -->
+  <!--Linking CSS File -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+  <script src="script.js"></script>
+  <title>Flicktionary</title>
+</head>
+
+
+<div class="headerBar">
+    <!--Opening a button tag, with class loginBut of type button -->
+    <div class="itemContainer" id="movieContainer">
+      <div class="movieButton" onclick="returnHome()">&lt Back</div>
+    </div>
+    <!--Opening a button tag, with class loginBut of type button -->
+    <button class="loginBut" type="button" name="login">
+      <!--Creating logo image, with class logoimage. Calling image from file -->
+      <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
+    </button> <!--Closing button tag -->
+  </div>
+
+<body onload="loadMovies();" class="bodyFlick">
+<br>
+<br>
+  <div class="mediaContainer">
+
+    <div id="mainImage">Image</div>
+    <div class="mediaInfo">
+      <div id="mainTitle">Title</div>
+
+      <div id="mainDesc">Description</div>
+    </div>
+  </div>
+  <div id="movieMessage"></div>
+</body>
+
+</html><!--Closing html tag -->
