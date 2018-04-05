@@ -488,11 +488,6 @@ function unHoverBlock(){
 
 
 function openPage(){
-  console.log(event);
-
-  var main = document.getElementById("movieBar");
-  main.style.width = "70%";
-
   if(searchType == "movie"){
     var movieid = event.path[1].id;
     console.log(movieid);
