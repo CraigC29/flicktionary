@@ -343,15 +343,20 @@ function loadHomepage(){
     document.getElementById('mainBody').style.paddingTop = "170px";
     $("#message").html("");
     $('#searchInput').attr('placeholder','Search Series');
-    CallAPILoadPopularMedia("series");
+    allResults = $('<div class="resultDiv container" id="mainStuff">');
+    for(i = 1; i <= 8; i++){
+      CallAPILoadPopularMedia("series", i);
+    }
   } else {
     $('#searchInput').attr('placeholder','Search Movies');
-    CallAPILoadPopularMedia("movie");
+    allResults = $('<div class="resultDiv container" id="mainStuff">');
+    for(i = 1; i <= 8; i++){
+      CallAPILoadPopularMedia("movie", i);
+    }
   }
 };
 
-function CallAPILoadPopularMedia(media) {
-    var page = 1;
+function CallAPILoadPopularMedia(media, page) {
     if(media == "movie"){
       var apiCall =  "https://api.themoviedb.org/3/movie/popular?&page=" + page
     } else {
@@ -363,8 +368,7 @@ function CallAPILoadPopularMedia(media) {
       data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
       dataType: "json",
       success: function (result, status, xhr) {
-        allResults = $('<div class="resultDiv container" id="mainStuff">');
-        for (page = 1; page <= 8; page++){
+
           for (i = 0; i < result["results"].length; i++) {
             var movieid = result["results"][i]["id"];
             var movieLocation = i;
@@ -372,15 +376,15 @@ function CallAPILoadPopularMedia(media) {
 
             allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>");
           }
-        }
-        allResults.append("</div>")
-        $("#message").html(allResults);
+          if (page == 10){
+            allResults.append("</div>");
+          }
+        $("#message").append(allResults);
       },
       error: function (xhr, status, error) {
         $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
       }
     });
-
   }
 
 function selectBlock(){
