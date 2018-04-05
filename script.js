@@ -22,9 +22,6 @@ $(function(){
 $(document).ready(function () {
 
   $("#submit").click(function (e) {
-    mainBody.style.paddingTop = "100px";
-
-
     var validate = Validate();
 
     if (validate.length == 0) {
@@ -51,7 +48,7 @@ $(document).ready(function () {
         console.log("Total Pages According to actual API: " + result["total_pages"]);
 
         // var allResults = $('<div class="resultDiv container">');
-        allResults = $('<div class="resultDiv container">');
+        allResults = $('<div class="resultDiv container" id="mainStuff">');
         for (i = 0; i < result["results"].length; i++) {
           var movieid = result["results"][i]["id"];
           var movieLocation = i;
@@ -73,6 +70,16 @@ $(document).ready(function () {
         $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
       }
     });
+    slowScroll();
+  }
+
+  function slowScroll(){
+    window.setTimeout(scrollDown,500);
+    function scrollDown(){
+      $('html, body').animate({
+        scrollTop: $("#button").offset().top
+      }, 2000);
+    }
   }
 
   function loadAllPages(numOfPages){
@@ -149,6 +156,7 @@ $(document).ready(function () {
         $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
       }
     });
+
   }
 
   function CallAPITVLoad(page) {
@@ -225,6 +233,7 @@ $(document).ready(function () {
         $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
       }
     });
+    slowScroll();
   }
 
   function Validate() {
@@ -497,3 +506,9 @@ function openPage(){
   }
 
 };
+
+$("#submit").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#mainStuff").offset().top
+    }, 2000);
+});
