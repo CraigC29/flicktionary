@@ -13,29 +13,34 @@
 
 
 <div class="headerBar">
-    <!--Opening a button tag, with class loginBut of type button -->
-    <div class="itemContainer" id="movieContainer">
-      <div class="movieButton" onclick="returnHome()">&lt Back</div>
-    </div>
-    <!--Opening a button tag, with class loginBut of type button -->
-    <button class="loginBut" type="button" name="login">
-      <!--Creating logo image, with class logoimage. Calling image from file -->
-      <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
-    </button> <!--Closing button tag -->
+  <div class="itemContainer">
+    <img class="logoHeaderImage" onclick="goHomeSeries()" src="logo.png" alt="Logo"/>
   </div>
 
+  <!--Opening a button tag, with class loginBut of type button -->
+  <button class="loginBut" type="button" name="login">
+    <!--Creating logo image, with class logoimage. Calling image from file -->
+    <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
+  </button> <!--Closing button tag -->
+</div>
+
 <body onload="loadSeries();" class="bodyFlick">
-<br>
-<br>
+  <br>
+  <br>
   <div class="mediaContainer">
-    <div id="mainImage">Image</div>
+    <div id="mainSeriesImage">Image</div>
     <div class="mediaInfo">
       <div id="mainTitle">Title</div>
       <div id="seriesInfo"></div>
       <div id="mainDesc">Description</div>
     </div>
   </div>
-  <div id="movieMessage"></div>
+  <div id="seriesInfoHolder">
+    <div id="seriesBlockContainer"></div>
+    <div id="seriesEpisodeContainer"></div>
+    <div id="seriesEpisodeInfoContainer"></div>
+  </div>
+
 </body>
 
 </html><!--Closing html tag -->

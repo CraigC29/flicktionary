@@ -14,17 +14,17 @@
 </head><!--Closing head tag -->
 
 <!-- body tag with class bodyFilck  -->
-<body class="bodyFlick">
+<body class="bodyFlick" onload="loadHomepage();">
 
 
 <div class="headerBar">
   <!--Opening a button tag, with class loginBut of type button -->
   <div class="itemContainer" id="movieContainer">
-    <div class="movieButton" onclick="changeToMovie()">Movies</div>
+    <div class="movieButton" onclick="changeToMovie()" id="movieButton">Movies</div>
   </div>
   <!--Opening a button tag, with class loginBut of type button -->
   <div class="itemContainer" id="seriesContainer">
-    <div class="seriesButton" onclick="changeToSeries()">Series</div>
+    <div class="seriesButton" onclick="changeToSeries()" id="seriesButton">Series</div>
   </div>
   <!--Opening a button tag, with class loginBut of type button -->
   <button class="loginBut" type="button" name="login">
@@ -40,7 +40,7 @@
     <div>
       <img src="logo.png" class="SiteLogo">
     </div>
-    <input type="text" class="searchbar" id="searchInput" name="Search Media" placeholder="Search Media"> </input>
+    <input type="text" class="searchbar" id="searchInput" name="Search Media" placeholder="Search Movies"> </input>
     <br>
     <button id="submit">Submit</button>
 

@@ -294,6 +294,71 @@ a {
   margin: 0px;
 }
 
+#mainSeriesImage{
+  width: 30%;
+  /* float: left; */
+  margin: 0px;
+}
+
+#seriesInfoHolder{
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: left;
+  margin: 0px;
+  font-family: Lato;
+  padding-top: 20px;
+  background-color: #201b23;
+  margin-top: 20px;;
+}
+
+#seriesBlockContainer{
+  width: 13%;
+  font-size: 20px;
+  padding-left: 3%;
+  padding-right: 2%;
+}
+#seriesEpisodeContainer{
+  width: 45%;
+  font-size: 20px;
+  color: white;
+  height: 100%;
+  padding-bottom: 5%;
+}
+
+.moreLittleInfo{
+  font-size: 12px;
+  color: grey;
+}
+
+.episodeDescription{
+  font-size: 12px;
+  color: white;
+  padding-top: 10px;
+}
+
+#seriesEpisodeInfoContainer{
+  width: 35%;
+  font-size: 20px;
+  color: white;
+  height: 100px;
+  padding-bottom: 5%;
+}
+.seriesBlock{
+  background-color: #2f2833;
+  width: 90%;
+  height: 22px;
+  font-size: 16px;
+  padding-left: 6px;
+  margin-top: 4px;
+  color: white;
+}
+.seriesBlock:hover{
+  background-color: #3a363d;
+  cursor: pointer;
+}
+
 .mediaContainer{
   align-items: flex-start;
   display: flex;
@@ -306,11 +371,11 @@ a {
   width: 50%;
   text-align: left;
   margin: 0px;
+  padding-left: 2%;
 }
 
 #mainTitle{
   font-size: 40px;
-  padding-top: 40px;
   font-family: Lato;
   color: white;
 }
@@ -321,13 +386,46 @@ a {
   font-family: Lato;
 }
 #mainDesc{
-  padding-top: 40px;
+  padding-top: 30px;
   font-size: 15px;
-  padding-right: 5%;
   font-family: Lato;
   color: white;
-
 }
+
+#littleMovieInfo{
+  color: lightgrey;
+  font-size: 16px;
+  font-family: Lato;
+}
+
+.imdbLink{
+  float: right;
+  text-align: left;
+  cursor: pointer;
+}
+
+#imdbLink:hover{
+  color: white;
+}
+
+.logoHeaderImage{
+  width: 180px;
+  height: 35px;
+  padding-top: 4px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 #apiDiv {
     border: dashed 2px #CCC;
