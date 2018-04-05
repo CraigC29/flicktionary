@@ -20,20 +20,18 @@ $(function(){
 });
 
 $(document).ready(function () {
-
+  // CallAPILoadPopularMovies();
   $("#submit").click(function (e) {
     var validate = Validate();
-
     if (validate.length == 0) {
-
       if (searchType == "movie"){
         CallAPI(1);
       } else {
         CallTVAPI(1);
       }
-
     }
   });
+
   function CallAPI(page) {
     $.ajax({
       url: "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false",
@@ -44,15 +42,10 @@ $(document).ready(function () {
         pagePos = result["total_pages"];
         amountPages = result["total_pages"];
 
-        console.log("Amount Of Pages Inside CallAPI = " + amountPages);
-        console.log("Total Pages According to actual API: " + result["total_pages"]);
-
-        // var allResults = $('<div class="resultDiv container">');
         allResults = $('<div class="resultDiv container" id="mainStuff">');
         for (i = 0; i < result["results"].length; i++) {
           var movieid = result["results"][i]["id"];
           var movieLocation = i;
-          console.log(movieid);
           var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
           allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
@@ -60,7 +53,6 @@ $(document).ready(function () {
 
         if (amountPages == 1){
           allResults.append("</div>");
-          console.log("Pages = 1      Amount Pages: " + amountPages);
           printResults();
         } else {
           loadAllPages(amountPages);
@@ -99,7 +91,6 @@ $(document).ready(function () {
 
   }
 
-  // TV
   function loadAllPagesTV(numOfPages){
     var complete = false;
     if (numOfPages > 10) {numOfPages = 10;}
@@ -133,18 +124,15 @@ $(document).ready(function () {
           if (results["total_pages"] > 1){
             showLoadMore();
           }
-          console.log("Total Pages: " + result["total_pages"])
           for (i = 0; i < result["results"].length; i++) {
             var movieid = result["results"][i]["id"];
             var movieLocation = i;
-            console.log(movieid);
             var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
             allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
           }
 
           if (amountPages == page){
-            console.log("All Pages");
             allResults.append("</div>");
           }
 
@@ -158,6 +146,34 @@ $(document).ready(function () {
     });
 
   }
+
+  function CallAPILoadPopularTV() {
+        var page = 1;
+        $.ajax({
+          url: "https://api.themoviedb.org/3/tv/popular?&page=" + page,
+          // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
+          data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
+          dataType: "json",
+          success: function (result, status, xhr) {
+            allResults = $('<div class="resultDiv container" id="mainStuff">');
+            for (page = 1; page <= 8; page++){
+              for (i = 0; i < result["results"].length; i++) {
+                var movieid = result["results"][i]["id"];
+                var movieLocation = i;
+                var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+
+                allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>");
+              }
+            }
+            allResults.append("</div>")
+            printResults();
+          },
+          error: function (xhr, status, error) {
+            $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+          }
+        });
+
+      }
 
   function CallAPITVLoad(page) {
     $.ajax({
@@ -255,7 +271,6 @@ $(document).ready(function () {
 
 });
 
-
 function changeToMovie(){
   searchType = "movie";
   console.log("Movie");
@@ -294,7 +309,7 @@ function loadAllMovieMedia(movieid) {
     dataType: "json",
     success: function (result, status, xhr) {
       var image = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w342/" + result["poster_path"];
-      image = "<img src=\"" + image + "\"/>"
+      image = "<img id='largeImage' src=\"" + image + "\"/>"
       var movieTitle = result["title"];
       var imdbID = result["imdb_id"];
       var description = result["overview"];
@@ -348,7 +363,7 @@ function loadAllTVMedia(tvID) {
 }
 
 function loadEpisodeData(season){
-var tvID = getUrlVars()["id"];
+  var tvID = getUrlVars()["id"];
   $.ajax({
     url: "https://api.themoviedb.org/3/tv/" + tvID + "/season/" + season,
     data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
@@ -378,8 +393,8 @@ var tvID = getUrlVars()["id"];
 }
 
 function loadIndividualEpisodeData(){
-var tvID = getUrlVars()["id"];
-var actualEpisode = episodeSelected - 100;
+  var tvID = getUrlVars()["id"];
+  var actualEpisode = episodeSelected - 100;
   $.ajax({
     url: "https://api.themoviedb.org/3/tv/" + tvID + "/season/" + seriesSelected + "/episode/" + actualEpisode,
     data: { "api_key": "58a54ae83bf16e590e2ef91a25247707"},
@@ -415,9 +430,9 @@ function getUrlVars() {
 }
 
 function openIMDB(){
-var tmdbID = event.path[0].id;
-var link = "http://www.imdb.com/title/" + tmdbID;
-openInNewTab(link)
+  var tmdbID = event.path[0].id;
+  var link = "http://www.imdb.com/title/" + tmdbID;
+  openInNewTab(link);
 }
 
 function openInNewTab(url) {
@@ -444,10 +459,45 @@ function loadHomepage(){
     document.getElementById('mainBody').style.paddingTop = "170px";
     $("#message").html("");
     $('#searchInput').attr('placeholder','Search Series');
+    CallAPILoadPopularMovies("series");
   } else {
     $('#searchInput').attr('placeholder','Search Movies');
+    CallAPILoadPopularMovies("movie");
   }
-}
+};
+
+function CallAPILoadPopularMovies(media) {
+    var page = 1;
+    if(media == "movie"){
+      var apiCall =  "https://api.themoviedb.org/3/movie/popular?&page=" + page
+    } else {
+      var apiCall =  "https://api.themoviedb.org/3/tv/popular?&page=" + page
+    }
+    $.ajax({
+      url: apiCall,
+      // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
+      data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
+      dataType: "json",
+      success: function (result, status, xhr) {
+        allResults = $('<div class="resultDiv container" id="mainStuff">');
+        for (page = 1; page <= 8; page++){
+          for (i = 0; i < result["results"].length; i++) {
+            var movieid = result["results"][i]["id"];
+            var movieLocation = i;
+            var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+
+            allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>");
+          }
+        }
+        allResults.append("</div>")
+        $("#message").html(allResults);
+      },
+      error: function (xhr, status, error) {
+        $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+      }
+    });
+
+  }
 
 function selectBlock(){
   // console.log(event);
@@ -483,9 +533,6 @@ function unHoverBlock(){
     event.path[0].style.backgroundColor = "#2f2833";
   }
 };
-
-
-
 
 function openPage(){
   if(searchType == "movie"){
