@@ -8,15 +8,11 @@ var seriesSelected = 1;
 var episodeSelected = 1;
 
 $(function(){
-
-
   $('#searchform').submit(function() {
-
     var searchterms = $("#searchterms").val();
     getResultsFromTMDB(searchterms);
     return false;
   });
-
 });
 
 $(document).ready(function () {
@@ -25,16 +21,21 @@ $(document).ready(function () {
     var validate = Validate();
     if (validate.length == 0) {
       if (searchType == "movie"){
-        CallAPI(1);
+        CallAPI(1, "movie");
       } else {
-        CallTVAPI(1);
+        CallAPI(1, "series");
       }
     }
   });
 
-  function CallAPI(page) {
+  function CallAPI(page, media) {
+    if(media == "movie"){
+      var apiCall =  "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+    } else {
+      var apiCall =  "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+    }
     $.ajax({
-      url: "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false",
+      url: apiCall,
       // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
       data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
       dataType: "json",
@@ -55,7 +56,7 @@ $(document).ready(function () {
           allResults.append("</div>");
           printResults();
         } else {
-          loadAllPages(amountPages);
+          loadAllPages(amountPages, media);
         }
       },
       error: function (xhr, status, error) {
@@ -74,29 +75,12 @@ $(document).ready(function () {
     }
   }
 
-  function loadAllPages(numOfPages){
+  function loadAllPages(numOfPages, media){
     var complete = false;
     if (numOfPages > 10) {numOfPages = 10;}
     for (i = 2; i <= numOfPages; i++){
       console.log("Running on loop: " + i);
-      CallAPILoad(i);
-      if (i == numOfPages){
-        console.log("Complete = true");
-        complete = true;
-      }
-    }
-    if (complete = true){
-      printResults();
-    }
-
-  }
-
-  function loadAllPagesTV(numOfPages){
-    var complete = false;
-    if (numOfPages > 10) {numOfPages = 10;}
-    for (i = 2; i <= numOfPages; i++){
-      console.log("Running on loop: " + i);
-      CallAPITVLoad(i);
+      CallAPILoad(i, media);
       if (i == numOfPages){
         console.log("Complete = true");
         complete = true;
@@ -113,9 +97,14 @@ $(document).ready(function () {
     $("#message").html(allResults);
   }
 
-  function CallAPILoad(page) {
+  function CallAPILoad(page, media) {
+    if(media == "movie"){
+      var apiCall =  "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+    } else {
+      var apiCall =  "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+    }
     $.ajax({
-      url: "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false",
+      url: apiCall,
       // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
       data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
       dataType: "json",
@@ -145,111 +134,6 @@ $(document).ready(function () {
       }
     });
 
-  }
-
-  function CallAPILoadPopularTV() {
-        var page = 1;
-        $.ajax({
-          url: "https://api.themoviedb.org/3/tv/popular?&page=" + page,
-          // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
-          data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
-          dataType: "json",
-          success: function (result, status, xhr) {
-            allResults = $('<div class="resultDiv container" id="mainStuff">');
-            for (page = 1; page <= 8; page++){
-              for (i = 0; i < result["results"].length; i++) {
-                var movieid = result["results"][i]["id"];
-                var movieLocation = i;
-                var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
-
-                allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>");
-              }
-            }
-            allResults.append("</div>")
-            printResults();
-          },
-          error: function (xhr, status, error) {
-            $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-          }
-        });
-
-      }
-
-  function CallAPITVLoad(page) {
-    $.ajax({
-      url: "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false",
-      // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
-      data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
-      dataType: "json",
-      success: function (result, status, xhr) {
-        if (page <= result["total_pages"]){
-          if (results["total_pages"] > 1){
-            showLoadMore();
-          }
-          console.log("Total Pages: " + result["total_pages"])
-          for (i = 0; i < result["results"].length; i++) {
-            var tvid = result["results"][i]["id"];
-            var tvLocation = i;
-            console.log(tvid);
-            var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
-
-            allResults.append("<div id=" + tvid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + tvLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
-          }
-
-          if (amountPages == page){
-            console.log("All Pages");
-            allResults.append("</div>");
-          }
-
-        } else {
-          hideLoadMore();
-        }
-      },
-      error: function (xhr, status, error) {
-        $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-      }
-    });
-  }
-
-
-  // TV API
-  function CallTVAPI(page) {
-    $.ajax({
-      url: "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page,
-      // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
-      data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
-      dataType: "json",
-      success: function (result, status, xhr) {
-        pagePos = result["total_pages"];
-        amountPages = result["total_pages"];
-
-        console.log("Amount Of Pages Inside CallAPI = " + amountPages);
-        console.log("Total Pages According to actual API: " + result["total_pages"]);
-
-        // var allResults = $('<div class="resultDiv container">');
-        allResults = $('<div class="resultDiv container">');
-        for (i = 0; i < result["results"].length; i++) {
-          var tvid = result["results"][i]["id"];
-          var tvLocation = i;
-          console.log(tvid);
-          var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
-
-          allResults.append("<div id=" + tvid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["name"] + "\">" + "<img onClick='openPage()' id=" + tvLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
-        }
-
-        if (amountPages == 1){
-          allResults.append("</div>");
-          console.log("Pages = 1      Amount Pages: " + amountPages);
-          printResults();
-        } else {
-          loadAllPagesTV(amountPages);
-        }
-      },
-      error: function (xhr, status, error) {
-        $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-      }
-    });
-    slowScroll();
   }
 
   function Validate() {
@@ -459,14 +343,14 @@ function loadHomepage(){
     document.getElementById('mainBody').style.paddingTop = "170px";
     $("#message").html("");
     $('#searchInput').attr('placeholder','Search Series');
-    CallAPILoadPopularMovies("series");
+    CallAPILoadPopularMedia("series");
   } else {
     $('#searchInput').attr('placeholder','Search Movies');
-    CallAPILoadPopularMovies("movie");
+    CallAPILoadPopularMedia("movie");
   }
 };
 
-function CallAPILoadPopularMovies(media) {
+function CallAPILoadPopularMedia(media) {
     var page = 1;
     if(media == "movie"){
       var apiCall =  "https://api.themoviedb.org/3/movie/popular?&page=" + page
