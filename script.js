@@ -79,10 +79,10 @@ $(document).ready(function () {
     var complete = false;
     if (numOfPages > 10) {numOfPages = 10;}
     for (i = 2; i <= numOfPages; i++){
-      console.log("Running on loop: " + i);
+      // console.log("Running on loop: " + i);
       CallAPILoad(i, media);
       if (i == numOfPages){
-        console.log("Complete = true");
+        // console.log("Complete = true");
         complete = true;
       }
     }
@@ -93,7 +93,7 @@ $(document).ready(function () {
   }
 
   function printResults(){
-    console.log("Printing All Results");
+    // console.log("Printing All Results");
     $("#message").html(allResults);
   }
 
@@ -157,7 +157,7 @@ $(document).ready(function () {
 
 function changeToMovie(){
   searchType = "movie";
-  console.log("Movie");
+  // console.log("Movie");
   document.getElementById('movieContainer').style.backgroundColor = "#ed5f25";
   // $("#searchInput").style.placeholder = "Search Movies";
   document.getElementById('seriesContainer').style.backgroundColor = "transparent";
@@ -168,7 +168,7 @@ function changeToMovie(){
 
 function changeToSeries(){
   searchType = "series";
-  console.log("Series");
+  // console.log("Series");
   document.getElementById('seriesContainer').style.backgroundColor = "#ed5f25";
   document.getElementById('movieContainer').style.backgroundColor = "transparent";
   // document.getElementById('searchInput').style.placeholder = "Search Series";
@@ -193,18 +193,25 @@ function loadAllMovieMedia(movieid) {
     dataType: "json",
     success: function (result, status, xhr) {
       var image = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w342/" + result["poster_path"];
+      var imageSRC  = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w780/" + result["poster_path"];
       image = "<img id='largeImage' src=\"" + image + "\"/>"
       var movieTitle = result["title"];
       var imdbID = result["imdb_id"];
       var description = result["overview"];
       var genres = result["genres"][0]["name"];
       var littleInfoMovie = result["runtime"] + 'mins' + ' &#9679 ' + result["release_date"] + ' &#9679 ' + genres +  '<div id="' + imdbID + '"class="imdbLink" onClick="openIMDB()">IMDB</div>';
-      console.log("Test");
+
       $("#mainImage").html(image);
       $("#mainTitle").html(movieTitle);
       $("#littleMovieInfo").html(littleInfoMovie);
       $("#mainDesc").html(description);
 
+      document.getElementById("blurredImageMovie").src = imageSRC;
+      console.log(imageSRC);
+
+      var windowHeight = $(window).height() - 40;
+      console.log("window height: " + windowHeight);
+      document.getElementById("movieMediaContainer").setAttribute("style","height:" + windowHeight + "px");
     },
     error: function (xhr, status, error) {
       $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
@@ -219,12 +226,12 @@ function loadAllTVMedia(tvID) {
     dataType: "json",
     success: function (result, status, xhr) {
       var image = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
+      var imageSRC  = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w780/" + result["poster_path"];
+      // console.log(imageSRC);
       image = "<img src=\"" + image + "\"/>"
       var seriesTitle = result["name"];
       var description = result["overview"];
       numSeries = result["number_of_seasons"];
-
-      console.log("Test");
 
       $("#seriesInfo").html(numSeries + " Season");
       if (numSeries > 1){$("#seriesInfo").append("s");}
@@ -237,14 +244,46 @@ function loadAllTVMedia(tvID) {
       $("#mainSeriesImage").html(image);
       $("#mainTitle").html(seriesTitle);
       $("#mainDesc").html(description);
+
       $("#seriesBlockContainer").html(seriesDiv);
+      document.getElementById("blurredImage").src = imageSRC;
       document.getElementById("1").click();
+
+      var heightImage = $("#seriesMediaHeight").height() + 60;
+
+      console.log("height is: " + heightImage);
+      document.getElementById("blurredImage").height = heightImage;
+      var windowHeight = $(window).height();
+      console.log("window height: " + windowHeight);
+      document.getElementById("seriesInfoHolder").height = (heightImage - windowHeight);
+      var blockHeight = ((windowHeight / 10) * 5.5);
+      console.log("blockHeight: " + blockHeight);
+      document.getElementById("seriesBlockContainer").setAttribute("style","max-height:" + blockHeight + "px");
+      document.getElementById("seriesEpisodeContainer").setAttribute("style","max-height:" + blockHeight + "px");
+      document.getElementById("seriesEpisodeInfoContainer").setAttribute("style","max-height:" + blockHeight + "px");
     },
     error: function (xhr, status, error) {
       $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
     }
   });
 }
+
+$(window).resize(function(){
+  if (searchType == "series"){
+    var imageHeight = $("#seriesMediaHeight").height();
+    document.getElementById("blurredImage").height = imageHeight + 60;
+    var blockHeight = ((imageHeight / 10) * 5.5);
+    console.log("blockHeight: " + blockHeight);
+    document.getElementById("seriesBlockContainer").setAttribute("style","max-height:" + blockHeight + "px");
+    document.getElementById("seriesEpisodeContainer").setAttribute("style","max-height:" + blockHeight + "px");
+    document.getElementById("seriesEpisodeInfoContainer").setAttribute("style","max-height:" + blockHeight + "px");
+  } else if(searchType == "movie"){
+    var windowHeight = $(window).height() - 40;
+    console.log("window height: " + windowHeight);
+    document.getElementById("movieMediaContainer").setAttribute("style","height:" + windowHeight + "px");
+  }
+});
+
 
 function loadEpisodeData(season){
   var tvID = getUrlVars()["id"];
@@ -254,7 +293,7 @@ function loadEpisodeData(season){
     dataType: "json",
     success: function (result, status, xhr) {
       var numEps = result["episodes"].length;
-      console.log("numEps:  " + numEps);
+      // console.log("numEps:  " + numEps);
       var allEpisodes = "<div id='allEpisodesContainer'>"
       for(i = 100; i < (numEps + 100); i++){
         var realI = i - 100;
@@ -262,12 +301,11 @@ function loadEpisodeData(season){
         var epNum = parseInt(realI) + 101
         numEpisodes = numEps;
         allEpisodes += '<div id="' + epNum + '" class="seriesBlock" onClick="selectNameBlock()" onmouseover="hoverBlock()" onmouseout="unHoverBlock()">' + epName + '</div>';
-        console.log("Test: " + result["episodes"][realI]["name"]);
       }
       allEpisodes += "</div>"
       $("#seriesEpisodeContainer").html(allEpisodes);
       document.getElementById("101").click();
-      console.log("loadEpisodeData");
+      // console.log("loadEpisodeData");
 
     },
     error: function (xhr, status, error) {
@@ -285,7 +323,7 @@ function loadIndividualEpisodeData(){
     dataType: "json",
     success: function (result, status, xhr) {
       var epName = result["name"];
-      console.log(epName);
+      // console.log(epName);
       var airDate = result["air_date"];
       var epDescription = result["overview"];
       if (epDescription == ""){epDescription = "No Description is Available";}
@@ -294,9 +332,9 @@ function loadIndividualEpisodeData(){
       allEpisodes += '\n<div class="moreLittleInfo"> Air Date: ' + airDate + '</div>';
       allEpisodes += '\n<div class="episodeDescription">' + epDescription + '</div>';
 
-      console.log(allEpisodes);
+      // console.log(allEpisodes);
       $("#seriesEpisodeInfoContainer").html(allEpisodes);
-      console.log("loadEpisodeData INDIVIDUAL");
+      // console.log("loadEpisodeData INDIVIDUAL");
 
     },
     error: function (xhr, status, error) {
@@ -337,7 +375,7 @@ function loadHomepage(){
   var typeSearch = getUrlVars()["id"];
   if (typeSearch == "Series"){
     searchType = "series";
-    console.log("Series");
+    // console.log("Series");
     document.getElementById('seriesContainer').style.backgroundColor = "#ed5f25";
     document.getElementById('movieContainer').style.backgroundColor = "transparent";
     document.getElementById('mainBody').style.paddingTop = "170px";
@@ -355,6 +393,7 @@ function loadHomepage(){
     }
   }
 };
+
 
 function CallAPILoadPopularMedia(media, page) {
     if(media == "movie"){
@@ -399,9 +438,9 @@ function selectBlock(){
 };
 
 function selectNameBlock(){
-  console.log(event);
+  // console.log(event);
   for(i = 0; i < numEpisodes; i++){
-    console.log("Num episodes: " + numEpisodes);
+    // console.log("Num episodes: " + numEpisodes);
     event.path[1].children[i].style.backgroundColor = "#2f2833";
   }
   event.path[0].style.backgroundColor = "#fc804e";
@@ -425,12 +464,12 @@ function unHoverBlock(){
 function openPage(){
   if(searchType == "movie"){
     var movieid = event.path[1].id;
-    console.log(movieid);
+    // console.log(movieid);
     var urlMediaMovies = "mediaMovies.html?id=" + movieid;
     window.location.replace(urlMediaMovies);
   } else {
     var tvid = event.path[1].id;
-    console.log(tvid);
+    // console.log(tvid);
     var urlMediaSeries = "mediaSeries.html?id=" + tvid;
     window.location.replace(urlMediaSeries);
   }

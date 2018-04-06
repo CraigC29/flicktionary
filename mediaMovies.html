@@ -11,7 +11,7 @@
   <title>Flicktionary</title>
 </head>
 
-
+<header>
 <div class="headerBar">
     <!--Opening a button tag, with class loginBut of type button -->
     <div class="itemContainer">
@@ -23,19 +23,23 @@
       <img class="logoimage"  src="loginButtonImage.png" alt="Login Button"/>
     </button> <!--Closing button tag -->
   </div>
+</header>
 
-<body onload="loadMovies();" class="bodyFlick">
-<br>
-<br>
-  <div class="mediaContainer">
-
+<body onload="loadMovies()" class="bodyFlick">
+<div class="blurredImageContainerMovie" id="movieMediaContainer">
+  <div class="mediaContainer seriesContainer">
     <div id="mainImage">Image</div>
-    <div class="mediaInfo">
+    <div class="mediaInfoMovie">
       <div id="mainTitle">Title</div>
       <div id="littleMovieInfo">Little Info</div>
       <div id="mainDesc">Description</div>
     </div>
   </div>
+
+  <img src="logo.png" id="blurredImageMovie">
+</div>
+
+
 </body>
 
 </html><!--Closing html tag -->

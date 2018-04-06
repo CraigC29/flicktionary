@@ -12,34 +12,43 @@
 </head>
 
 
-<div class="headerBar">
-  <div class="itemContainer">
-    <img class="logoHeaderImage" onclick="goHomeSeries()" src="logo.png" alt="Logo"/>
+<header>
+  <div class="headerBar">
+    <div class="itemContainer">
+      <img class="logoHeaderImage" onclick="goHomeSeries()" src="logo.png" alt="Logo"/>
+    </div>
+
+    <!--Opening a button tag, with class loginBut of type button -->
+    <button class="loginBut" type="button" name="login">
+      <!--Creating logo image, with class logoimage. Calling image from file -->
+      <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
+    </button> <!--Closing button tag -->
   </div>
+</header>
 
-  <!--Opening a button tag, with class loginBut of type button -->
-  <button class="loginBut" type="button" name="login">
-    <!--Creating logo image, with class logoimage. Calling image from file -->
-    <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
-  </button> <!--Closing button tag -->
-</div>
+<body onload="loadSeries()" class="seriesBody">
 
-<body onload="loadSeries();" class="bodyFlick">
-  <br>
-  <br>
-  <div class="mediaContainer">
-    <div id="mainSeriesImage">Image</div>
-    <div class="mediaInfo">
-      <div id="mainTitle">Title</div>
-      <div id="seriesInfo"></div>
-      <div id="mainDesc">Description</div>
+<div class="blurredImageContainer">
+  <div class="seriesContainer">
+    <div class="mediaContainer" id="seriesMediaHeight">
+      <div id="mainSeriesImage">Image</div>
+      <div class="mediaInfo">
+        <div id="mainTitle">Title</div>
+        <div id="seriesInfo"></div>
+        <div id="mainDesc">Description</div>
+      </div>
     </div>
   </div>
-  <div id="seriesInfoHolder">
-    <div id="seriesBlockContainer"></div>
-    <div id="seriesEpisodeContainer"></div>
-    <div id="seriesEpisodeInfoContainer"></div>
-  </div>
+
+
+  <img src="logo.png" id="blurredImage">
+</div>
+
+<div id="seriesInfoHolder">
+  <div id="seriesBlockContainer"></div>
+  <div id="seriesEpisodeContainer"></div>
+  <div id="seriesEpisodeInfoContainer"></div>
+</div>
 
 </body>
 
