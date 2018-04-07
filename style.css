@@ -7,6 +7,10 @@ top of the page for 300 pixels*/
   padding-top: 170px;
 }
 
+main{
+  font-family: Lato;
+}
+
 /* The login button is kept to the right hand side of the page,
 the background is transparent and the border is set to 0 pixels*/
 /* .loginBut{

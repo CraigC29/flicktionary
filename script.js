@@ -17,6 +17,13 @@ $(function(){
 });
 
 $(document).ready(function () {
+
+  $("#searchInput").keyup(function() {
+    if (event.keyCode === 13) {
+      document.getElementById("submit").click();
+    }
+  });
+
   // CallAPILoadPopularMovies();
   $("#submit").click(function (e) {
     var validate = Validate();
@@ -68,11 +75,11 @@ $(document).ready(function () {
   }
 
   function slowScroll(){
-    window.setTimeout(scrollDown,500);
+    window.setTimeout(scrollDown,100);
     function scrollDown(){
       $('html, body').animate({
         scrollTop: $("#button").offset().top
-      }, 2000);
+      }, 800);
     }
   }
 
@@ -498,6 +505,8 @@ function openPage(){
   }
 
 };
+
+
 
 $("#submit").click(function() {
     $('html, body').animate({
