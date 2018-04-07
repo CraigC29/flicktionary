@@ -6,6 +6,7 @@ var numSeries = 0;
 var numEpisodes = 0;
 var seriesSelected = 1;
 var episodeSelected = 1;
+var isDelving = false;
 
 $(function(){
   $('#searchform').submit(function() {
@@ -20,7 +21,7 @@ $(document).ready(function () {
   $("#submit").click(function (e) {
     var validate = Validate();
     if (validate.length == 0) {
-      if (searchType == "movie"){
+      if (searchType == "movie" || searchType == ""){
         CallAPI(1, "movie");
       } else {
         CallAPI(1, "series");
@@ -180,10 +181,12 @@ function changeToSeries(){
 function loadMovies(){
   var movieID = getUrlVars()["id"];
   loadAllMovieMedia(movieID);
+  isDelving == true;
 }
 function loadSeries(){
   var tvID = getUrlVars()["id"];
   loadAllTVMedia(tvID);
+  isDelving == true;
 }
 
 function loadAllMovieMedia(movieid) {
@@ -235,6 +238,8 @@ function loadAllTVMedia(tvID) {
 
       $("#seriesInfo").html(numSeries + " Season");
       if (numSeries > 1){$("#seriesInfo").append("s");}
+
+
       var seriesDiv = "";
       var seriesEpDiv = "";
       for (i = 1; i <= numSeries; i++){
@@ -245,22 +250,29 @@ function loadAllTVMedia(tvID) {
       $("#mainTitle").html(seriesTitle);
       $("#mainDesc").html(description);
 
-      $("#seriesBlockContainer").html(seriesDiv);
+      $("#blockSeries").html(seriesDiv);
       document.getElementById("blurredImage").src = imageSRC;
       document.getElementById("1").click();
 
       var heightImage = $("#seriesMediaHeight").height() + 60;
-
       console.log("height is: " + heightImage);
       document.getElementById("blurredImage").height = heightImage;
+
       var windowHeight = $(window).height();
       console.log("window height: " + windowHeight);
-      document.getElementById("seriesInfoHolder").height = (heightImage - windowHeight);
-      var blockHeight = ((windowHeight / 10) * 5.5);
+
+
+
+      var elementSize = (windowHeight - heightImage);
+      document.getElementById("seriesInfoHolder").height = elementSize;
+
+      var blockHeight = (elementSize * 0.6);
       console.log("blockHeight: " + blockHeight);
-      document.getElementById("seriesBlockContainer").setAttribute("style","max-height:" + blockHeight + "px");
-      document.getElementById("seriesEpisodeContainer").setAttribute("style","max-height:" + blockHeight + "px");
-      document.getElementById("seriesEpisodeInfoContainer").setAttribute("style","max-height:" + blockHeight + "px");
+
+      document.getElementById("blockSeries").setAttribute("style","max-height:" + blockHeight + "px");
+
+      document.getElementById("blockEp").setAttribute("style","height:" + blockHeight + "px");
+      // document.getElementById("seriesEpisodeInfoContainer").setAttribute("style","max-height:" + blockHeight + "px");
     },
     error: function (xhr, status, error) {
       $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
@@ -269,15 +281,15 @@ function loadAllTVMedia(tvID) {
 }
 
 $(window).resize(function(){
-  if (searchType == "series"){
+  if (searchType == "series" && isDelving == true){
     var imageHeight = $("#seriesMediaHeight").height();
     document.getElementById("blurredImage").height = imageHeight + 60;
     var blockHeight = ((imageHeight / 10) * 5.5);
     console.log("blockHeight: " + blockHeight);
-    document.getElementById("seriesBlockContainer").setAttribute("style","max-height:" + blockHeight + "px");
-    document.getElementById("seriesEpisodeContainer").setAttribute("style","max-height:" + blockHeight + "px");
-    document.getElementById("seriesEpisodeInfoContainer").setAttribute("style","max-height:" + blockHeight + "px");
-  } else if(searchType == "movie"){
+    document.getElementById("blockSeries").setAttribute("style","max-height:" + (blockHeight * 0.8) + "px");
+    document.getElementById("blockEp").setAttribute("style","max-height:" + (blockHeight * 0.8) + "px");
+    document.getElementById("seriesEpisodeInfoContainer").setAttribute("style","max-height:" + (blockHeight * 0.8) + "px");
+  } else if(searchType == "movie" && isDelving == true){
     var windowHeight = $(window).height() - 40;
     console.log("window height: " + windowHeight);
     document.getElementById("movieMediaContainer").setAttribute("style","height:" + windowHeight + "px");
@@ -295,15 +307,24 @@ function loadEpisodeData(season){
       var numEps = result["episodes"].length;
       // console.log("numEps:  " + numEps);
       var allEpisodes = "<div id='allEpisodesContainer'>"
+
+
       for(i = 100; i < (numEps + 100); i++){
         var realI = i - 100;
         var epName = result["episodes"][realI]["name"];
         var epNum = parseInt(realI) + 101
         numEpisodes = numEps;
-        allEpisodes += '<div id="' + epNum + '" class="seriesBlock" onClick="selectNameBlock()" onmouseover="hoverBlock()" onmouseout="unHoverBlock()">' + epName + '</div>';
+        var epNumText = (parseInt(epNum) - 100);
+        // console.log(epNumText);
+        if (epNumText < 10){epNumText = epNumText + "&nbsp &nbsp";}
+        allEpisodes += '<div id="' + epNum + '" class="seriesBlock" onClick="selectNameBlock()" onmouseover="hoverBlock()" onmouseout="unHoverBlock()">' + epNumText + " &nbsp" + epName + '</div>';
       }
       allEpisodes += "</div>"
-      $("#seriesEpisodeContainer").html(allEpisodes);
+
+
+      $("#blockEp").html(allEpisodes);
+      $('#episodeNums').text("Episodes (" + numEps + ")");
+
       document.getElementById("101").click();
       // console.log("loadEpisodeData");
 
@@ -364,10 +385,12 @@ function openInNewTab(url) {
 
 function goHomeSeries(){
   var urlHome = "flicktionary.html?id=Series";
+  isDelving == false;
   window.location.replace(urlHome);
 }
 function goHomeMovies(){
   var urlHome = "flicktionary.html?id=Movies";
+  isDelving == false;
   window.location.replace(urlHome);
 }
 

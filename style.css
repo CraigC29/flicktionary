@@ -69,7 +69,8 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   margin: 0px;
   padding: 0px;
   z-index: 2;
-  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2)
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Century Gothic";
 }
 
 .movieButton{
@@ -80,6 +81,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   cursor: pointer;
   color: #bc4f23;
   width: inherit;
+  font-family: Lato;
 }
 
 #movieContainer{
@@ -101,7 +103,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   height: inherit;
   width: 75px;
   float: left;
-  font-family: "Arial Rounded MT Bold";
+  font-family: Lato;
 }
 
 
@@ -289,6 +291,10 @@ a {
   width: auto;
 }
 
+.seriesHeads{
+  padding-bottom: 5px;
+}
+
 #mainImage{
   max-width: 40%;
   min-width: 30%;
@@ -312,9 +318,17 @@ a {
   padding-left: 3%;
   margin-right: 2%;
   margin-top: 20px;
+  color: white;
+}
+
+#blockSeries, #blockEp, #blockInfo{
   overflow: auto;
   overflow-x: hidden;
 }
+
+
+
+
 #seriesEpisodeContainer{
   width: 45%;
   font-size: 20px;
@@ -323,8 +337,6 @@ a {
   margin-bottom: 5%;
   margin-top: 20px;
   max-height: 230px;
-  overflow: auto;
-  overflow-x: hidden;
 }
 
 .moreLittleInfo{
@@ -339,14 +351,13 @@ a {
 }
 
 #seriesEpisodeInfoContainer{
-  width: 35%;
+  width: 33%;
   bottom: 0;
-  padding-left: 2%;
+  margin-left: 1%;
   font-size: 20px;
   color: white;
-  height: 100px;
-  height: inherit;
-  margin-top: 20px;
+  padding-top: 20px;
+  margin-right: 3px;
   max-height: 230px;
 }
 
@@ -380,7 +391,7 @@ a {
 
 .seriesBlock{
   background-color: #2f2833;
-  width: 90%;
+  width: 97%;
   height: 22px;
   font-size: 16px;
   padding-left: 6px;
@@ -390,6 +401,13 @@ a {
 .seriesBlock:hover{
   background-color: #3a363d;
   cursor: pointer;
+}
+
+#seriesEpisodeNumberContainer{
+  margin-top: 20px;
+  font-size: 16px;
+  height: 22px;
+
 }
 
 .mediaContainer{
@@ -402,6 +420,11 @@ a {
   padding-top: 40px;
   background-color: transparent;
   /* position: absolute; */
+}
+
+.movieLocation{
+  margin-top: 7%;
+  margin-left: 4%;
 }
 
 
