@@ -513,3 +513,23 @@ $("#submit").click(function() {
         scrollTop: $("#mainStuff").offset().top
     }, 2000);
 });
+
+$(.loginBut).click{
+function onSuccess(googleUser){
+  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+}
+function onFailure(error){
+  console.log(error);
+}
+function renderButon(){
+  gapi.loginBut.render( 'loginBut' , {
+    'scope' : 'profile email',
+    'width': 240,
+    'height': 50,
+    'longtitle': true,
+    'theme': 'dark',
+    'onsuccess': onSuccess,
+    'onfailure': onFailure
+  });
+}
+}
