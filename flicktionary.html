@@ -17,15 +17,13 @@
   <!--For the login button-->
 
 
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/> -->
+
 </head><!--Closing head tag -->
 
 <!-- body tag with class bodyFilck  -->
 <body class="bodyFlick" onload="loadHomepage();">
 
-  <!--For the login button
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
--->
+
 
 <div class="headerBar">
   <!--Opening a button tag, with class loginBut of type button -->
@@ -38,8 +36,7 @@
   </div>
   <!--Opening a button tag, with class loginBut of type button -->
 
-  <!-- <button class="loginBut" type="button" name="login">
-  <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+
 
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
   <script>
@@ -52,36 +49,8 @@
   }
   </script>
 
-
-  <!-- <script>
-  function onSuccess(googleUser) {
-    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-  }
-  function onFailure(error) {
-    console.log(error);
-  }
-  function renderButton() {
-    gapi.signin2.render('my-signin2', {
-      'scope': 'profile email',
-      'width': 240,
-      'height': 50,
-      'longtitle': true,
-      'theme': 'dark',
-      'onsuccess': onSuccess,
-      'onfailure': onFailure
-    });
-  }
-  </script>
-
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script> -->
-
   <!--LOGOUT -->
   <a href="#" onclick="signOut();">Sign out</a>
-  <!-- <div class="g-signout2" data-onsuccess="onSignOut"></div> -->
   <script>
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
@@ -93,7 +62,7 @@
 
 
   <!--Creating logo image, with class logoimage. Calling image from file -->
-  <!-- <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
+  
 </button> <!--Closing button tag --> -->
 </div>
 
