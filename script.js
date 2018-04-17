@@ -1,3 +1,8 @@
+// This is the list of variables being set. pagePos is set to 3,
+//amountPages is set to 1, allResults is all possible results of a search,
+//searchType is for searching movies, numSeries is setting the number of series to 0 and numEpisodes is setting the number of episodes to 0,
+//seriesSelected and episodeSelected is set to 1, isDelving being set to false means that a user has no onger selected a media typer (movies or series)
+//test
 var pagePos = 3;
 var amountPages = 1;
 var allResults = "";
@@ -7,6 +12,7 @@ var numEpisodes = 0;
 var seriesSelected = 1;
 var episodeSelected = 1;
 var isDelving = false;
+
 
 $(function(){
   $('#searchform').submit(function() {
