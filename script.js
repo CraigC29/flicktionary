@@ -520,23 +520,11 @@ $("#submit").click(function() {
     }, 2000);
 });
 
-// For Login button
-// $('#loginBut').click(function (e)){
-// function onSuccess(googleUser){
-//   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-// }
-// function onFailure(error){
-//   console.log(error);
-// }
-// function renderButon(){
-//   gapi.loginBut.render( 'loginBut' , {
-//     'scope' : 'profile email',
-//     'width': 240,
-//     'height': 50,
-//     'longtitle': true,
-//     'theme': 'dark',
-//     'onsuccess': onSuccess,
-//     'onfailure': onFailure
-//   });
-// }
-// }
+//LOGIN BUTTON
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}

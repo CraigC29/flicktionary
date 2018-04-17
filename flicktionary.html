@@ -8,11 +8,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
   <script src="script.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
   <title>Flicktionary</title>
 
-<!--For the login button
-  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
--->
+
+<!--For the login button-->
+  <meta name="google-signin-client_id" content="928297954491-9qsvtibvgjeh3ikuqriht7fiuen57l1t.apps.googleusercontent.com">
 
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/> -->
 </head><!--Closing head tag -->
@@ -34,7 +36,9 @@
     <div class="seriesButton" onclick="changeToSeries()" id="seriesButton">Series</div>
   </div>
   <!--Opening a button tag, with class loginBut of type button -->
-  <button id="loginBut" type="button" name="login">
+  <button class="loginBut" type="button" name="login">
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
     <!--Creating logo image, with class logoimage. Calling image from file -->
     <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
   </button> <!--Closing button tag -->
