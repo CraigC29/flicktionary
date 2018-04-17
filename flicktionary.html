@@ -9,12 +9,13 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
   <script src="script.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="928297954491-9qsvtibvgjeh3ikuqriht7fiuen57l1t.apps.googleusercontent.com">
 
   <title>Flicktionary</title>
 
 
   <!--For the login button-->
-  <meta name="google-signin-client_id" content="928297954491-9qsvtibvgjeh3ikuqriht7fiuen57l1t.apps.googleusercontent.com">
+
 
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/> -->
 </head><!--Closing head tag -->
@@ -42,6 +43,17 @@
 
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
   <script>
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
+  </script>
+
+
+  <!-- <script>
   function onSuccess(googleUser) {
     console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -65,7 +77,7 @@
   }
   </script>
 
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script> -->
 
   <!--LOGOUT -->
   <a href="#" onclick="signOut();">Sign out</a>
@@ -81,8 +93,8 @@
 
 
   <!--Creating logo image, with class logoimage. Calling image from file -->
-  <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
-</button> <!--Closing button tag -->
+  <!-- <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
+</button> <!--Closing button tag --> -->
 </div>
 
 <!--main class-->
