@@ -65,9 +65,11 @@
   }
   </script>
 
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
   <!--LOGOUT -->
-  <!-- <a href="#" onclick="signOut();">Sign out</a> -->
-  <div class="g-signout2" data-onsuccess="onSignOut"></div>
+  <a href="#" onclick="signOut();">Sign out</a>
+  <!-- <div class="g-signout2" data-onsuccess="onSignOut"></div> -->
   <script>
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
@@ -77,7 +79,6 @@
   }
   </script>
 
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
   <!--Creating logo image, with class logoimage. Calling image from file -->
   <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
