@@ -26,7 +26,7 @@ $(document).ready(function () {
 
 
   $(document).on('click', ".imageClick", function() {
-  console.log("working");
+    console.log("working");
     if(searchType == "movie"){
       var path = $(this).attr('id');
       var movieid = path;
@@ -56,6 +56,9 @@ $(document).ready(function () {
         CallAPI(1, "series");
       }
     }
+    $('html, body').animate({
+      scrollTop: $("#mainStuff").offset().top
+    }, 700);
   });
 
   function CallAPI(page, media) {
@@ -100,7 +103,7 @@ $(document).ready(function () {
     window.setTimeout(scrollDown,100);
     function scrollDown(){
       $('html, body').animate({
-        scrollTop: $("#button").offset().top
+        scrollTop: $("#submit").offset().top
       }, 800);
     }
   }
@@ -448,35 +451,35 @@ function loadHomepage(){
 
 
 function CallAPILoadPopularMedia(media, page) {
-    if(media == "movie"){
-      var apiCall =  "https://api.themoviedb.org/3/movie/popular?&page=" + page
-    } else {
-      var apiCall =  "https://api.themoviedb.org/3/tv/popular?&page=" + page
-    }
-    $.ajax({
-      url: apiCall,
-      // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
-      data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
-      dataType: "json",
-      success: function (result, status, xhr) {
-
-          for (i = 0; i < result["results"].length; i++) {
-            var movieid = result["results"][i]["id"];
-            var movieLocation = movieid;
-            var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
-
-            allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>");
-          }
-          if (page == 10){
-            allResults.append("</div>");
-          }
-        $("#message").append(allResults);
-      },
-      error: function (xhr, status, error) {
-        $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-      }
-    });
+  if(media == "movie"){
+    var apiCall =  "https://api.themoviedb.org/3/movie/popular?&page=" + page
+  } else {
+    var apiCall =  "https://api.themoviedb.org/3/tv/popular?&page=" + page
   }
+  $.ajax({
+    url: apiCall,
+    // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
+    data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
+    dataType: "json",
+    success: function (result, status, xhr) {
+
+      for (i = 0; i < result["results"].length; i++) {
+        var movieid = result["results"][i]["id"];
+        var movieLocation = movieid;
+        var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+
+        allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>");
+      }
+      if (page == 10){
+        allResults.append("</div>");
+      }
+      $("#message").append(allResults);
+    },
+    error: function (xhr, status, error) {
+      $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+    }
+  });
+}
 
 $(document).on('click', ".seriesBlock", function() {
   for(i = 1; i <= numSeries; i++){
@@ -506,33 +509,55 @@ $(document).on('click', ".episodeBlock", function() {
 });
 
 
-$("#submit").click(function() {
-    $('html, body').animate({
-        scrollTop: $("#mainStuff").offset().top
-    }, 2000);
-});
+//---------GOOGLE------------------------
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+function onSignIn(googleUser) {
+  var id_token = googleUser.getAuthResponse().id_token;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://yourbackend.example.com/tokensignin');
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.onload = function() {
+    console.log('Signed in as: ' + xhr.responseText);
+  };
+  xhr.send('idtoken=' + id_token);
+}
+
+
+// $("#submit").click(function() {
+//     $('html, body').animate({
+//         scrollTop: $("#mainStuff").offset().top
+//     }, 2000);
+// });
 
 //LOGIN BUTTON
 function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 
 const {OAuth2Client} = require('google-auth-library');
 const client = new OAuth2Client(CLIENT_ID);
 async function verify() {
-  const ticket = await client.verifyIdToken({
-      idToken: token,
-      audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
-      // Or, if multiple clients access the backend:
-      //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
-  });
-  const payload = ticket.getPayload();
-  const userid = payload['sub'];
-  // If request specified a G Suite domain:
-  //const domain = payload['hd'];
+  const ticket = await client.verifyIdToken({
+    idToken: token,
+    audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
+    // Or, if multiple clients access the backend:
+    //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+  });
+  const payload = ticket.getPayload();
+  const userid = payload['sub'];
+  // If request specified a G Suite domain:
+  //const domain = payload['hd'];
 }
 verify().catch(console.error);
