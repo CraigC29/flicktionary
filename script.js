@@ -24,6 +24,22 @@ $(function(){
 
 $(document).ready(function () {
 
+
+  $(document).on('click', ".imageClick", function() {
+  console.log("working");
+    if(searchType == "movie"){
+      var path = $(this).attr('id');
+      var movieid = path;
+      var urlMediaMovies = "mediaMovies.html?id=" + movieid;
+      window.location.replace(urlMediaMovies);
+    } else {
+      var path = $(this).attr('id');
+      var tvid = path;
+      var urlMediaSeries = "mediaSeries.html?id=" + tvid;
+      window.location.replace(urlMediaSeries);
+    }
+  });
+
   $("#searchInput").keyup(function() {
     if (event.keyCode === 13) {
       document.getElementById("submit").click();
@@ -60,10 +76,10 @@ $(document).ready(function () {
         allResults = $('<div class="resultDiv container" id="mainStuff">');
         for (i = 0; i < result["results"].length; i++) {
           var movieid = result["results"][i]["id"];
-          var movieLocation = i;
+          var movieLocation = movieid;
           var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-          allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
+          allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
         }
 
         if (amountPages == 1){
@@ -129,10 +145,10 @@ $(document).ready(function () {
           }
           for (i = 0; i < result["results"].length; i++) {
             var movieid = result["results"][i]["id"];
-            var movieLocation = i;
+            var movieLocation = movieid;
             var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-            allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
+            allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
           }
 
           if (amountPages == page){
@@ -256,7 +272,7 @@ function loadAllTVMedia(tvID) {
       var seriesDiv = "";
       var seriesEpDiv = "";
       for (i = 1; i <= numSeries; i++){
-        seriesDiv += '<div id="' + i + '" class="seriesBlock" onClick="selectBlock()" onmouseover="hoverBlock()" onmouseout="unHoverBlock()">Season ' + i + '</div>';
+        seriesDiv += '<div id="' + i + '" class="seriesBlock">Season ' + i + '</div>';
       }
 
       $("#mainSeriesImage").html(image);
@@ -330,7 +346,7 @@ function loadEpisodeData(season){
         var epNumText = (parseInt(epNum) - 100);
         // console.log(epNumText);
         if (epNumText < 10){epNumText = epNumText + "&nbsp &nbsp";}
-        allEpisodes += '<div id="' + epNum + '" class="seriesBlock" onClick="selectNameBlock()" onmouseover="hoverBlock()" onmouseout="unHoverBlock()">' + epNumText + " &nbsp" + epName + '</div>';
+        allEpisodes += '<div id="' + epNum + '" class="episodeBlock">' + epNumText + " &nbsp" + epName + '</div>';
       }
       allEpisodes += "</div>"
 
@@ -446,10 +462,10 @@ function CallAPILoadPopularMedia(media, page) {
 
           for (i = 0; i < result["results"].length; i++) {
             var movieid = result["results"][i]["id"];
-            var movieLocation = i;
+            var movieLocation = movieid;
             var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-            allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img onClick='openPage()' id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>");
+            allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>");
           }
           if (page == 10){
             allResults.append("</div>");
@@ -462,56 +478,32 @@ function CallAPILoadPopularMedia(media, page) {
     });
   }
 
-function selectBlock(){
-  // console.log(event);
-  for(i = 0; i < numSeries; i++){
-    event.path[1].children[i].style.backgroundColor = "#2f2833";
+$(document).on('click', ".seriesBlock", function() {
+  for(i = 1; i <= numSeries; i++){
+    var location = i;
+    $("#" + location).attr('style',  'background-color:#2f2833');
   }
-  event.path[0].style.backgroundColor = "#fc804e";
-  var series = event.path[0].id;
+  $(this).attr('style',  'background-color:#fc804e');
+  var series = $(this).attr('id');
   seriesSelected = series;
   loadEpisodeData(seriesSelected);
-};
+});
 
-function selectNameBlock(){
-  // console.log(event);
+
+//function selectNameBlock
+$(document).on('click', ".episodeBlock", function() {
+  console.log("working");
   for(i = 0; i < numEpisodes; i++){
-    // console.log("Num episodes: " + numEpisodes);
-    event.path[1].children[i].style.backgroundColor = "#2f2833";
+    var location = i + 100;
+    $("#" + location).attr('style',  'background-color:#2f2833');
   }
-  event.path[0].style.backgroundColor = "#fc804e";
-  var episode = event.path[0].id;
+  $(this).attr('style',  'background-color:#fc804e');
+  var episode = $(this).attr('id');
+  console.log(episode);
   episodeSelected = episode;
   loadIndividualEpisodeData();
 
-};
-
-function hoverBlock(){
-  if (event.path[0].style.backgroundColor !== "rgb(252, 128, 78)"){
-    event.path[0].style.backgroundColor = "#3a363d";
-  }
-};
-function unHoverBlock(){
-  if (event.path[0].style.backgroundColor !== "rgb(252, 128, 78)"){
-    event.path[0].style.backgroundColor = "#2f2833";
-  }
-};
-
-function openPage(){
-  if(searchType == "movie"){
-    var movieid = event.path[1].id;
-    // console.log(movieid);
-    var urlMediaMovies = "mediaMovies.html?id=" + movieid;
-    window.location.replace(urlMediaMovies);
-  } else {
-    var tvid = event.path[1].id;
-    // console.log(tvid);
-    var urlMediaSeries = "mediaSeries.html?id=" + tvid;
-    window.location.replace(urlMediaSeries);
-  }
-
-};
-
+});
 
 
 $("#submit").click(function() {

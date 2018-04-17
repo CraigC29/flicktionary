@@ -403,7 +403,21 @@ a {
   color: white;
 }
 .seriesBlock:hover{
-  background-color: #3a363d;
+  cursor: pointer;
+  filter: brightness(150%);
+}
+
+.episodeBlock{
+  background-color: #2f2833;
+  width: 97%;
+  height: 22px;
+  font-size: 16px;
+  padding-left: 6px;
+  margin-top: 4px;
+  color: white;
+}
+.episodeBlock:hover{
+  filter: brightness(150%);
   cursor: pointer;
 }
 
