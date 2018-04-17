@@ -13,16 +13,16 @@
   <title>Flicktionary</title>
 
 
-<!--For the login button-->
+  <!--For the login button-->
   <meta name="google-signin-client_id" content="928297954491-9qsvtibvgjeh3ikuqriht7fiuen57l1t.apps.googleusercontent.com">
 
-<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/> -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/> -->
 </head><!--Closing head tag -->
 
 <!-- body tag with class bodyFilck  -->
 <body class="bodyFlick" onload="loadHomepage();">
 
-<!--For the login button
+  <!--For the login button
   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 -->
 
@@ -38,99 +38,99 @@
   <!--Opening a button tag, with class loginBut of type button -->
 
   <!-- <button class="loginBut" type="button" name="login">
-    <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+  <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
 
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-      <script>
-        function onSuccess(googleUser) {
-          console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-          console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-          console.log('Name: ' + profile.getName());
-          console.log('Image URL: ' + profile.getImageUrl());
-          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        }
-        function onFailure(error) {
-          console.log(error);
-        }
-        function renderButton() {
-          gapi.signin2.render('my-signin2', {
-            'scope': 'profile email',
-            'width': 240,
-            'height': 50,
-            'longtitle': true,
-            'theme': 'dark',
-            'onsuccess': onSuccess,
-            'onfailure': onFailure
-          });
-        }
-      </script>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <script>
+  function onSuccess(googleUser) {
+    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
+  function onFailure(error) {
+    console.log(error);
+  }
+  function renderButton() {
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 240,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFailure
+    });
+  }
+  </script>
 
-    <!--LOGOUT -->
-    <a href="#" onclick="signOut();">Sign out</a>
-    <script>
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-      console.log('User signed out.');
-      });
-    }
-    </script>
+  <!--LOGOUT -->
+  <a href="#" onclick="signOut();">Sign out</a>
+  <script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+  </script>
 
-      <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
-    <!--Creating logo image, with class logoimage. Calling image from file -->
-    <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
-  </button> <!--Closing button tag -->
+  <!--Creating logo image, with class logoimage. Calling image from file -->
+  <img class="logoimage" src="loginButtonImage.png" alt="Login Button"/>
+</button> <!--Closing button tag -->
 </div>
 
-  <!--main class-->
-  <main class="mainBody" id="mainBody">
+<!--main class-->
+<main class="mainBody" id="mainBody">
 
-    <!--div tags with the logo image, image is called from a file -->
-    <div>
-      <img src="logo.png" class="SiteLogo">
-    </div>
-    <input type="text" class="searchbar" id="searchInput" name="Search Media" placeholder="Search Movies"> </input>
-    <br>
-    <button id="submit">Submit</button>
+  <!--div tags with the logo image, image is called from a file -->
+  <div>
+    <img src="logo.png" class="SiteLogo">
+  </div>
+  <input type="text" class="searchbar" id="searchInput" name="Search Media" placeholder="Search Movies"> </input>
+  <br>
+  <button id="submit">Submit</button>
 
-    <!--P tag to give the user an idea of what to search for.
-    This is so that there is no uncertainty over what the site does-->
-    <p>Streamed Media Search Engine</p>
+  <!--P tag to give the user an idea of what to search for.
+  This is so that there is no uncertainty over what the site does-->
+  <p>Streamed Media Search Engine</p>
 
-  </main> <!--Closing main tag -->
+</main> <!--Closing main tag -->
 
-  <div class="allMovies" id="allMovies">
+<div class="allMovies" id="allMovies">
 
 
-    <div class="item1" id="movieBar">
-      <div class="large-item">
+  <div class="item1" id="movieBar">
+    <div class="large-item">
 
-        <div id="message"></div>
-        <ul id="pagination"></ul>
+      <div id="message"></div>
+      <ul id="pagination"></ul>
+      
+      <div id="resultsbox"  >
 
-        <div id="resultsbox"  >
-
-          <div id="results">
-            <!-- content will be loaded here (promise) -->
-          </div>
-
+        <div id="results">
+          <!-- content will be loaded here (promise) -->
         </div>
+
       </div>
-
-    </div>
-
-    <div class="item2" id="sideBar">
-
-      <div class="large-item-2" id="moreDetails">
-        <p>Movie:</p>
-      </div>
-
     </div>
 
   </div>
 
-  <p class="page-footer">Created by Ben Martin, Craig Cargill, Gregor Davidson, Calum McGuire for CM2104 coursework</p>
+  <div class="item2" id="sideBar">
+
+    <div class="large-item-2" id="moreDetails">
+      <p>Movie:</p>
+    </div>
+
+  </div>
+
+</div>
+
+<p class="page-footer">Created by Ben Martin, Craig Cargill, Gregor Davidson, Calum McGuire for CM2104 coursework</p>
 
 </body><!--Closing body tag -->
 </html><!--Closing html tag -->
