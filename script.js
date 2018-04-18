@@ -12,17 +12,35 @@ var numEpisodes = 0;
 var seriesSelected = 1;
 var episodeSelected = 1;
 var isDelving = false;
+var genreSelected = null;
 
 
 $(function(){
   $('#searchform').submit(function() {
     var searchterms = $("#searchterms").val();
+    genreSelected = null;
     getResultsFromTMDB(searchterms);
     return false;
   });
 });
 
 $(document).ready(function () {
+
+  $(document).on('click', ".genreSelectButton", function() {
+       var genre = $(this).attr('id');
+       if (genre != "clear"){
+         var genreText = $(this).text();
+         $("#genreButtonMain").text("Genre: " + genreText);
+         genreSelected = genre;
+         console.log(genreSelected);
+
+      } else {
+        $("#genreButtonMain").text("Genre");
+        genreSelected = null;
+      }
+      $("#message").html("");
+      loadHomepage();
+   });
 
 
   $(document).on('click', ".imageClick", function() {
@@ -59,10 +77,11 @@ $(document).ready(function () {
   });
 
   function CallAPI(page, media) {
+
     if(media == "movie"){
-      var apiCall =  "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+        var apiCall =  "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
     } else {
-      var apiCall =  "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+        var apiCall =  "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
     }
     $.ajax({
       url: apiCall,
@@ -105,6 +124,11 @@ $(document).ready(function () {
     }
   }
 
+  function loadGenre(genre){
+      genreSelected = genre;
+      console.log(genreSelected);
+  }
+
   function loadAllPages(numOfPages, media){
     var complete = false;
     if (numOfPages > 10) {numOfPages = 10;}
@@ -129,9 +153,9 @@ $(document).ready(function () {
 
   function CallAPILoad(page, media) {
     if(media == "movie"){
-      var apiCall =  "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+        var apiCall =  "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
     } else {
-      var apiCall =  "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+        var apiCall =  "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
     }
     $.ajax({
       url: apiCall,
@@ -147,14 +171,11 @@ $(document).ready(function () {
             var movieid = result["results"][i]["id"];
             var movieLocation = movieid;
             var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
-
             allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" + "</div>")
           }
-
           if (amountPages == page){
             allResults.append("</div>");
           }
-
         } else {
           hideLoadMore();
         }
@@ -448,11 +469,20 @@ function loadHomepage(){
 
 
 function CallAPILoadPopularMedia(media, page) {
+  if (genreSelected !== null){
+    console.log("genre has been selected: " + genreSelected);
+    if(media == "movie"){
+      var apiCall =  "https://api.themoviedb.org/3/genre/" + genreSelected + "/movies?&page=" + page
+    } else {
+      var apiCall =  "https://api.themoviedb.org/3/discover/tv?&sort_by=popularity.desc&page=" + page + "&with_genres=" + genreSelected
+    }
+  } else{
     if(media == "movie"){
       var apiCall =  "https://api.themoviedb.org/3/movie/popular?&page=" + page
     } else {
       var apiCall =  "https://api.themoviedb.org/3/tv/popular?&page=" + page
     }
+  }
     $.ajax({
       url: apiCall,
       // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
@@ -511,6 +541,41 @@ $("#submit").click(function() {
         scrollTop: $("#mainStuff").offset().top
     }, 2000);
 });
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+}
+
+function showDropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.genreButton')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 
 //LOGIN BUTTON
 function onSignIn(googleUser) {
