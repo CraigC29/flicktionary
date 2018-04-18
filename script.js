@@ -15,6 +15,9 @@ var episodeSelected = 1;
 var isDelving = false;
 var genreSelected = null;
 
+app.get('/login', function(req, res) {
+  res.render('login');
+});
 
 $(function(){
   $('#searchform').submit(function() {
