@@ -157,17 +157,19 @@ a {
   width: 154px;
   height: 231px;
   border-radius: 10px;
+  border-color: blue;
   margin: 10px;
 }
 
 .imageClick:hover{
   opacity: 0.4;
-  filter: alpha(opacity=40);
-  /* outline: 5px solid blue; */
   border: 5px solid blue;
   border-radius: 5px;
-  /* outline-offset: -4px; */
   margin: 5px;
+  -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+    transition: 0.2s linear;
 }
 
 #base{
@@ -403,11 +405,12 @@ a {
   color: white;
 }
 .seriesBlock:hover{
-  background-color: #3a363d;
+  filter: brightness(140%);
   cursor: pointer;
 }
 
 .episodeBlock{
+  background-color: #2f2833;
   width: 97%;
   height: 22px;
   font-size: 16px;
@@ -416,7 +419,7 @@ a {
   color: white;
 }
 .episodeBlock:hover{
-  background-color: #3a363d;
+  filter: brightness(140%);
   cursor: pointer;
 }
 
@@ -572,6 +575,12 @@ a {
 #largeImage{
   border-radius: 5px;
   margin-left: 10%;
+  width: 342px;
+  height: 513px;
+}
+
+.mediaContainer{
+  width: 100%;
 }
 
 .imdbLink{
@@ -591,18 +600,6 @@ a {
   padding-bottom: 6px;
   cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 #apiDiv {
     border: dashed 2px #CCC;
