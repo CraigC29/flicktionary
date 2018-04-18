@@ -13,9 +13,16 @@ main{
 
 /* The login button is kept to the right hand side of the page,
 the background is transparent and the border is set to 0 pixels*/
-/* .loginBut{
+.loginBut{
+  float: right;
+  top:0;
+  padding-left: 10px;
+  border: 0px;
+  background: transparent;
+  height: 90%;
+  width: auto;
+}
 
-} */
 
 /* The logo button is kept to the right hand side of the page,
 the width of the page is automatically set, the image is kept to
