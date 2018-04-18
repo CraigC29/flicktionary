@@ -34,12 +34,34 @@
   <div class="itemContainer" id="seriesContainer">
     <div class="seriesButton" onclick="changeToSeries()" id="seriesButton">Series</div>
   </div>
+<<<<<<< HEAD
 
   <form action="/dologin" method="POST">
     <input type="text" placeholder="username" name="username">
     <input type="password" placeholder="password" name="password">
     <button type="submit">Submit</button>
   </form>
+=======
+  <div class="dropdown" id="seriesContainer">
+    <button onclick="showDropdown()" class="genreButton" id="genreButtonMain">Genre</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a id="28" class="genreSelectButton">Action</a>
+      <a id="12" class="genreSelectButton">Adventure</a>
+      <a id="16" class="genreSelectButton">Animation</a>
+      <a id="80" class="genreSelectButton">Crime</a>
+      <a id="99" class="genreSelectButton">Documentary</a>
+      <a id="18" class="genreSelectButton">Drama</a>
+      <a id="14" class="genreSelectButton">Fantasy</a>
+      <a id="36" class="genreSelectButton">History</a>
+      <a id="27" class="genreSelectButton">Horror</a>
+      <a id="878" class="genreSelectButton">Science Fiction</a>
+      <a id="53" class="genreSelectButton">Thriller</a>
+      <a id="10752" class="genreSelectButton">War</a>
+      <a id="37" class="genreSelectButton">Western</a>
+      <a id="clear" class="genreSelectButton">Clear</a>
+    </div>
+  </div>
+>>>>>>> a4ae9dfc065903e5c2c2e0fa01796ca24f3b1fb0
   <!--Opening a button tag, with class loginBut of type button -->
 
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -72,13 +94,15 @@
   </div>
   <input type="text" class="searchbar" id="searchInput" name="Search Media" placeholder="Search Movies"> </input>
   <br>
-  <button id="submit">Submit</button>
+  <button id="submit">Search</button>
 
   <!-- P tag to give the user an idea of what to search for.
   This is so that there is no uncertainty over what the site does -->
   <p>Streamed Media Search Engine</p>
 
 </main> <!--Closing main tag -->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#9650;</button>
 
 <div class="allMovies" id="allMovies">
 
