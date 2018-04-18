@@ -131,6 +131,8 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   padding-left: 10px;
   border: 0px;
   background: transparent;
+  height: 100%;
+  width: auto;
 
 }
 
