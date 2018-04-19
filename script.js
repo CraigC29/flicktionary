@@ -15,9 +15,9 @@ var episodeSelected = 1;
 var isDelving = false;
 var genreSelected = null;
 
-app.get('/login', function(req, res) {
-  res.render('login');
-});
+// app.get('/login', function(req, res) {
+//   res.render('login');
+// });
 
 $(function(){
   $('#searchform').submit(function() {
@@ -52,12 +52,12 @@ $(document).ready(function () {
     if(searchType == "movie"){
       var path = $(this).attr('id');
       var movieid = path;
-      var urlMediaMovies = "mediaMovies.html?id=" + movieid;
+      var urlMediaMovies = "/mediaMovies?id=" + movieid;
       window.location.replace(urlMediaMovies);
     } else {
       var path = $(this).attr('id');
       var tvid = path;
-      var urlMediaSeries = "mediaSeries.html?id=" + tvid;
+      var urlMediaSeries = "/mediaSeries?id=" + tvid;
       window.location.replace(urlMediaSeries);
     }
   });
@@ -582,26 +582,26 @@ window.onclick = function(event) {
 }
 
 //LOGIN BUTTON
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-
-const {OAuth2Client} = require('google-auth-library');
-const client = new OAuth2Client(CLIENT_ID);
-async function verify() {
-  const ticket = await client.verifyIdToken({
-      idToken: token,
-      audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
-      // Or, if multiple clients access the backend:
-      //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
-  });
-  const payload = ticket.getPayload();
-  const userid = payload['sub'];
-  // If request specified a G Suite domain:
-  //const domain = payload['hd'];
-}
-verify().catch(console.error);
+// function onSignIn(googleUser) {
+//   var profile = googleUser.getBasicProfile();
+//   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//   console.log('Name: ' + profile.getName());
+//   console.log('Image URL: ' + profile.getImageUrl());
+//   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+// }
+//
+// const {OAuth2Client} = require('google-auth-library');
+// const client = new OAuth2Client(CLIENT_ID);
+// async function verify() {
+//   const ticket = await client.verifyIdToken({
+//       idToken: token,
+//       audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
+//       // Or, if multiple clients access the backend:
+//       //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+//   });
+//   const payload = ticket.getPayload();
+//   const userid = payload['sub'];
+//   // If request specified a G Suite domain:
+//   //const domain = payload['hd'];
+// }
+// verify().catch(console.error);
