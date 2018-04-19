@@ -52,12 +52,12 @@ $(document).ready(function () {
     if(searchType == "movie"){
       var path = $(this).attr('id');
       var movieid = path;
-      var urlMediaMovies = "/mediaMovies?id=" + movieid;
+      var urlMediaMovies = "mediaMovies.html?id=" + movieid;
       window.location.replace(urlMediaMovies);
     } else {
       var path = $(this).attr('id');
       var tvid = path;
-      var urlMediaSeries = "/mediaSeries?id=" + tvid;
+      var urlMediaSeries = "mediaSeries.html?id=" + tvid;
       window.location.replace(urlMediaSeries);
     }
   });
