@@ -456,7 +456,9 @@ function login(){
 }
 
 function openAccount(){
+  var urlHome = "/profile";
   isDelving == false;
+  window.location.replace(urlHome);
 }
 
 function loadHomepage(){
