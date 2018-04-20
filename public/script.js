@@ -455,6 +455,12 @@ function login(){
   window.location.replace(urlHome);
 }
 
+function logout(){
+  var urlHome = "/logout";
+  isDelving == false;
+  window.location.replace(urlHome);
+}
+
 function openAccount(){
   var urlHome = "/profile";
   isDelving == false;
