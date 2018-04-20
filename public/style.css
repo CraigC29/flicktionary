@@ -57,6 +57,24 @@ font is set, font size is selected and the weight is also set*/
     margin: 0px;
 }
 
+.loginLogo{
+  padding-top: 5%;
+  width: 30%;
+  min-width: 400px;
+  margin-left: 35%;
+  margin-right:35%;
+}
+
+.loginBack{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+h4{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 
 /*the footer is set to black, the text colour is white, the position of the
 footer is fixed, the width is set at 100% and the font size is medium*/
@@ -198,6 +216,10 @@ a {
   border: 5px solid blue;
   border-radius: 5px;
   margin: 5px;
+  /* -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+    transition: 0.2s linear; */
 }
 
 #base{
@@ -278,7 +300,7 @@ a {
   text-align: center;
 }
 
-#submit{
+.submitButton{
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100px;
@@ -297,13 +319,22 @@ a {
   transition-duration: 0.4s;
 }
 
-#submit:hover{
+.submitButton:hover{
   background-color: #bc4f23;
   color: #211d23;
 }
 
+.loginText{
+  width: 10%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 #myBtn {
-  display: none;
   position: fixed;
   bottom: 40px;
   right: 30px;
@@ -476,9 +507,6 @@ a {
     width: 5px;
 }
 
-::-webkit-scrollbar:hover {
-    width: 5px;
-}
 
 /* Track */
 ::-webkit-scrollbar-track {

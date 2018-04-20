@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<header>
+  <% include ../partials/head %>
+</header>
+
+<header>
+  <div class="headerBar">
+    <div class="itemContainer">
+      <img class="logoHeaderImage"  src="/public/images/logo.png" alt="Logo"/>
+    </div>
+
+    <img class="backBut" onclick="goHomeMovies()" src="/public/images/backbutton.png" alt="Back Button"/>
+  </div>
+</header>
+
+<body onload="loadMovies()" class="bodyFlick">
+<div class="blurredImageContainerMovie" id="movieMediaContainer">
+  <div class="mediaContainer seriesContainer movieLocation">
+    <div id="mainImage">Image</div>
+    <div class="mediaInfoMovie">
+      <div id="mainTitle">Title</div>
+      <div id="littleMovieInfo">Little Info</div>
+      <div id="mainDesc">Description</div>
+    </div>
+  </div>
+
+  <img src="logo.png" id="blurredImageMovie">
+</div>
+
+
+</body>
+
+</html><!--Closing html tag -->

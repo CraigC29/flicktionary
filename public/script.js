@@ -52,12 +52,12 @@ $(document).ready(function () {
     if(searchType == "movie"){
       var path = $(this).attr('id');
       var movieid = path;
-      var urlMediaMovies = "mediaMovies.html?id=" + movieid;
+      var urlMediaMovies = "/mediaMovies?id=" + movieid;
       window.location.replace(urlMediaMovies);
     } else {
       var path = $(this).attr('id');
       var tvid = path;
-      var urlMediaSeries = "mediaSeries.html?id=" + tvid;
+      var urlMediaSeries = "/mediaSeries?id=" + tvid;
       window.location.replace(urlMediaSeries);
     }
   });
@@ -231,6 +231,7 @@ function changeToSeries(){
   $("#message").html("");
   goHomeSeries();
 }
+
 
 function loadMovies(){
   var movieID = getUrlVars()["id"];
@@ -438,14 +439,24 @@ function openInNewTab(url) {
 }
 
 function goHomeSeries(){
-  var urlHome = "flicktionary.html?id=Series";
+  var urlHome = "/?id=Series";
   isDelving == false;
   window.location.replace(urlHome);
 }
 function goHomeMovies(){
-  var urlHome = "flicktionary.html?id=Movies";
+  var urlHome = "/?id=Movies";
   isDelving == false;
   window.location.replace(urlHome);
+}
+
+function login(){
+  var urlHome = "/login";
+  isDelving == false;
+  window.location.replace(urlHome);
+}
+
+function openAccount(){
+  isDelving == false;
 }
 
 function loadHomepage(){
@@ -524,6 +535,7 @@ $(document).on('click', ".seriesBlock", function() {
 });
 
 
+
 //function selectNameBlock
 $(document).on('click', ".episodeBlock", function() {
   console.log("working");
@@ -561,6 +573,9 @@ function scrollFunction() {
 function topFunction() {
     $("html, body").animate({ scrollTop: 0 }, "slow");
 }
+
+
+
 
 function showDropdown() {
     document.getElementById("myDropdown").classList.toggle("show");
