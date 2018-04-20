@@ -59,7 +59,7 @@
   <% if (loggedIn == false) { %>
     <img src="/public/images/loginButtonImage.png" alt="LOGIN" class="loginBut" onClick="login()"><a>Login</a>
   <% } else { %>
-    <img src="/public/images/myAccount.png" alt="LOGIN" class="loginBut" onClick="openAccount()" href="/profile?username=<%= user.login.username %>"><a>Login</a>
+    <img src="/public/images/myAccount.png" alt="LOGIN" class="loginBut" onClick="openAccount()" href="/profile"><a>Login</a>
   <% } %>
 </button>
 
