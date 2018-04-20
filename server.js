@@ -151,19 +151,22 @@ app.post('/dologin', function(req, res) {
     //if there is a result then check the password, if the password is correct set session loggedin to true and send the user to the index
     if(result.login.password == pword){
       req.session.loggedin = true;
+      req.session.user = result;
       var uname = req.query.username;
       //this query finds the first document in the array with that username.
       //Because the username value sits in the login section of the user data we use login.username
-      db.collection('people').findOne({
-        "login.username": uname
-      }, function(err, result) {
-        if (err) throw err;
-        //console.log(uname+ ":" + result);
-        //finally we just send the result to the user page as "user"
-        res.render('/flicktionary', {
-          user: result
-        })
-      });
+      // db.collection('people').findOne({
+      //   "login.username": uname
+      // }, function(err, result) {
+      //   if (err) throw err;
+      //   //console.log(uname+ ":" + result);
+      //   //finally we just send the result to the user page as "user"
+      //   res.render('/', {
+      //     user: result
+      //   })
+      // });
+      console.log("user logged in");
+      res.redirect("/");
     }
 
     //otherwise send them back to login
