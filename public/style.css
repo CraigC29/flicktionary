@@ -133,6 +133,8 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   float: right;
   top: 0px;
   z-index: 4;
+  width: 6%;
+  height: 6%;
 }
 
 .favoutiteIcon:hover{
