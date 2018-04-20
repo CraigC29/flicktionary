@@ -128,6 +128,17 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   width: inherit;
 }
 
+.favoutiteIcon{
+  opacity: 0.2;
+  float: right;
+  top: 0px;
+  z-index: 4;
+}
+
+.favoutiteIcon:hover{
+  opacity: 0.8;
+}
+
 .genreButton{
   float: left;
   padding: 7px;
