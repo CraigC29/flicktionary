@@ -30,7 +30,7 @@ $(function(){
 
 $(document).ready(function () {
 
-  $(".result").hover(function(){
+  $(".imageClick").hover(function(){
     $(".favouriteIcon").css("display", "block");
     }, function(){
         $(".favouriteIcon").css("display", "none");
