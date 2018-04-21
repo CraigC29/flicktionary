@@ -134,13 +134,18 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   height: 100%;
 }
 
+.imageOverlayPoster{
+  position: relative;
+}
+
 .favouriteIcon{
   opacity: 0.2;
   float: right;
-  top: 0px;
-  z-index: -10;
-  width: 15%;
-  height: 15%;
+  top: 5%;
+  right: 8%;
+  z-index: 98;
+  width: 25%;
+  height: auto;
   position: absolute;
 }
 
