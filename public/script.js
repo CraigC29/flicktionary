@@ -30,6 +30,12 @@ $(function(){
 
 $(document).ready(function () {
 
+  $(".result").hover(function(){
+    $(".favouriteIcon").visible();
+    }, function(){
+        $(".favouriteIcon").invisible();
+  });
+
   $(document).on('click', ".genreSelectButton", function() {
        var genre = $(this).attr('id');
        if (genre != "clear"){
@@ -533,11 +539,7 @@ $(document).on('click', ".seriesBlock", function() {
   loadEpisodeData(seriesSelected);
 });
 
-$(".result").hover(function(){
-  $(".favouriteIcon").visible();
-  }, function(){
-      $(".favouriteIcon").invisible();
-});
+
 
 
 
