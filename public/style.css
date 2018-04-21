@@ -141,13 +141,13 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 .favouriteIcon{
   opacity: 0.6;
   float: right;
-  top: 5%;
+  top: 2%;
   right: 8%;
   z-index: 98;
   width: 20%;
   height: auto;
   position: absolute;
-  margin-top: 10px;
+  margin-top: 6px;
 }
 
 .favouriteIcon:hover{
@@ -763,7 +763,7 @@ a {
 .result:hover{
   opacity: 0.4;
   border: 5px solid blue;
-  border-radius: 5px;
+  border-radius: 10px;
   margin: 5px;
 }
 
