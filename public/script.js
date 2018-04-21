@@ -114,7 +114,7 @@ $(document).ready(function () {
         for (i = 0; i < result["results"].length; i++) {
           var movieid = result["results"][i]["id"];
           var movieLocation = movieid;
-          var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+          var image = result["results"][i]["poster_path"] == null ? "/public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
           allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<img class="favouriteIcon" id="favourite" id="favourite" src="/public/images/favourite.png"  />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
         }
@@ -183,7 +183,7 @@ $(document).ready(function () {
           for (i = 0; i < result["results"].length; i++) {
             var movieid = result["results"][i]["id"];
             var movieLocation = movieid;
-            var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+            var image = result["results"][i]["poster_path"] == null ? "/public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
             allResults.append("<div id=" + movieid + "  class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<img class="favouriteIcon" id="favourite"  src="/public/images/favourite.png"  />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
           }
           if (amountPages == page){
@@ -259,8 +259,8 @@ function loadAllMovieMedia(movieid) {
     data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
     dataType: "json",
     success: function (result, status, xhr) {
-      var image = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w342/" + result["poster_path"];
-      var imageSRC  = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w780/" + result["poster_path"];
+      var image = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w342/" + result["poster_path"];
+      var imageSRC  = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w780/" + result["poster_path"];
       image = "<img id='largeImage' src=\"" + image + "\"/>"
       var movieTitle = result["title"];
       var imdbID = result["imdb_id"];
@@ -292,8 +292,8 @@ function loadAllTVMedia(tvID) {
     data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
     dataType: "json",
     success: function (result, status, xhr) {
-      var image = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
-      var imageSRC  = result["poster_path"] == null ? "assets/image unavailable sized.png" : "https://image.tmdb.org/t/p/w780/" + result["poster_path"];
+      var image = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
+      var imageSRC  = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w780/" + result["poster_path"];
       // console.log(imageSRC);
       image = "<img src=\"" + image + "\"/>"
       var seriesTitle = result["name"];
@@ -525,7 +525,7 @@ function CallAPILoadPopularMedia(media, page) {
       for (i = 0; i < result["results"].length; i++) {
         var movieid = result["results"][i]["id"];
         var movieLocation = movieid;
-        var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+        var image = result["results"][i]["poster_path"] == null ? "/public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
         allResults.append("<div id=" + movieid + "  class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<img class="favouriteIcon" id="favourite" src="/public/images/favourite.png"  />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>");
       }
