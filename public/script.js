@@ -534,9 +534,9 @@ $(document).on('click', ".seriesBlock", function() {
 });
 
 $(".result").hover(function(){
-  $(".favouriteIcon").css("visibility", "visible");
+  $(".favouriteIcon").visible();
   }, function(){
-      $(".favouriteIcon").css("visibility", "hidden");
+      $(".favouriteIcon").invisible();
 });
 
 
