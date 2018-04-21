@@ -53,9 +53,7 @@ $(document).ready(function () {
     loadHomepage();
   });
 
-  $('.posterOverlay').on('click', function() {
-console.log("registering click");
-});
+
 
   // $('.posterOverlay').on('click', function(e) {
   //   console.log("registering click");
@@ -565,6 +563,10 @@ $(document).on('click', ".episodeBlock", function() {
   episodeSelected = episode;
   loadIndividualEpisodeData();
 
+});
+
+$('.posterOverlay').on('click', function() {
+console.log("registering click");
 });
 
 
