@@ -533,9 +533,11 @@ $(document).on('click', ".seriesBlock", function() {
   loadEpisodeData(seriesSelected);
 });
 
-$(".result").hover{
+$(".result").hover(function(){
   $(".favouriteIcon").css("visibility", "visible");
-}
+  }, function(){
+      $(".favouriteIcon").css("visibility", "hidden");
+});
 
 
 
