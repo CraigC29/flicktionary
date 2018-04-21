@@ -479,11 +479,12 @@ function openAccount(){
 
 function showFavourites(){
   loggedIn = true;
+  $(".favouriteIcon").css("display", "block");
 }
 
 function hideFavourites(){
   loggedIn = false;
-  $(".favouriteIcon").css("visibility", "hidden");
+  $(".favouriteIcon").css("display", "none");
 }
 
 function loadHomepage(){
