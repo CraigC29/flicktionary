@@ -762,13 +762,15 @@ a {
 
 .result:hover{
   opacity: 0.4;
-  border: 5px solid blue;
+  border: 8px solid blue;
   border-radius: 10px;
-  margin: 5px;
+  margin: 2px;
+  cursor: pointer;
 }
 
 .result{
   margin: 10px;
+  height: 231px;
 }
 
 #apiDiv {
