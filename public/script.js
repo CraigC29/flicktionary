@@ -37,13 +37,7 @@ $(document).ready(function () {
   //       $(".favouriteIcon").css("display", "none");
   // });
 
-  $(".favouriteIcon").click(function(event){
-       	event.stopPropagation();
-        alert("Favourite Was clicked");
-    });
-  $(".posterOverlay").click(function(event){
-      alert("Overlay clicked");
-  });
+
 
   $(document).on('click', ".genreSelectButton", function() {
     var genre = $(this).attr('id');
@@ -565,9 +559,22 @@ $(document).on('click', ".seriesBlock", function() {
   loadEpisodeData(seriesSelected);
 });
 
+// $(".favouriteIcon").click(function(event){
+//       event.stopPropagation();
+//       alert("Favourite Was clicked");
+//   });
+// $(".posterOverlay").click(function(event){
+//     alert("Overlay clicked");
+// });
 
+$(document).on('click', ".favouriteIcon", function(event) {
+  event.stopPropagation();
+  alert("Favourite Was clicked");
+});
 
-
+$(document).on('click', ".posterOverlay", function(event) {
+  alert("Overlay clicked");
+});
 
 //function selectNameBlock
 $(document).on('click', ".episodeBlock", function() {
