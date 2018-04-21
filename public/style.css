@@ -139,18 +139,18 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 }
 
 .favouriteIcon{
-  opacity: 0.2;
+  opacity: 0.6;
   float: right;
   top: 5%;
   right: 8%;
   z-index: 98;
-  width: 25%;
+  width: 20%;
   height: auto;
   position: absolute;
 }
 
-.favoutiteIcon:hover{
-  opacity: 0.8;
+.favouriteIcon:hover{
+  opacity: 0.9;
 }
 
 .genreButton{
