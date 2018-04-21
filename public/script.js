@@ -53,9 +53,7 @@ $(document).ready(function () {
     loadHomepage();
   });
 
-  $(document).ready(function(){
-    $(".posterOverlay").on('click', function(e) {
-      if (e.target !== this){
+    $(".posterOverlay").on('click', function() {
         console.log("working");
         if(searchType == "movie"){
           var path = $(this).attr('id');
@@ -68,9 +66,9 @@ $(document).ready(function () {
           var urlMediaSeries = "/mediaSeries?id=" + tvid;
           window.location.replace(urlMediaSeries);
         }
-      }
     });
-  });
+
+
   $("#searchInput").keyup(function() {
     if (event.keyCode === 13) {
       document.getElementById("submit").click();
