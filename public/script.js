@@ -37,6 +37,14 @@ $(document).ready(function () {
   //       $(".favouriteIcon").css("display", "none");
   // });
 
+  $(".favouriteIcon").click(function(event){
+       	event.stopPropagation();
+        alert("Favourite Was clicked");
+    });
+  $(".posterOverlay").click(function(event){
+      alert("Overlay clicked");
+  });
+
   $(document).on('click', ".genreSelectButton", function() {
     var genre = $(this).attr('id');
     if (genre != "clear"){
@@ -54,13 +62,7 @@ $(document).ready(function () {
   });
 
 
-  $(".favouriteIcon").click(function(event){
-       	event.stopPropagation();
-        alert("Favourite Was clicked");
-    });
-  $(".posterOverlay").click(function(event){
-      alert("Overlay clicked");
-  });
+
     // $(document).on('click', ".posterOverlay", function() {
     //   var path = $(this).attr('id');
     //   console.log(path);
