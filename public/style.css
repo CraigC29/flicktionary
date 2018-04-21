@@ -152,17 +152,17 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   opacity: 0.6;
   float: right;
   top: 2%;
-  right: 8%;
+  right: 5%;
   z-index: 98;
   width: 20%;
   height: auto;
   position: absolute;
   margin-top: 6px;
-  display: none;
 }
 
 .favouriteIcon:hover{
   opacity: 0.9;
+  filter: brightness(120%);
 }
 
 .genreButton{
