@@ -53,26 +53,29 @@ $(document).ready(function () {
     loadHomepage();
   });
 
+  $('.posterOverlay').on('click', function() {
+console.log("registering click");
+});
 
-  $('.posterOverlay').on('click', function(e) {
-    console.log("registering click");
-    if (e.target == this){
-      console.log("working");
-      if(searchType == "movie"){
-        var path = $(this).attr('id');
-        var movieid = path;
-        var urlMediaMovies = "/mediaMovies?id=" + movieid;
-        window.location.replace(urlMediaMovies);
-      } else {
-        var path = $(this).attr('id');
-        var tvid = path;
-        var urlMediaSeries = "/mediaSeries?id=" + tvid;
-        window.location.replace(urlMediaSeries);
-      }
-    } else{
-      console.log("not working");
-    }
-  });
+  // $('.posterOverlay').on('click', function(e) {
+  //   console.log("registering click");
+  //   if (e.target == this){
+  //     console.log("working");
+  //     if(searchType == "movie"){
+  //       var path = $(this).attr('id');
+  //       var movieid = path;
+  //       var urlMediaMovies = "/mediaMovies?id=" + movieid;
+  //       window.location.replace(urlMediaMovies);
+  //     } else {
+  //       var path = $(this).attr('id');
+  //       var tvid = path;
+  //       var urlMediaSeries = "/mediaSeries?id=" + tvid;
+  //       window.location.replace(urlMediaSeries);
+  //     }
+  //   } else{
+  //     console.log("not working");
+  //   }
+  // });
 
   $("#searchInput").keyup(function() {
     if (event.keyCode === 13) {
