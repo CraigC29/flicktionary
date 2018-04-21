@@ -53,23 +53,8 @@ $(document).ready(function () {
     loadHomepage();
   });
 
-  function loadMediaSpecificPage(){
-    console.log("working");
-    if(searchType == "movie"){
-      var path = $(this).attr('id');
-      var movieid = path;
-      var urlMediaMovies = "/mediaMovies?id=" + movieid;
-      window.location.replace(urlMediaMovies);
-    } else {
-      var path = $(this).attr('id');
-      var tvid = path;
-      var urlMediaSeries = "/mediaSeries?id=" + tvid;
-      window.location.replace(urlMediaSeries);
-    }
-  }
 
-
-  $(".posterOverlay").on('click', function(e) {
+  $('.posterOverlay').on('click', function(e) {
     console.log("registering click");
     if (e.target == this){
       console.log("working");
@@ -129,7 +114,7 @@ $(document).ready(function () {
           var movieLocation = movieid;
           var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-          allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' onClick='loadMediaSpecificPage()' id=" + movieLocation + ">" + '<img class="favouriteIcon" src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
+          allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<img class="favouriteIcon" src="/public/images/favourite.png"  />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
         }
 
         if (amountPages == 1){
@@ -193,7 +178,7 @@ $(document).ready(function () {
             var movieid = result["results"][i]["id"];
             var movieLocation = movieid;
             var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
-            allResults.append("<div id=" + movieid + "  class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' onClick='loadMediaSpecificPage()' id=" + movieLocation + ">" + '<img class="favouriteIcon"  src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
+            allResults.append("<div id=" + movieid + "  class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<img class="favouriteIcon"  src="/public/images/favourite.png"  />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
           }
           if (amountPages == page){
             allResults.append("</div>");
@@ -536,7 +521,7 @@ function CallAPILoadPopularMedia(media, page) {
         var movieLocation = movieid;
         var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-        allResults.append("<div id=" + movieid + "  class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' onClick='loadMediaSpecificPage()' id=" + movieLocation + ">" + '<img class="favouriteIcon" src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>");
+        allResults.append("<div id=" + movieid + "  class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<img class="favouriteIcon" src="/public/images/favourite.png"  />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>");
       }
       if (page == 10){
         allResults.append("</div>");
