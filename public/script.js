@@ -31,9 +31,9 @@ $(function(){
 $(document).ready(function () {
 
   $(".result").hover(function(){
-    $(".favouriteIcon").visible();
+    $(".favouriteIcon").show();
     }, function(){
-        $(".favouriteIcon").invisible();
+        $(".favouriteIcon").hide();
   });
 
   $(document).on('click', ".genreSelectButton", function() {
