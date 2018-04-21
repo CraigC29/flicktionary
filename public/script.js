@@ -133,6 +133,10 @@ $(document).ready(function () {
     console.log(genreSelected);
   }
 
+  function addFavourite(){
+    console.log("adding favourite function called");
+  }
+
   function loadAllPages(numOfPages, media){
     var complete = false;
     if (numOfPages > 10) {numOfPages = 10;}
