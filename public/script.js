@@ -39,9 +39,6 @@ $(document).ready(function () {
   // });
 
 
-
-
-
   $(document).on('click', ".genreSelectButton", function() {
     var genre = $(this).attr('id');
     if (genre != "clear"){
@@ -479,26 +476,8 @@ function openAccount(){
   window.location.replace(urlHome);
 }
 
-function showFavourites(){
-  loggedIn = true;
-  $(".posterOverlay").html('<img class="favouriteIcon" id="favourite" src="/public/images/favourite.png">');
-}
-
-function hideFavourites(){
-  loggedIn = false;
-  $(".posterOverlay").html("");
-}
 
 function loadHomepage(){
-
-  var title = document.getElementById('userButton').getAttribute('title');
-
-  if (title == "loggedIn"){
-    showFavourites();
-  }else{
-    hideFavourites();
-  }
-
   var typeSearch = getUrlVars()["id"];
   if (typeSearch == "Series"){
     searchType = "series";
