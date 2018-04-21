@@ -154,7 +154,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   float: right;
   top: 2%;
   right: 5%;
-  z-index: 98;
+  /* z-index: 98; */
   width: 20%;
   height: auto;
   position: absolute;
@@ -246,7 +246,6 @@ a {
   height: 231px;
   border-radius: 10px;
   border-color: blue;
-  z-index: 5;
 }
 
 .imageClick:hover{
