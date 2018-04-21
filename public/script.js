@@ -57,26 +57,18 @@ $(document).ready(function () {
 
 
 
-    // $(document).on('click', ".posterOverlay", function() {
-    //   var path = $(this).attr('id');
-    //   console.log(path);
-    //   if (path !== "favourite"){
-    //
-    //     console.log("not favourite");
-    //     // if(searchType == "movie"){
-    //     //   var movieid = path;
-    //     //   var urlMediaMovies = "/mediaMovies?id=" + movieid;
-    //     //   window.location.replace(urlMediaMovies);
-    //     // } else {
-    //     //   var tvid = path;
-    //     //   var urlMediaSeries = "/mediaSeries?id=" + tvid;
-    //     //   window.location.replace(urlMediaSeries);
-    //     // }
-    //   } else {
-    //     console.log("Clicked Favourite");
-    //   }
-    // });
-
+//     $(document).on('click', ".posterOverlay", function() {
+//
+//       console.log(path);
+//       if (path !== "favourite"){
+//
+//         console.log("not favourite");
+//
+//       } else {
+//         console.log("Clicked Favourite");
+//       }
+//     });
+//
 //     $('.favouriteIcon').on('click', function(e){
 //       console.log("stopping propogation");
 //     // stop the event from bubbling.
@@ -569,11 +561,22 @@ $(document).on('click', ".seriesBlock", function() {
 
 $(document).on('click', ".favouriteIcon", function(event) {
   event.stopPropagation();
-  alert("Favourite Was clicked");
+  console.log("favourite clicked");
 });
 
 $(document).on('click', ".posterOverlay", function(event) {
-  alert("Overlay clicked");
+  console.log("poster clicked");
+  var path = $(this).attr('id');
+  if(searchType == "movie"){
+    var movieid = path;
+    var urlMediaMovies = "/mediaMovies?id=" + movieid;
+    window.location.replace(urlMediaMovies);
+  } else {
+    var tvid = path;
+    var urlMediaSeries = "/mediaSeries?id=" + tvid;
+    window.location.replace(urlMediaSeries);
+  }
+
 });
 
 //function selectNameBlock
