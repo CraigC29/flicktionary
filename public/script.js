@@ -56,16 +56,17 @@ $(document).ready(function () {
     $(document).on('click', ".posterOverlay", function() {
       var path = $(this).attr('id');
       if (path !== "favourite"){
-        console.log("working");
-        if(searchType == "movie"){
-          var movieid = path;
-          var urlMediaMovies = "/mediaMovies?id=" + movieid;
-          window.location.replace(urlMediaMovies);
-        } else {
-          var tvid = path;
-          var urlMediaSeries = "/mediaSeries?id=" + tvid;
-          window.location.replace(urlMediaSeries);
-        }
+
+        console.log("not favourite");
+        // if(searchType == "movie"){
+        //   var movieid = path;
+        //   var urlMediaMovies = "/mediaMovies?id=" + movieid;
+        //   window.location.replace(urlMediaMovies);
+        // } else {
+        //   var tvid = path;
+        //   var urlMediaSeries = "/mediaSeries?id=" + tvid;
+        //   window.location.replace(urlMediaSeries);
+        // }
       } else {
         console.log("Clicked Favourite");
       }
