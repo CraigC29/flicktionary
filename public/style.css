@@ -147,6 +147,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   width: 20%;
   height: auto;
   position: absolute;
+  margin-top:
 }
 
 .favouriteIcon:hover{
@@ -238,10 +239,10 @@ a {
 }
 
 .imageClick:hover{
-  opacity: 0.4;
+  /* opacity: 0.4;
   border: 5px solid blue;
   border-radius: 5px;
-  margin: 5px;
+  margin: 5px; */
   /* -webkit-transition: opacity 0.2s ease-in-out;
     -moz-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
@@ -757,6 +758,17 @@ a {
   padding-top: 8px;
   padding-bottom: 6px;
   cursor: pointer;
+}
+
+.result:hover{
+  opacity: 0.4;
+  border: 5px solid blue;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.result{
+  margin: 10px;
 }
 
 #apiDiv {
