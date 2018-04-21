@@ -32,6 +32,7 @@ $(document).ready(function () {
 
   $(".imageClick").hover(function(){
     $(".favouriteIcon").css("display", "block");
+    console.log("hover working");
     }, function(){
         $(".favouriteIcon").css("display", "none");
   });
