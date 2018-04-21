@@ -128,7 +128,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   width: inherit;
 }
 
-.moviePoster{
+.posterContainer{
   position: relative;
 }
 

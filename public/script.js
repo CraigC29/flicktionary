@@ -102,7 +102,7 @@ $(document).ready(function () {
           var movieLocation = movieid;
           var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-          allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\" moviePoster=\"" + result["results"][i]["title"] + "\">" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\">" +  '<img class="favouriteIcon" src="/public/images/favourite.png" onClick="addFavourite()" />' + "</img>" + "</div>")
+          allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='posterContainer'> <img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>" +  '<img class="favouriteIcon" src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "</div>")
         }
 
         if (amountPages == 1){
