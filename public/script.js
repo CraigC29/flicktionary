@@ -55,6 +55,7 @@ $(document).ready(function () {
 
 
   $(".posterOverlay").on('click', function(e) {
+    console.log("registering click");
     if (e.target == this){
       console.log("working");
       if(searchType == "movie"){
