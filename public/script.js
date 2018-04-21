@@ -73,6 +73,12 @@ $(document).ready(function () {
       }
     });
 
+    $('.favouriteIcon').on('click', function(e){
+      console.log("stopping propogation");
+    // stop the event from bubbling.
+    e.stopPropagation();
+});
+
 
   $("#searchInput").keyup(function() {
     if (event.keyCode === 13) {
