@@ -533,6 +533,10 @@ $(document).on('click', ".seriesBlock", function() {
   loadEpisodeData(seriesSelected);
 });
 
+$(".result").hover{
+  $(".favouriteIcon").css("visibility", "visible");
+}
+
 
 
 //function selectNameBlock
