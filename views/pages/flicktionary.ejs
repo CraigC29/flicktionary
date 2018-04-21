@@ -57,9 +57,11 @@
 
 <button class="loginBut" type="button" name="login" id="headButton">
   <% if (loggedIn == false) { %>
-    <img src="/public/images/loginButtonImage.png" alt="LOGIN" class="loginBut" onClick="login()" onload="hideFavourites()"><a>Login</a>
+    <script>hideFavourites();</script>
+    <img src="/public/images/loginButtonImage.png" alt="LOGIN" class="loginBut" onClick="login()"><a>Login</a>
   <% } else { %>
-    <img src="/public/images/myAccount.png" alt="LOGIN" class="loginBut" onClick="openAccount()" href="/profile" onload="showFavourites()"><a>Login</a>
+    <script>showFavourites();</script>
+    <img src="/public/images/myAccount.png" alt="LOGIN" class="loginBut" onClick="openAccount()" href="/profile"><a>Login</a>
   <% } %>
 </button>
 
