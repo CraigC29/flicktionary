@@ -109,7 +109,7 @@ $(document).ready(function () {
           var movieLocation = movieid;
           var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-          allResults.append("<div id=" + movieid + " onmouseover='showFavourite(this)' onmouseout='hideFavourite(this)' class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay'>" + '<img class="favouriteIcon" src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
+          allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay'>" + '<img class="favouriteIcon" src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
         }
 
         if (amountPages == 1){
@@ -173,7 +173,7 @@ $(document).ready(function () {
             var movieid = result["results"][i]["id"];
             var movieLocation = movieid;
             var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
-            allResults.append("<div id=" + movieid + " onmouseover='showFavourite(this)' onmouseout='hideFavourite(this)' class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay'>" + '<img class="favouriteIcon"  src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
+            allResults.append("<div id=" + movieid + "  class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay'>" + '<img class="favouriteIcon"  src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
           }
           if (amountPages == page){
             allResults.append("</div>");
@@ -516,7 +516,7 @@ function CallAPILoadPopularMedia(media, page) {
             var movieLocation = movieid;
             var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-            allResults.append("<div id=" + movieid + " onmouseover='showFavourite(this)' onmouseout='hideFavourite(this)' class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay'>" + '<img class="favouriteIcon" src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>");
+            allResults.append("<div id=" + movieid + "  class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay'>" + '<img class="favouriteIcon" src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>");
           }
           if (page == 10){
             allResults.append("</div>");
@@ -580,14 +580,6 @@ function scrollFunction() {
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     $("html, body").animate({ scrollTop: 0 }, "slow");
-}
-
-
-function showFavourite(image){
-    image.display = "block";
-}
-function hideFavourite(image){
-    image.display = "none";
 }
 
 function showDropdown() {
