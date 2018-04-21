@@ -141,6 +141,11 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 
 .imageOverlayPoster{
   position: relative;
+  height: 231px;
+}
+
+.imageOverlayPoster:hover .posterOverlay{
+  visibility: hidden;
 }
 
 .favouriteIcon{
