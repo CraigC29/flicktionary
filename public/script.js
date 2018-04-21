@@ -53,31 +53,39 @@ $(document).ready(function () {
     loadHomepage();
   });
 
-    $(document).on('click', ".posterOverlay", function() {
-      var path = $(this).attr('id');
-      console.log(path);
-      if (path !== "favourite"){
 
-        console.log("not favourite");
-        // if(searchType == "movie"){
-        //   var movieid = path;
-        //   var urlMediaMovies = "/mediaMovies?id=" + movieid;
-        //   window.location.replace(urlMediaMovies);
-        // } else {
-        //   var tvid = path;
-        //   var urlMediaSeries = "/mediaSeries?id=" + tvid;
-        //   window.location.replace(urlMediaSeries);
-        // }
-      } else {
-        console.log("Clicked Favourite");
-      }
+  $(".favouriteIcon").click(function(event){
+       	event.stopPropagation();
+        alert("Favourite Was clicked");
     });
+  $(".posterOverlay").click(function(event){
+      alert("Overlay clicked");
+  });
+    // $(document).on('click', ".posterOverlay", function() {
+    //   var path = $(this).attr('id');
+    //   console.log(path);
+    //   if (path !== "favourite"){
+    //
+    //     console.log("not favourite");
+    //     // if(searchType == "movie"){
+    //     //   var movieid = path;
+    //     //   var urlMediaMovies = "/mediaMovies?id=" + movieid;
+    //     //   window.location.replace(urlMediaMovies);
+    //     // } else {
+    //     //   var tvid = path;
+    //     //   var urlMediaSeries = "/mediaSeries?id=" + tvid;
+    //     //   window.location.replace(urlMediaSeries);
+    //     // }
+    //   } else {
+    //     console.log("Clicked Favourite");
+    //   }
+    // });
 
-    $('.favouriteIcon').on('click', function(e){
-      console.log("stopping propogation");
-    // stop the event from bubbling.
-    e.stopPropagation();
-});
+//     $('.favouriteIcon').on('click', function(e){
+//       console.log("stopping propogation");
+//     // stop the event from bubbling.
+//     e.stopPropagation();
+// });
 
 
   $("#searchInput").keyup(function() {
