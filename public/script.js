@@ -55,7 +55,7 @@ $(document).ready(function () {
 
 
   $(".posterOverlay").on('click', function(e) {
-    if (e.target !== this){
+    if (e.target == this){
       console.log("working");
       if(searchType == "movie"){
         var path = $(this).attr('id');
