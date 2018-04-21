@@ -14,6 +14,7 @@ var seriesSelected = 1;
 var episodeSelected = 1;
 var isDelving = false;
 var genreSelected = null;
+var loggedIn = false;
 
 // app.get('/login', function(req, res) {
 //   res.render('login');
@@ -474,6 +475,15 @@ function openAccount(){
   var urlHome = "/profile";
   isDelving == false;
   window.location.replace(urlHome);
+}
+
+function showFavourites(){
+  loggedIn = true;
+}
+
+function hideFavourites(){
+  loggedIn = false;
+  $(".favouriteIcon").css("visibility", "hidden");
 }
 
 function loadHomepage(){
