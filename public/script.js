@@ -53,7 +53,7 @@ $(document).ready(function () {
     loadHomepage();
   });
 
-    $(".posterOverlay").on('click', function() {
+    $(document).on('click', ".posterOverlay", function() {
         console.log("working");
         if(searchType == "movie"){
           var path = $(this).attr('id');
