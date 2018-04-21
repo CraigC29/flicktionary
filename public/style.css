@@ -229,6 +229,7 @@ a {
   border-radius: 10px;
   border-color: blue;
   margin: 10px;
+  z-index: 5;
 }
 
 .imageClick:hover{
