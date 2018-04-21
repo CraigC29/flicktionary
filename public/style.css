@@ -129,7 +129,11 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 }
 
 .moviePoster{
-  z-index: 4;
+  position: relative;
+}
+
+.imageClick{
+  position: absolute;
 }
 
 .favouriteIcon{
@@ -139,10 +143,10 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   z-index: 10;
   width: 15%;
   height: 15%;
-  /* position: absolute; */
+  position: absolute;
 }
 
-.favouriteIcon:hover{
+.favoutiteIcon:hover{
   opacity: 0.8;
 }
 
