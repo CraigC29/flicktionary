@@ -147,7 +147,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   width: 20%;
   height: auto;
   position: absolute;
-  margin-top:
+  margin-top: 10px;
 }
 
 .favouriteIcon:hover{
