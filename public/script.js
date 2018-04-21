@@ -68,6 +68,8 @@ $(document).ready(function () {
         var urlMediaSeries = "/mediaSeries?id=" + tvid;
         window.location.replace(urlMediaSeries);
       }
+    } else{
+      console.log("not working");
     }
   });
 
