@@ -38,34 +38,36 @@ $(document).ready(function () {
   // });
 
   $(document).on('click', ".genreSelectButton", function() {
-       var genre = $(this).attr('id');
-       if (genre != "clear"){
-         var genreText = $(this).text();
-         $("#genreButtonMain").text("Genre: " + genreText);
-         genreSelected = genre;
-         console.log(genreSelected);
+    var genre = $(this).attr('id');
+    if (genre != "clear"){
+      var genreText = $(this).text();
+      $("#genreButtonMain").text("Genre: " + genreText);
+      genreSelected = genre;
+      console.log(genreSelected);
 
-      } else {
-        $("#genreButtonMain").text("Genre");
-        genreSelected = null;
-      }
-      $("#message").html("");
-      loadHomepage();
-   });
-
-
-  $(document).on('click', ".posterOverlay", function() {
-  console.log("working");
-    if(searchType == "movie"){
-      var path = $(this).attr('id');
-      var movieid = path;
-      var urlMediaMovies = "/mediaMovies?id=" + movieid;
-      window.location.replace(urlMediaMovies);
     } else {
-      var path = $(this).attr('id');
-      var tvid = path;
-      var urlMediaSeries = "/mediaSeries?id=" + tvid;
-      window.location.replace(urlMediaSeries);
+      $("#genreButtonMain").text("Genre");
+      genreSelected = null;
+    }
+    $("#message").html("");
+    loadHomepage();
+  });
+
+
+  $("posterOverlay").on('click', ".favouriteIcon", function(e) {
+    if (e.target !== this){
+      console.log("working");
+      if(searchType == "movie"){
+        var path = $(this).attr('id');
+        var movieid = path;
+        var urlMediaMovies = "/mediaMovies?id=" + movieid;
+        window.location.replace(urlMediaMovies);
+      } else {
+        var path = $(this).attr('id');
+        var tvid = path;
+        var urlMediaSeries = "/mediaSeries?id=" + tvid;
+        window.location.replace(urlMediaSeries);
+      }
     }
   });
 
@@ -90,9 +92,9 @@ $(document).ready(function () {
   function CallAPI(page, media) {
 
     if(media == "movie"){
-        var apiCall =  "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+      var apiCall =  "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
     } else {
-        var apiCall =  "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+      var apiCall =  "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
     }
     $.ajax({
       url: apiCall,
@@ -127,8 +129,8 @@ $(document).ready(function () {
 
 
   function loadGenre(genre){
-      genreSelected = genre;
-      console.log(genreSelected);
+    genreSelected = genre;
+    console.log(genreSelected);
   }
 
   function loadAllPages(numOfPages, media){
@@ -155,9 +157,9 @@ $(document).ready(function () {
 
   function CallAPILoad(page, media) {
     if(media == "movie"){
-        var apiCall =  "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+      var apiCall =  "https://api.themoviedb.org/3/search/movie?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
     } else {
-        var apiCall =  "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
+      var apiCall =  "https://api.themoviedb.org/3/search/tv?&query=" + $("#searchInput").val() + "&page=" + page + "&include_adult=false"
     }
     $.ajax({
       url: apiCall,
@@ -504,30 +506,30 @@ function CallAPILoadPopularMedia(media, page) {
       var apiCall =  "https://api.themoviedb.org/3/tv/popular?&page=" + page
     }
   }
-    $.ajax({
-      url: apiCall,
-      // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
-      data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
-      dataType: "json",
-      success: function (result, status, xhr) {
+  $.ajax({
+    url: apiCall,
+    // data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" }, MY KEY REQUESTED TOO MANY TIMES
+    data: { "api_key": "c12b3a760b89eacb9d0da39c84baa696" },
+    dataType: "json",
+    success: function (result, status, xhr) {
 
-          for (i = 0; i < result["results"].length; i++) {
-            var movieid = result["results"][i]["id"];
-            var movieLocation = movieid;
-            var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
+      for (i = 0; i < result["results"].length; i++) {
+        var movieid = result["results"][i]["id"];
+        var movieLocation = movieid;
+        var image = result["results"][i]["poster_path"] == null ? "image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-            allResults.append("<div id=" + movieid + "  class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<img class="favouriteIcon" src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>");
-          }
-          if (page == 10){
-            allResults.append("</div>");
-          }
-        $("#message").append(allResults);
-      },
-      error: function (xhr, status, error) {
-        $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+        allResults.append("<div id=" + movieid + "  class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<img class="favouriteIcon" src="/public/images/favourite.png" onClick="addFavourite()" />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>");
       }
-    });
-  }
+      if (page == 10){
+        allResults.append("</div>");
+      }
+      $("#message").append(allResults);
+    },
+    error: function (xhr, status, error) {
+      $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+    }
+  });
+}
 
 $(document).on('click', ".seriesBlock", function() {
   for(i = 1; i <= numSeries; i++){
@@ -561,29 +563,29 @@ $(document).on('click', ".episodeBlock", function() {
 
 
 $("#submit").click(function() {
-    $('html, body').animate({
-        scrollTop: $("#mainStuff").offset().top
-    }, 2000);
+  $('html, body').animate({
+    scrollTop: $("#mainStuff").offset().top
+  }, 2000);
 });
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn").style.display = "block";
-    } else {
-        document.getElementById("myBtn").style.display = "none";
-    }
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
 }
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+  $("html, body").animate({ scrollTop: 0 }, "slow");
 }
 
 function showDropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
 // Close the dropdown if the user clicks outside of it
