@@ -54,7 +54,7 @@ $(document).ready(function () {
   });
 
 
-  $("posterOverlay").on('click', ".favouriteIcon", function(e) {
+  $(".posterOverlay").on('click', function(e) {
     if (e.target !== this){
       console.log("working");
       if(searchType == "movie"){
