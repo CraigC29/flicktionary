@@ -38,6 +38,11 @@ $(document).ready(function () {
   //       $(".favouriteIcon").css("display", "none");
   // });
 
+  $("#signUpButton").click(function () {
+    var url = "/addUser";
+    window.location.replace(url);
+  });
+
 
   $(document).on('click', ".genreSelectButton", function() {
     var genre = $(this).attr('id');
