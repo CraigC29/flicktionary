@@ -38,10 +38,10 @@ $(document).ready(function () {
   //       $(".favouriteIcon").css("display", "none");
   // });
 
-  $("#signUpButton").click(function () {
-    var url = "/adduser";
-    window.location.replace(url);
-  });
+  // $("#signUpButton").click(function () {
+  //   var url = "/adduser";
+  //   window.location.replace(url);
+  // });
 
 
   $(document).on('click', ".genreSelectButton", function() {
@@ -233,6 +233,11 @@ function changeToMovie(){
   document.getElementById('mainBody').style.paddingTop = "170px";
   $("#message").html("");
   goHomeMovies();
+}
+
+function loadSignUp(){
+  var url = "/adduser";
+  window.location.replace(url);
 }
 
 function changeToSeries(){
