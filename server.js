@@ -115,7 +115,7 @@ app.get('/profile', function(req, res) {
 });
 //adduser route simply draws our adduser page
 app.get('/adduser', function(req, res) {
-  if(!req.session.loggedin){res.redirect('/login');return;}
+  if(req.session.loggedin){res.redirect('/profile');return;}
   res.render('pages/adduser')
 });
 //remuser route simply draws our remuser page
@@ -245,10 +245,10 @@ app.post('/adduser', function(req, res) {
 
 //---------------------------Unsure if this works-----------------------
 //Actually adding data to the database
-app.post('/signUP', function(req, res){
-  db.collection(quotes('quotes').save(req.body, function(error, result){
-    if (error) throw error;
-    console.log('saved to database')
-    res.redirect('/flicktionary')
-  })
-})
+// app.post('/signUP', function(req, res){
+//   db.collection(quotes('quotes').save(req.body, function(error, result){
+//     if (error) throw error;
+//     console.log('saved to database')
+//     res.redirect('/flicktionary')
+//   })
+// })
