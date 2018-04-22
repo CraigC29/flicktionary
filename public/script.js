@@ -470,6 +470,13 @@ function logout(){
   window.location.replace(urlHome);
 }
 
+//------------------------Added for signUp page---------------
+function signUP(){
+  var urlHome = "/singUP";
+  isDelving == false;
+  window.location.replace(urlHome);
+}
+
 function openAccount(){
   var urlHome = "/profile";
   isDelving == false;

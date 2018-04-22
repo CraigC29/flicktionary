@@ -242,3 +242,13 @@ app.post('/adduser', function(req, res) {
       res.redirect('/')
     })
   });
+
+//---------------------------Unsure if this works-----------------------
+//Actually adding data to the database
+app.post('/signUP', function(req, res){
+  db.collection(quotes('quotes').save(req.body, function(error, result){
+    if (error) throw error;
+    console.log('saved to database')
+    res.redirect('/flicktionary')
+  })
+})
