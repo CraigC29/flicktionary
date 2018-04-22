@@ -137,7 +137,7 @@ app.get('/signUP', function(req, res){
     res.render('pages/signUP');
     return;
   }
-}
+});
 
 
 
