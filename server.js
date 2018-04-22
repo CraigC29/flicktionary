@@ -131,6 +131,14 @@ app.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
+//signUp route to render signUp page
+app.get('/signUp', function(req, res){
+  if(!req.session.loggedin){
+    res.render('pages/login');
+    return;
+  }
+}
+
 
 
 
