@@ -115,7 +115,9 @@ app.get('/profile', function(req, res) {
 });
 //adduser route simply draws our adduser page
 app.get('/adduser', function(req, res) {
-  if(req.session.loggedin){res.redirect('/profile');return;}
+  if(req.session.loggedin){
+    res.redirect('pages/profile');
+    return;}
   res.render('pages/adduser')
 });
 //remuser route simply draws our remuser page
