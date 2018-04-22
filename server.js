@@ -134,7 +134,7 @@ app.get('/logout', function(req, res) {
 //signUp route to render signUp page
 app.get('/signUp', function(req, res){
   if(!req.session.loggedin){
-    res.render('pages/login');
+    res.render('pages/signUp');
     return;
   }
 }
