@@ -215,7 +215,7 @@ app.post('/delete', function(req, res) {
 app.post('/adduser', function(req, res) {
   //check we are logged in
   if(req.session.loggedin){
-    console.log("not logged in");
+    console.log("logged in");
     res.redirect('/profile');
 
     return;

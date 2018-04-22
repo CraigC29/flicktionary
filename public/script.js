@@ -39,7 +39,7 @@ $(document).ready(function () {
   // });
 
   $("#signUpButton").click(function () {
-    var url = "/addUser";
+    var url = "/adduser";
     window.location.replace(url);
   });
 
