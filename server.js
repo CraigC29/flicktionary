@@ -141,7 +141,7 @@ app.get('/signUP', function(req, res){
   }
 });
 
-app.get('/favourite', function (req, res){
+app.post('/favourite', function (req, res){
   var userId = req.session.user._id
   var mediaId = req.data.mediaId
   console.log("User Id: " + userId);
