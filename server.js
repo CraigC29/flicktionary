@@ -143,7 +143,7 @@ app.get('/signUP', function(req, res){
 
 app.get('/favourites/:favId', function (req, res){
   db.collection('people').update(
-    var userId = req.session.user._id
+    var userId = req.session.user.login.username
     var mediaId = req.params.favId
     console.log("User Id: " + userId);
     console.log("mediaId: " + mediaId);
