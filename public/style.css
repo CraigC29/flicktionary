@@ -330,13 +330,15 @@ a {
   /* visibility: hidden; */
 }
 
-#searchInput{
+#searchInput .searchInput{
   max-width: 600px
   width: auto;
   height: 30px;
   font-size: 30px;
   text-align: center;
 }
+
+
 
 .submitButton{
   margin-top: 10px;
