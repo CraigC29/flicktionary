@@ -12,11 +12,11 @@
   <header>
     <div class="headerBar">
       <div class="itemContainer">
-        <img class="logoHeaderImage"  src="/public/images/logo.png" alt="Logo"/>
+        <img class="logoHeaderImage"  src="/public/images/loginButtonImage.png" alt="Logo" onClick="logout()"/>
       </div>
 
       <button class="loginBut" type="button" name="login" id="headButton">
-        <img src="/public/images/loginButtonImage.png" alt="LOGIN" class="loginBut" onClick="logout()"><a>Login</a>
+        <img class="backBut" onclick="goHomeMovies()" src="/public/images/backbutton.png" alt="Back Button"/>
       </button>
     </div>
 
@@ -28,7 +28,7 @@
         <div>
           <!-- Page to display a single profile. The "user" object is passed through from express -->
           <!-- get the first name -->
-          <h1 class="loginHead"><%= user.name.first %> <%= user.name.Last %></h1>
+          <h1 class="loginHead fullName"><%= user.name.first %> <%= user.name.last %></h1>
           <!-- get the username -->
           <h2 class="username"><%= user.login.username %></h2>
         </div>
