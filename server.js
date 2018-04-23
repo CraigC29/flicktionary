@@ -142,11 +142,11 @@ app.get('/signUP', function(req, res){
 });
 
 app.get('/favourites/:favId', function (req, res){
+  var userId = req.session.user._id
+  var mediaId = req.params.favId
+  console.log("User Id: " + userId);
+  console.log("mediaId: " + mediaId);
   db.collection('people').update(
-    var userId = req.session.user.login.username
-    var mediaId = req.params.favId
-    console.log("User Id: " + userId);
-    console.log("mediaId: " + mediaId);
     { _id: id },
     { $push: { favourites: mediaId } }
   )
