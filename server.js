@@ -143,7 +143,7 @@ app.get('/signUP', function(req, res){
 
 app.post('/favourite', function (req, res){
   var userId = req.session.user._id
-  var medId = req.params.mediaId
+  var medId = req.params.id
   console.log("User Id: " + userId);
   console.log("mediaId: " + medId);
   db.collection('people').update(

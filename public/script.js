@@ -586,9 +586,7 @@ $(document).on('click', ".favouriteIcon", function(event) {
     url: '/favourite',
     type: 'POST',
     cache: false,
-    data: {
-      mediaId: id
-    },
+    data: id,
     dataType: "text",
     success: function(data){
       alert('Success!')
@@ -597,6 +595,14 @@ $(document).on('click', ".favouriteIcon", function(event) {
       alert('text status '+textStatus+', err '+err)
     }
   })
+  // $.post("/favourite", //Required URL of the page on server
+  // { // Data Sending With Request To Server
+  //   mediaId:id
+  // },
+  // function(response,status){ // Required Callback Function
+  //   alert("*----Received Data----*nnResponse : " + response+"nnStatus : " + status);//"response" receives - whatever written in echo of above PHP script.
+  //   $("#form")[0].reset();
+  // });
 
 });
 
