@@ -29,8 +29,9 @@ the background is transparent and the border is set to 0 pixels*/
   padding-right: 10px;
   border: 0px;
   background: transparent;
-  height: 90%;
+  height: 80%;
   width: auto;
+  margin-top: 5%;
 }
 
 
