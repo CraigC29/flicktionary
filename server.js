@@ -141,9 +141,9 @@ app.get('/signUP', function(req, res){
   }
 });
 
-app.get('/favourites/:favId', function (req, res){
+app.get('/favourite', function (req, res){
   var userId = req.session.user._id
-  var mediaId = req.params.favId
+  var mediaId = req.data.mediaId
   console.log("User Id: " + userId);
   console.log("mediaId: " + mediaId);
   db.collection('people').update(

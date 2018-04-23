@@ -582,18 +582,18 @@ $(document).on('click', ".favouriteIcon", function(event) {
   console.log("favourite clicked");
   var id = $(this).parent().attr('id');
   console.log("media id: " + id)
-  // $.ajax({
-  //   url: '/favourite',
-  //   type: 'POST',
-  //   cache: false,
-  //   data: { mediaId: 1},
-  //   success: function(data){
-  //     alert('Success!')
-  //   }
-  //   , error: function(jqXHR, textStatus, err){
-  //     alert('text status '+textStatus+', err '+err)
-  //   }
-  // })
+  $.ajax({
+    url: '/favourite',
+    type: 'POST',
+    cache: false,
+    data: { mediaId: 1},
+    success: function(data){
+      alert('Success!')
+    }
+    , error: function(jqXHR, textStatus, err){
+      alert('text status '+textStatus+', err '+err)
+    }
+  })
 
 });
 
