@@ -148,7 +148,7 @@ app.post('/favourite', function (req, res){
   console.log("mediaId: " + 1);
   db.collection('people').update(
     { _id: userId },
-    { $push: { favourites: mediaId } }
+    { $push: { favourites: 1 } }
   )
 })
 
