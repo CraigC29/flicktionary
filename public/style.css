@@ -23,6 +23,18 @@ the background is transparent and the border is set to 0 pixels*/
   width: auto;
 }
 
+.logoutBut{
+  float: left;
+  top:0;
+  padding-right: 10px;
+  border: 0px;
+  background: transparent;
+  height: 90%;
+  width: auto;
+}
+
+
+
 
 /* The logo button is kept to the right hand side of the page,
 the width of the page is automatically set, the image is kept to
@@ -791,6 +803,8 @@ a {
   padding-bottom: 6px;
   cursor: pointer;
 }
+
+
 
 .result:hover{
   opacity: 0.4;
