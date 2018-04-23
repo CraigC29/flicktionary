@@ -141,6 +141,17 @@ app.get('/signUP', function(req, res){
   }
 });
 
+app.get('/favourites/:favId', function (req, res){
+  db.collection('people').update(
+    var userId = req.session.user._id
+    var mediaId = req.params.favId
+    console.log("User Id: " + userId);
+    console.log("mediaId: " + mediaId);
+    { _id: id },
+    { $push: { favourites: mediaId } }
+  )
+})
+
 
 
 
@@ -184,6 +195,15 @@ app.post('/dologin', function(req, res) {
   });
 });
 
+
+// app.post('/addFavourite', function(req, res) {
+//   db.collection('people').update(
+//     var id = req.session.user._id
+//     { _id: id },
+//     { $push: { favourites: stringFavourite } }
+//   )
+//
+// });
 
 //the delete route deals with user deletion based on entering a username
 app.post('/delete', function(req, res) {
