@@ -145,7 +145,8 @@ app.post('/favourite', function (req, res){
   // console.log(JSON.stringify(req.params))
   var userId = req.session.user._id
   // var medId = req.params.id
-  var medId = req.Form['mediaId'];
+  console.log($(this).parent().attr('id'));
+  // var medId = req.Form['mediaId'];
   console.log("User Id: " + userId);
   console.log("mediaId: " + medId);
   db.collection('people').update(
