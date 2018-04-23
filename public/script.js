@@ -587,9 +587,9 @@ $(document).on('click', ".favouriteIcon", function(event) {
     type: 'POST',
     cache: false,
     data: {
-      mediaId: id.valueOf()
+      mediaId: id
     },
-    dataType: "html",
+    dataType: "text",
     success: function(data){
       alert('Success!')
     }
