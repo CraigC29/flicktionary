@@ -28,13 +28,9 @@
         <div>
           <!-- Page to display a single profile. The "user" object is passed through from express -->
           <!-- get the first name -->
-          <h1 class="loginHead">Welcome <%= user.name.first %></h1>
+          <h1 class="loginHead"><%= user.name.first %> <%= user.name.Last %></h1>
           <!-- get the username -->
-          <h2>username: <%= user.login.username %></h2>
-          <p>
-            <!-- get the registration date-->
-            date of registration: <%= user.registered %>
-          </p>
+          <h2 class="username"><%= user.login.username %></h2>
         </div>
       </div>
 
@@ -44,6 +40,7 @@
           <!-- Favourite code goes here -->
         </div>
       </div>
+    </br>
       <div>
         Favourite Series
         <div>
@@ -53,6 +50,8 @@
 
     </div>
   </main>
+
+  <% include ../partials/upButton %>
 
   <footer>
     <% include ../partials/footer %>
