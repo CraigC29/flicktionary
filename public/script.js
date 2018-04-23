@@ -585,14 +585,9 @@ $(document).on('click', ".favouriteIcon", function(event) {
   $.ajax({
     url: '/favourite',
     type: 'POST',
-    cache: false,
-    data: id,
-    dataType: "text",
+    data: {'mediaId': id },
     success: function(data){
       alert('Success!')
-    }
-    , error: function(jqXHR, textStatus, err){
-      alert('text status '+textStatus+', err '+err)
     }
   })
   // $.post("/favourite", //Required URL of the page on server
