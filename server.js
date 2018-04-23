@@ -142,6 +142,7 @@ app.get('/signUP', function(req, res){
 });
 
 app.post('/favourite', function (req, res){
+  console.log(JSON.stringify(req.params))
   var userId = req.session.user._id
   var medId = req.params.id
   console.log("User Id: " + userId);
