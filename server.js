@@ -144,13 +144,14 @@ app.get('/adduser', function(req, res) {
   app.post('/favourite', function (req, res){
 
     if(req.session.loggedin){
-
       db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
-        db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"place" : {"mediaId":req.body.favMed}}}});
+        db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
         console.log("Added Media: " + req.body.favMed);
+        console.log("Added Media Type: " + req.body.typeMedia);
       });
       res.redirect('/profile');
-
+    } else{
+      res.redirect('/login');
     }
     // console.log(JSON.stringify(req.params))
     // var userId = req.session.user._id

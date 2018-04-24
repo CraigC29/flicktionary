@@ -35,11 +35,15 @@
 
       <div>
         Favourite Movies
-        <div>
-          <!-- Favourite code goes here -->
+        <div class="favMovies">
+          <ul>
+            <%for (var favourite in user.favourites){%>
+              <li><%=favourite%>:<%=favourites[favourite]%></li>
+              <%}%>
+            </ul>
+          </div>
         </div>
-      </div>
-    </br>
+      </br>
       <div>
         Favourite Series
         <div>
