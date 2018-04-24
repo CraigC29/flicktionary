@@ -142,15 +142,15 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 }
 
 .posterOverlay{
-  position: absolute;
+  /* position: absolute;
   width: 100%;
   height: 231px;
   visibility: hidden;
-  z-index: 20;
+  z-index: 20; */
 }
 
 .posterOverlay:hover{
-  visibility: visible;
+  /* visibility: visible; */
 }
 
 .imageOverlayPoster{
@@ -159,7 +159,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 }
 
 .imageOverlayPoster:hover .posterOverlay{
-  visibility: visible;
+  /* visibility: visible; */
 }
 
 .favouriteIcon{
