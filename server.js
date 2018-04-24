@@ -143,25 +143,26 @@ app.get('/adduser', function(req, res) {
 
   app.post('/favourite', function (req, res){
 
-    if(req.session.loggedin){
-      // console.log(JSON.stringify(req.params))
-      // var userId = req.session.user._id
-      // var medId = req.params.id
-      // console.log($(this).parent().attr('id'));
-      // var medId = req.Form['mediaId'];
-      // console.log("User Id: " + userId);
-      // console.log("mediaId: " + medId);
-      db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
-        db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"place" : {"mediaId":req.body.favMed}}}});
-        console.log("Added Media: " + req.body.favMed);
-      });
-      return false;
-      // db.collection('people').update(
-      //   { _id: userId },
-      //   { $push: { favourites: medId } }
-      // )
-    }
-  })
+    if(!req.session.loggedin){return false;}
+
+    db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
+      db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"place" : {"mediaId":req.body.favMed}}}});
+      console.log("Added Media: " + req.body.favMed);
+    });
+    res.redirect('/profile');
+    // console.log(JSON.stringify(req.params))
+    // var userId = req.session.user._id
+    // var medId = req.params.id
+    // console.log($(this).parent().attr('id'));
+    // var medId = req.Form['mediaId'];
+    // console.log("User Id: " + userId);
+    // console.log("mediaId: " + medId);
+
+    // db.collection('people').update(
+    //   { _id: userId },
+    //   { $push: { favourites: medId } }
+    // )
+  });
 
 
 
