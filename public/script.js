@@ -43,9 +43,14 @@ $(document).ready(function () {
   //   window.location.replace(url);
   // });
 
-  $(".favMedia").load(function() {
-    var mediaId = $(".favMedia").attr("id");
-    console.log("ID is: " + mediaId);
+  // $(".favMedia").load(function() {
+  //   var mediaId = $(".favMedia").attr("id");
+  //   console.log("ID is: " + mediaId);
+  // });
+
+  $(".favMedia").each(function() {
+      var thisID = $(this).attr('id');
+      console.log("The id: " + thisID);
   });
 
   $(document).on('click', ".genreSelectButton", function() {
@@ -538,10 +543,7 @@ function loadFavourites(){
   }
 }
 
-$(".favMovies").each(function() {
-    var thisID = $(this).attr('id');
-    console.log("The id: " + thisID);
-});
+
 
 
 function CallAPILoadPopularMedia(media, page) {
