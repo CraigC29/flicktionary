@@ -52,7 +52,7 @@ $(document).ready(function () {
         success: function (result, status, xhr) {
           var image = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
           var imageSRC  = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
-          image = "<img id='largeImage' src=\"" + image + "\"/>"
+          image = "<img id='imageClick' src=\"" + image + "\"/>"
           var movieTitle = result["title"];
           var imdbID = result["imdb_id"];
           var description = result["overview"];
