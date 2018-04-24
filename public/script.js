@@ -530,8 +530,9 @@ function loadHomepage(){
 
 
 function loadFavourites(){
-  for (var favourite in user.favourites){
-     if (user.favourites[favourite].favouriteMedia.type == "movie") {
+  for (var favourite in <%user.favourites%>){
+    var movieType = <%user.favourites[favourite].favouriteMedia.type%>;
+     if (movieType == "movie") {
       $("#moviesFav").append('<div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>');
   }
   }
