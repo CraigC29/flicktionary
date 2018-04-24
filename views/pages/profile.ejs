@@ -37,22 +37,11 @@
         Favourite Movies
         <div class="favMovies">
           <ul>
-            <%for (var favourite in user.favourites){ %>
+            <%for (var favourite in user.favourites){%>
               <% if (user.favourites[favourite].favouriteMedia.type == "movie") { %>
-
-                <!-- <% var hasBeen = 0 %>
-                <% for (var allItems in user.favourites){%>
-                  <% if (user.favourites[favourite].favouriteMedia.mediaId == user.favourites[allItems].favouriteMedia.mediaId) { %>
-                      <% hasBeen += 1 %>
-                  <% } %>
-                <% } %>
-
-                <% if (hasBeen <= 1) { %> -->
-                  <li><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></li>
-                <!-- <% } %> -->
-                
-              <%}%>
-            <%}%>
+                <li><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></li>
+                <%}%>
+                <%}%>
               </ul>
             </div>
           </div>
@@ -64,21 +53,21 @@
               <%for (var favourite in user.favourites){%>
                 <% if (user.favourites[favourite].favouriteMedia.type !== "movie") { %>
                   <li><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></li>
-                  <% } %>
+                  <%}%>
                   <%}%>
                 </ul>
+              </div>
+            </div>
+
           </div>
-        </div>
+        </main>
 
-      </div>
-    </main>
+        <% include ../partials/upButton %>
 
-    <% include ../partials/upButton %>
+        <footer>
+          <% include ../partials/footer %>
+        </footer>
 
-    <footer>
-      <% include ../partials/footer %>
-    </footer>
+      </body>
 
-  </body>
-
-  </html>
+      </html>
