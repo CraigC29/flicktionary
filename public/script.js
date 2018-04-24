@@ -17,6 +17,7 @@ var genreSelected = null;
 var loggedIn = false;
 var favMoviesArray = [];
 var uniqueMovies = [];
+var moviesFavourited = "";
 // app.get('/login', function(req, res) {
 //   res.render('login');
 // });
@@ -59,8 +60,9 @@ $(document).ready(function () {
           var littleInfoMovie = result["runtime"] + 'mins' + ' &#9679 ' + result["release_date"] + ' &#9679 ' + genres +  '<div id="' + imdbID + '"class="imdbLink" onClick="openIMDB()">IMDB</div>';
           var media = "movie";
 
-          var movieMedia = "<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + movieTitle + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieid + ">" + '<form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + "<img id=" + movieid + " class ='imageClick' src=\"" + image + "\"/></div></div>"
+          var movieMedia = "<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + movieTitle + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieid + ">" + '<form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + image + "</div></div>"
 
+          moviesFavourited += movieMedia + "";
 
           $("#" + movieid).html(movieMedia);
         },
