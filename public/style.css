@@ -163,8 +163,10 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 }
 
 .favouriteIcon{
+  background : url("/public/images/favourite.png") no-repeat center center;
   opacity: 0.6;
   float: right;
+  border: none;
   top: 2%;
   right: 5%;
   /* z-index: 98; */
@@ -173,6 +175,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   position: absolute;
   margin-top: 6px;
   /* display: none; */
+  color: rgba(0, 0, 0, 0);
 }
 
 .favouriteIcon:hover{

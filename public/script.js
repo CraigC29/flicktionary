@@ -121,7 +121,7 @@ $(document).ready(function () {
           var movieLocation = movieid;
           var image = result["results"][i]["poster_path"] == null ? "/public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["results"][i]["poster_path"];
 
-          allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<img class="favouriteIcon" id="favourite" id="favourite" src="/public/images/favourite.png"  />' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
+          allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<form action="/favourite"> <input type="image" src="/public/images/favourite.png class="favouriteIcon" name="favMed" id="favourite" value=' + movieid + '/> </form>' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
         }
 
         if (amountPages == 1){
