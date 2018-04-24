@@ -39,7 +39,7 @@
           <ul>
             <%for (var favourite in user.favourites){%>
               <% if (user.favourites[favourite].favouriteMedia.type == "movie") { %>
-                <li id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></li>
+                <li id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></li>
                 <%}%>
                 <%}%>
               </ul>

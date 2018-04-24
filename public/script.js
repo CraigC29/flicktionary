@@ -498,6 +498,11 @@ function loadFavouriteMedia(){
   console.log(mediaId);
 }
 
+$( ".favMedia" ).load(function() {
+  var mediaId = $(this).attr("id");
+  console.log(mediaId);
+});
+
 function loadHomepage(){
   var typeSearch = getUrlVars()["id"];
   if (typeSearch == "Series"){
