@@ -50,8 +50,8 @@ $(document).ready(function () {
         data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
         dataType: "json",
         success: function (result, status, xhr) {
-          var image = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w342/" + result["poster_path"];
-          var imageSRC  = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w780/" + result["poster_path"];
+          var image = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
+          var imageSRC  = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
           image = "<img id='largeImage' src=\"" + image + "\"/>"
           var movieTitle = result["title"];
           var imdbID = result["imdb_id"];

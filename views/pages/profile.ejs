@@ -36,15 +36,15 @@
       <div>
         Favourite Movies
         <div class="favMovies" id="moviesFav">
+          <div id="resultsbox"  >
+            <div id="results">
             <%for (var favourite in user.favourites){%>
               <% if (user.favourites[favourite].favouriteMedia.type == "movie") { %>
-                <div id="resultsbox"  >
-                  <div id="results">
                     <div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>
-                  </div>
-                </div>
                 <%}%>
                 <%}%>
+              </div>
+            </div>
             </div>
           </div>
         </br>
