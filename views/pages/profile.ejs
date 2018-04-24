@@ -36,13 +36,11 @@
       <div>
         Favourite Movies
         <div class="favMovies">
-          <ul>
             <%for (var favourite in user.favourites){%>
               <% if (user.favourites[favourite].favouriteMedia.type == "movie") { %>
-                <li id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></li>
+                <div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>
                 <%}%>
                 <%}%>
-              </ul>
             </div>
           </div>
         </br>
