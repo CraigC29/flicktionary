@@ -538,6 +538,11 @@ function loadFavourites(){
   }
 }
 
+$(".favMovies").each(function() {
+    var thisID = $(this).attr('id');
+    console.log("The id: " + thisID);
+});
+
 
 function CallAPILoadPopularMedia(media, page) {
   if (genreSelected !== null){
