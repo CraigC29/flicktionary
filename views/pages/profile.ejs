@@ -38,7 +38,7 @@
         <div class="favMovies">
           <ul>
             <%for (var favourite in user.favourites){%>
-              <li><%=favourite%>:<%=user.favourites[favourite].mediaId %></li>
+              <li><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></li>
               <%}%>
             </ul>
           </div>
