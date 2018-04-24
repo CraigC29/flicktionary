@@ -144,17 +144,17 @@ app.get('/adduser', function(req, res) {
   app.post('/favourite', function (req, res){
     if(req.session.loggedin){
 
-        if (db.collection('people').findOne( {"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}) !== null){
-          console.log("already in favourites");
-          return false;
-        } else{
+        // if (db.collection('people').findOne( {"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}) !== null){
+        //   console.log("already in favourites");
+        //   return false;
+        // } else{
           db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
             db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
             console.log("Added Media: " + req.body.favMed);
             console.log("Added Media Type: " + req.body.typeMedia);
           });
           res.redirect('/profile');
-        }
+        // }
     } else{
       res.redirect('/login');
     }
