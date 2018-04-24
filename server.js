@@ -146,6 +146,7 @@ app.get('/adduser', function(req, res) {
 
         if (db.collection('people').findOne( {"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}) !== null){
           console.log("already in favourites");
+          return false;
         } else{
           db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
             db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
