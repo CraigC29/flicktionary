@@ -493,6 +493,11 @@ function openAccount(){
   window.location.replace(urlHome);
 }
 
+function loadFavouriteMedia(mediaId){
+  var thisText = $(this).text();
+  console.log(thisText);
+  console.log(mediaId);
+}
 
 function loadHomepage(){
   var typeSearch = getUrlVars()["id"];
