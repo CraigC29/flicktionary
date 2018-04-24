@@ -147,6 +147,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   height: 231px;
   visibility: hidden;
   z-index: 20; */
+  position: absolute;
 }
 
 .posterOverlay:hover{
@@ -167,12 +168,11 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 }
 
 .favouriteIcon{
-  background : url("/public/images/favourite.png") no-repeat center center;
   opacity: 0.6;
   float: right;
   border: none;
   top: 2%;
-  right: 5%;
+  right: 14%;
   /* z-index: 98; */
   width: 20%;
   height: auto;
