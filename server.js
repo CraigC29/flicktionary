@@ -142,29 +142,21 @@ app.get('/adduser', function(req, res) {
   });
 
   app.post('/favourite', function (req, res){
-
     if(req.session.loggedin){
-      db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
-        db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
-        console.log("Added Media: " + req.body.favMed);
-        console.log("Added Media Type: " + req.body.typeMedia);
-      });
-      res.redirect('/profile');
+
+        if (db.collection('people').find( {{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}: { $exists: true}})){
+          console.log("already in favourites");
+        } else{
+          db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
+            db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
+            console.log("Added Media: " + req.body.favMed);
+            console.log("Added Media Type: " + req.body.typeMedia);
+          });
+          res.redirect('/profile');
+        }
     } else{
       res.redirect('/login');
     }
-    // console.log(JSON.stringify(req.params))
-    // var userId = req.session.user._id
-    // var medId = req.params.id
-    // console.log($(this).parent().attr('id'));
-    // var medId = req.Form['mediaId'];
-    // console.log("User Id: " + userId);
-    // console.log("mediaId: " + medId);
-
-    // db.collection('people').update(
-    //   { _id: userId },
-    //   { $push: { favourites: medId } }
-    // )
   });
 
 
@@ -189,18 +181,6 @@ app.get('/adduser', function(req, res) {
         req.session.loggedin = true;
         req.session.user = result;
         var uname = req.query.username;
-        //this query finds the first document in the array with that username.
-        //Because the username value sits in the login section of the user data we use login.username
-        // db.collection('people').findOne({
-        //   "login.username": uname
-        // }, function(err, result) {
-        //   if (err) throw err;
-        //   //console.log(uname+ ":" + result);
-        //   //finally we just send the result to the user page as "user"
-        //   res.render('/', {
-        //     user: result
-        //   })
-        // });
         console.log("user logged in");
         res.redirect("/");
       }
