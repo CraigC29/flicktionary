@@ -500,7 +500,7 @@ function loadFavouriteMedia(){
 
 $( ".favMedia" ).load(function() {
   var mediaId = $(this).attr("id");
-  console.log(mediaId);
+  console.log("ID is: " + mediaId);
 });
 
 function loadHomepage(){
