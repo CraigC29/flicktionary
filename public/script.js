@@ -493,9 +493,8 @@ function openAccount(){
   window.location.replace(urlHome);
 }
 
-function loadFavouriteMedia(mediaId){
-  var thisText = $(this).text();
-  console.log(thisText);
+function loadFavouriteMedia(){
+  var mediaId = $(this).attr("id");
   console.log(mediaId);
 }
 
