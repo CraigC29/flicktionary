@@ -15,7 +15,8 @@ var episodeSelected = 1;
 var isDelving = false;
 var genreSelected = null;
 var loggedIn = false;
-
+var favMoviesArray = [];
+var uniqueMovies = [];
 // app.get('/login', function(req, res) {
 //   res.render('login');
 // });
@@ -33,7 +34,14 @@ $(document).ready(function () {
 
 
   $(".favMedia").each(function() {
+
       var movieid = $(this).attr('id');
+      favMoviesArray.push("movieid");
+      $.each(favMoviesArray, function(i, el){
+        if($.inArray(el, uniqueMovies) === -1) uniqueMovies.push(el);
+      });
+
+
       console.log("The id: " + movieid);
 
       $.ajax({
@@ -51,7 +59,7 @@ $(document).ready(function () {
           var littleInfoMovie = result["runtime"] + 'mins' + ' &#9679 ' + result["release_date"] + ' &#9679 ' + genres +  '<div id="' + imdbID + '"class="imdbLink" onClick="openIMDB()">IMDB</div>';
           var media = "movie";
 
-          var movieMedia = "<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + movieTitle + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieid + ">" + '<form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + "<img id=" + movieid + " class ='imageClick' src=\"" + image + "\"/>" + "</div></div>"
+          var movieMedia = "<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + movieTitle + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieid + ">" + '<form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + "<img id=" + movieid + " class ='imageClick' src=\"" + image + "\"/></div></div>"
 
 
           $(this).html(movieMedia);
@@ -123,6 +131,10 @@ $(document).ready(function () {
       }
     }
   });
+
+  function loadFavMedia(mediaID){
+
+  }
 
   function CallAPI(page, media) {
 
