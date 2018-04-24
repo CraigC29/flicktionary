@@ -577,19 +577,19 @@ $(document).on('click', ".seriesBlock", function() {
 //     alert("Overlay clicked");
 // });
 
-$(document).on('click', ".favouriteIcon", function(event) {
-  event.stopPropagation();
-  console.log("favourite clicked");
-  var id = $(this).parent().attr('id');
-  console.log("media id: " + id)
-  $.ajax({
-    url: '/favourite',
-    type: 'POST',
-    data: {'mediaId': id },
-    success: function(data){
-      alert('Success!')
-    }
-  })
+// $(document).on('click', ".favouriteIcon", function(event) {
+//   event.stopPropagation();
+//   console.log("favourite clicked");
+//   var id = $(this).parent().attr('id');
+//   console.log("media id: " + id)
+//   $.ajax({
+//     url: '/favourite',
+//     type: 'POST',
+//     data: {'mediaId': id },
+//     success: function(data){
+//       alert('Success!')
+//     }
+//   })
   // $.post("/favourite", //Required URL of the page on server
   // { // Data Sending With Request To Server
   //   mediaId:id
@@ -602,7 +602,7 @@ $(document).on('click', ".favouriteIcon", function(event) {
   // xmlhttp.open("POST","/favourite");
   // xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
   // xmlhttp.send("mediaId=" + id);
-});
+// });
 
 $(document).on('click', ".posterOverlay", function(event) {
   console.log("poster clicked");
