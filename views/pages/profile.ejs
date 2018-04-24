@@ -41,7 +41,7 @@
               <% if (user.favourites[favourite].favouriteMedia.type == "movie") { %>
                 <% var hasBeen = 0 %>
                 <% for (var allItems in user.favourites){%>
-                  <% if (user.favourites[favourite] == user.favourites[allItems]) { %>
+                  <% if (user.favourites[favourite].favouriteMedia.mediaId == user.favourites[allItems].favouriteMedia.mediaId) { %>
                       <% hasBeen += 1 %>
                   <% } %>
                 <% } %>
