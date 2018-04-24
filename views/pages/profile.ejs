@@ -38,7 +38,7 @@
         <div class="favMovies">
           <ul>
             <%for (var favourite in user.favourites){%>
-              <% if (user.favourites[favourite].favouriteMedia.mediaId == "movie") { %>
+              <% if (user.favourites[favourite].favouriteMedia.type == "movie") { %>
                 <li><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></li>
                 <% } %>
                 <%}%>
@@ -51,7 +51,7 @@
           <div>
             <ul>
               <%for (var favourite in user.favourites){%>
-                <% if (user.favourites[favourite].favouriteMedia.mediaId !== "movie") { %>
+                <% if (user.favourites[favourite].favouriteMedia.type !== "movie") { %>
                   <li><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></li>
                   <% } %>
                   <%}%>
