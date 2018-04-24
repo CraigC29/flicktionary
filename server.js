@@ -151,6 +151,7 @@ app.get('/adduser', function(req, res) {
 
 
           db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
+            console.log(db.collection('people').count({"_id":result._id}, {"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}));
             if (db.collection('people').count({"_id":result._id}, {"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}) < 1){
               db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
               console.log("Added Media: " + req.body.favMed);
