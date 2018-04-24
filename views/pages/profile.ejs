@@ -7,7 +7,7 @@
   <% include ../partials/head %>
 </head>
 
-<body class="bodyFlick">
+<body class="bodyFlick" onload="loadFavourites();">
 
   <header>
     <div class="headerBar">
@@ -35,12 +35,12 @@
 
       <div>
         Favourite Movies
-        <div class="favMovies">
-            <%for (var favourite in user.favourites){%>
+        <div class="favMovies" id="moviesFav">
+            <!-- <%for (var favourite in user.favourites){%>
               <% if (user.favourites[favourite].favouriteMedia.type == "movie") { %>
                 <div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>
                 <%}%>
-                <%}%>
+                <%}%> -->
             </div>
           </div>
         </br>

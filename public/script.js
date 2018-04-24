@@ -44,7 +44,7 @@ $(document).ready(function () {
   // });
 
   $(".favMedia").load(function() {
-    var mediaId = $(this).attr("id");
+    var mediaId = $(".favMedia").attr("id");
     console.log("ID is: " + mediaId);
   });
 
@@ -62,7 +62,8 @@ $(document).ready(function () {
     }
     $("#message").html("");
     loadHomepage();
-  });
+    loadFavourites();
+    });
 
 
 
@@ -526,6 +527,15 @@ function loadHomepage(){
     }
   }
 };
+
+
+function loadFavourites(){
+  for (var favourite in user.favourites){
+     if (user.favourites[favourite].favouriteMedia.type == "movie") {
+      $("#moviesFav").append('<div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>');
+  }
+  }
+}
 
 
 function CallAPILoadPopularMedia(media, page) {
