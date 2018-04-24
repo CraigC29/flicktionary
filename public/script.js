@@ -62,7 +62,7 @@ $(document).ready(function () {
           var movieMedia = "<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + movieTitle + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieid + ">" + '<form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + "<img id=" + movieid + " class ='imageClick' src=\"" + image + "\"/></div></div>"
 
 
-          $(this).html(movieMedia);
+          $("#" + movieid).html(movieMedia);
         },
         error: function (xhr, status, error) {
           $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
