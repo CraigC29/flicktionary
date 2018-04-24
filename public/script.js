@@ -33,11 +33,11 @@ $(document).ready(function () {
 
 
   $(".favMedia").each(function() {
-      var thisID = $(this).attr('id');
-      console.log("The id: " + thisID);
+      var movieid = $(this).attr('id');
+      console.log("The id: " + movieid);
 
       $.ajax({
-        url: "https://api.themoviedb.org/3/movie/" + thisID,
+        url: "https://api.themoviedb.org/3/movie/" + movieid,
         data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
         dataType: "json",
         success: function (result, status, xhr) {
