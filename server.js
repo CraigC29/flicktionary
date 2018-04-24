@@ -148,10 +148,14 @@ app.get('/adduser', function(req, res) {
         //   console.log("already in favourites");
         //   return false;
         // } else{
+
+
           db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
-            db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
-            console.log("Added Media: " + req.body.favMed);
-            console.log("Added Media Type: " + req.body.typeMedia);
+            if (db.collection('people').count({"_id":result._id}, {"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}) < 1){
+              db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
+              console.log("Added Media: " + req.body.favMed);
+              console.log("Added Media Type: " + req.body.typeMedia);
+            }
           });
           res.redirect('/profile');
         // }
