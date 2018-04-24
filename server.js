@@ -155,6 +155,7 @@ app.get('/adduser', function(req, res) {
         db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"place" : {"mediaId":req.body.favMed}}}});
         console.log("Added Media: " + req.body.favMed);
       });
+      return false;
       // db.collection('people').update(
       //   { _id: userId },
       //   { $push: { favourites: medId } }
