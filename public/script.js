@@ -31,26 +31,40 @@ $(function(){
 
 $(document).ready(function () {
 
-  // $(".imageClick").hover(function(){
-  //   $(".favouriteIcon").css("display", "block");
-  //   console.log("hover working");
-  //   }, function(){
-  //       $(".favouriteIcon").css("display", "none");
-  // });
-
-  // $("#signUpButton").click(function () {
-  //   var url = "/adduser";
-  //   window.location.replace(url);
-  // });
-
-  // $(".favMedia").load(function() {
-  //   var mediaId = $(".favMedia").attr("id");
-  //   console.log("ID is: " + mediaId);
-  // });
 
   $(".favMedia").each(function() {
       var thisID = $(this).attr('id');
       console.log("The id: " + thisID);
+
+      $.ajax({
+        url: "https://api.themoviedb.org/3/movie/" + thisID,
+        data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
+        dataType: "json",
+        success: function (result, status, xhr) {
+          var image = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w342/" + result["poster_path"];
+          var imageSRC  = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w780/" + result["poster_path"];
+          image = "<img id='largeImage' src=\"" + image + "\"/>"
+          var movieTitle = result["title"];
+          var imdbID = result["imdb_id"];
+          var description = result["overview"];
+          var genres = result["genres"][0]["name"];
+          var littleInfoMovie = result["runtime"] + 'mins' + ' &#9679 ' + result["release_date"] + ' &#9679 ' + genres +  '<div id="' + imdbID + '"class="imdbLink" onClick="openIMDB()">IMDB</div>';
+
+          var movieMedia = "<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + ">" + '<form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>"
+
+
+          $(this).html(movieMedia);
+        },
+        error: function (xhr, status, error) {
+          $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+        }
+      });
+
+
+
+
+
+
   });
 
   $(document).on('click', ".genreSelectButton", function() {
