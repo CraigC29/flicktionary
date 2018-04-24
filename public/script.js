@@ -43,6 +43,10 @@ $(document).ready(function () {
   //   window.location.replace(url);
   // });
 
+  $(".favMedia").load(function() {
+    var mediaId = $(this).attr("id");
+    console.log("ID is: " + mediaId);
+  });
 
   $(document).on('click', ".genreSelectButton", function() {
     var genre = $(this).attr('id');
@@ -498,10 +502,7 @@ function loadFavouriteMedia(){
   console.log(mediaId);
 }
 
-$( ".favMedia" ).load(function() {
-  var mediaId = $(this).attr("id");
-  console.log("ID is: " + mediaId);
-});
+
 
 function loadHomepage(){
   var typeSearch = getUrlVars()["id"];
