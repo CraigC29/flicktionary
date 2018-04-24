@@ -52,7 +52,7 @@ $(document).ready(function () {
         success: function (result, status, xhr) {
           var image = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
           var imageSRC  = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
-          image = "<img id='imageClick' src=\"" + image + "\"/>"
+          image = "<img class='imageClick' src=\"" + image + "\"/>"
           var movieTitle = result["title"];
           var imdbID = result["imdb_id"];
           var description = result["overview"];
@@ -60,7 +60,7 @@ $(document).ready(function () {
           var littleInfoMovie = result["runtime"] + 'mins' + ' &#9679 ' + result["release_date"] + ' &#9679 ' + genres +  '<div id="' + imdbID + '"class="imdbLink" onClick="openIMDB()">IMDB</div>';
           var media = "movie";
 
-          var movieMedia = "<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + movieTitle + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieid + ">" + '<form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + image + "</div></div>"
+          var movieMedia = "<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + movieTitle + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieid + ">" + '<form action="/unFavourite" method="POST"> <input type="image" src="/public/images/unFavourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + image + "</div></div>"
 
           moviesFavourited += movieMedia + "";
 
@@ -70,12 +70,6 @@ $(document).ready(function () {
           $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
         }
       });
-
-
-
-
-
-
   });
 
   $(document).on('click', ".genreSelectButton", function() {
