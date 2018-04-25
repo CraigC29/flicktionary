@@ -261,7 +261,6 @@ app.get('/adduser', function(req, res) {
     //we create the data string from the form components that have been passed in
 
     var datatostore = {
-      "gender":req.body.gender,
       "name":{"first":req.body.first,"last":req.body.last},
       "email":req.body.email,
       "login":{"username":req.body.username,"password":req.body.password}
@@ -284,10 +283,10 @@ app.get('/adduser', function(req, res) {
       }
 
       var datatostore = {
-        "gender":req.body.gender,
         "name":{"first":req.body.first,"last":req.body.last},
         "email":req.body.email,
         "login":{"username":req.body.username,"password":req.body.password}
+      }
 
       db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
         db.collection('people').update({"_id":result._id}, datatostore, function(err, result) {
