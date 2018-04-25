@@ -17,6 +17,8 @@ var genreSelected = null;
 var loggedIn = false;
 var moviesFavourited = "";
 var seriesFavourited = "";
+var hasMovies = false;
+var hasSeries = false;
 
 // app.get('/login', function(req, res) {
 //   res.render('login');
@@ -137,9 +139,7 @@ $(document).ready(function () {
     }
   });
 
-  function loadFavMedia(mediaID){
 
-  }
 
   function CallAPI(page, media) {
 
@@ -577,14 +577,17 @@ function loadHomepage(){
 
 
 function loadFavourites(){
+  var hasMovies = false;
+  var hasSeries = false;
   for (var favourite in '<%user.favourites%>'){
     var movieType = '<%user.favourites[favourite].favouriteMedia.type%>';
      if (movieType == "movie") {
+       hasMovies = true;
       $("#moviesFav").append('<div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>');
   }
   }
 
-  if ($(".movieFavs").html() == null || $(".movieFavs").html() == ""){
+  if (hasMovies == false){
     var output = "<div>Favourites Will Appear Here When Added</div>"
     $(".movieFavs").html() = output;
   }

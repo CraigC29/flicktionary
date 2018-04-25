@@ -41,7 +41,12 @@
       </div>
 
       <div>
-        <h4 class="favHeader">Favourite Movies</h4>
+        <h4 class="favHeader" id="movieText">Favourite Movies Will Appear Here When Added</h4>
+        <%for (var favourite in user.favourites){%>
+          <% if (user.favourites[favourite].favouriteMedia.type == "movie") { %>
+            <% document.getElementById("movieText").innerHTML = "Favourite Movies"; %>
+          <%}%>
+        <%}%>
         <!-- <div class="favMovies" id="moviesFav"> -->
           <div id="resultsbox"  >
             <div id="results" class="resultDiv favContainer movieFavs">
@@ -56,7 +61,12 @@
           </div>
         </br>
         <div>
-          <h4 class="favHeader">Favourite Series</h4>
+          <h4 class="favHeader" id="seriesText">Favourite Series</h4>
+          <%for (var favourite in user.favourites){%>
+            <% if (user.favourites[favourite].favouriteMedia.type !== "movie") { %>
+              <% document.getElementById("seriesText").innerHTML = "Favourite Series"; %>
+            <%}%>
+          <%}%>
           <div>
             <div id="resultsbox"  >
               <div id="results" class="resultDiv favContainer seriesFavs">
