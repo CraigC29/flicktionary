@@ -35,11 +35,11 @@
         </br>
         <input type="text" placeholder="Username"     name="username" class="searchInput" value="<%= user.login.username %>">
       </br>
-      <input type="currentPassword" placeholder="Current Password" name="currentPassword" class="searchInput">
-      <input type="favouritesHolder" placeholder="Favourites" name="favouritesHolder" class="hiddenInput" value="<%= user.favourites %>">
+      <input type="password" placeholder="Current Password" name="currentPassword" class="searchInput">
       </br>
       <input type="password" placeholder="New Password"  name="password" class="searchInput">
-
+      <input type="favouritesHolder" placeholder="Favourites" name="favouritesHolder" class="hiddenInput" value="<%= user.favourites %>">
+      </br>
       </br><button type="submit" class="submitButton">Update</button>
     </form>
 

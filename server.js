@@ -235,6 +235,7 @@ app.get('/adduser', function(req, res) {
     //check for the username added in the form, if one exists then you can delete that doccument
     db.collection('people').deleteOne({"login.username":req.session.user.login.username}, function(err, result) {
       if (err) throw err;
+      req.session.loggedin = false;
       //when complete redirect to the index
       res.redirect('/');
     });
