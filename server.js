@@ -154,7 +154,7 @@ app.get('/adduser', function(req, res) {
         // });
 
         res.redirect('/');
-      }
+      });
       }else{
         res.redirect('/login');
       }
