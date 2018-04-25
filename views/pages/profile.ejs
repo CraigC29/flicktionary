@@ -51,15 +51,15 @@
         <div>
           Favourite Series
           <div>
-            <ul>
+            <div id="resultsbox"  >
+              <div id="results" class="resultDiv container">
               <%for (var favourite in user.favourites){%>
                 <% if (user.favourites[favourite].favouriteMedia.type !== "movie") { %>
-                  <li><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></li>
+                      <div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favSeries"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>
                   <%}%>
                   <%}%>
-                </ul>
+                </div>
               </div>
-            </div>
 
           </div>
         </main>

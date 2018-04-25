@@ -1,4 +1,4 @@
-// This is the list of variables being set. pagePos is set to 3,
+seriesid// This is the list of variables being set. pagePos is set to 3,
 //amountPages is set to 1, allResults is all possible results of a search,
 //searchType is for searching movies, numSeries is setting the number of series to 0 and numEpisodes is setting the number of episodes to 0,
 //seriesSelected and episodeSelected is set to 1, isDelving being set to false means that a user has no onger selected a media typer (movies or series)
@@ -15,9 +15,8 @@ var episodeSelected = 1;
 var isDelving = false;
 var genreSelected = null;
 var loggedIn = false;
-var favMoviesArray = [];
-var uniqueMovies = [];
 var moviesFavourited = "";
+var seriesFavourited = "";
 // app.get('/login', function(req, res) {
 //   res.render('login');
 // });
@@ -35,16 +34,8 @@ $(document).ready(function () {
 
 
   $(".favMedia").each(function() {
-
       var movieid = $(this).attr('id');
-      favMoviesArray.push("movieid");
-      $.each(favMoviesArray, function(i, el){
-        if($.inArray(el, uniqueMovies) === -1) uniqueMovies.push(el);
-      });
-
-
       console.log("The id: " + movieid);
-
       $.ajax({
         url: "https://api.themoviedb.org/3/movie/" + movieid,
         data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
@@ -54,15 +45,8 @@ $(document).ready(function () {
           var imageSRC  = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
           image = "<img class='imageClick' src=\"" + image + "\"/>"
           var movieTitle = result["title"];
-          var imdbID = result["imdb_id"];
-          var description = result["overview"];
-          var genres = result["genres"][0]["name"];
-          var littleInfoMovie = result["runtime"] + 'mins' + ' &#9679 ' + result["release_date"] + ' &#9679 ' + genres +  '<div id="' + imdbID + '"class="imdbLink" onClick="openIMDB()">IMDB</div>';
           var media = "movie";
-
           var movieMedia = "<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + movieTitle + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieid + ">" + '<form action="/unFavourite" method="POST"> <input type="image" src="/public/images/unFavourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + image + "</div></div>"
-
-          moviesFavourited += movieMedia + "";
 
           $("#" + movieid).html(movieMedia);
         },
@@ -71,6 +55,30 @@ $(document).ready(function () {
         }
       });
   });
+
+  $(".favSeries").each(function() {
+      var seriesid = $(this).attr('id');
+      console.log("The id: " + seriesid);
+      $.ajax({
+        url: "https://api.themoviedb.org/3/movie/" + seriesid,
+        data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
+        dataType: "json",
+        success: function (result, status, xhr) {
+          var image = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
+          var imageSRC  = result["poster_path"] == null ? "assets//public/images/image unavailable sized.png" : "https://image.tmdb.org/t/p/w154/" + result["poster_path"];
+          image = "<img class='imageClick' src=\"" + image + "\"/>"
+          var movieTitle = result["title"];
+          var media = "series";
+          var seriesMedia = "<div id=" + seriesid + " class=\"result\" resourceId=\" titleText=\"" + movieTitle + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + seriesid + ">" + '<form action="/unFavourite" method="POST"> <input type="image" src="/public/images/unFavourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + seriesid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + image + "</div></div>"
+
+          $("#" + seriesid).html(seriesMedia);
+        },
+        error: function (xhr, status, error) {
+          $("#message").html("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+        }
+      });
+  });
+
 
   $(document).on('click', ".genreSelectButton", function() {
     var genre = $(this).attr('id');
