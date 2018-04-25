@@ -99,7 +99,7 @@ $(document).ready(function () {
     }
     $("#message").html("");
     loadHomepage();
-    loadFavourites();
+    // loadFavourites();
     });
 
 
@@ -547,10 +547,10 @@ function openAccount(){
   window.location.replace(urlHome);
 }
 
-function loadFavouriteMedia(){
-  var mediaId = $(this).attr("id");
-  console.log(mediaId);
-}
+// function loadFavouriteMedia(){
+//   var mediaId = $(this).attr("id");
+//   console.log(mediaId);
+// }
 
 
 
@@ -578,26 +578,26 @@ function loadHomepage(){
 };
 
 
-function loadFavourites(){
-  var hasMovies = false;
-  var hasSeries = false;
-  for (var favourite in '<%user.favourites%>'){
-    var movieType = '<%user.favourites[favourite].favouriteMedia.type%>';
-     if (movieType == "movie") {
-       hasMovies = true;
-      $("#moviesFav").append('<div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>');
-  }
-  }
-
-  if (hasMovies == false){
-    var output = "<div>Favourites Will Appear Here When Added</div>"
-    $(".movieFavs").html() = output;
-  }
-  if ($(".seriesFavs").html() == null || $(".seriesFavs").html() == ""){
-    var output = "<div>Favourites Will Appear Here When Added</div>"
-    $(".seriesFavs").html() = output;
-  }
-}
+// function loadFavourites(){
+//   var hasMovies = false;
+//   var hasSeries = false;
+//   for (var favourite in '<%user.favourites%>'){
+//     var movieType = '<%user.favourites[favourite].favouriteMedia.type%>';
+//      if (movieType == "movie") {
+//        hasMovies = true;
+//       $("#moviesFav").append('<div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>');
+//   }
+//   }
+//
+//   if (hasMovies == false){
+//     var output = "<div>Favourites Will Appear Here When Added</div>"
+//     $(".movieFavs").html() = output;
+//   }
+//   if ($(".seriesFavs").html() == null || $(".seriesFavs").html() == ""){
+//     var output = "<div>Favourites Will Appear Here When Added</div>"
+//     $(".seriesFavs").html() = output;
+//   }
+// }
 
 
 
