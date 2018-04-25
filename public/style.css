@@ -539,6 +539,12 @@ a {
   overflow: hidden;
 }
 
+.genericSelectButton{
+  width: 80%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
 .dropdown-content a {
     color: #ed5f25;
     padding: 10px 14px;
