@@ -837,15 +837,18 @@ a {
 
 .result:hover{
   filter:brightness(70%);
-  border: 5px solid #ed5f25;
+  /* border: 5px solid #ed5f25; */
   border-radius: 15px;
-  margin: 5px;
+  /* margin: 5px; */
   cursor: pointer;
+  box-shadow: 0 0 8pt 3pt #ed5f25;
+  transform: scale(1.03);
 }
 
 .result{
   margin: 10px;
   height: 231px;
+  transition: .3s ease-in-out;
 }
 
 #apiDiv {
