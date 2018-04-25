@@ -37,7 +37,7 @@ $(document).ready(function () {
 
 
   $(".favMedia").each(function() {
-      $("movieText").text("Favourite Movies");
+      $("#movieText").text("Favourite Movies");
       var movieid = $(this).attr('id');
       console.log("The id: " + movieid);
       $.ajax({
@@ -61,7 +61,7 @@ $(document).ready(function () {
   });
 
   $(".favSeries").each(function() {
-      $("seriesText").text("Favourite Series");
+      $("#seriesText").text("Favourite Series");
       var seriesid = $(this).attr('id');
       console.log("The id: " + seriesid);
       $.ajax({
