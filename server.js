@@ -287,20 +287,22 @@ app.get('/adduser', function(req, res) {
         return;
       }
       if (req.session.user.login.password == req.body.currentPassword){
-      var datatostore = {
-        "name":{"first":req.body.first,"last":req.body.last},
-        "email":req.body.email,
-        "login":{"username":req.body.username,"password":req.body.password},
-        "favourites":req.body.favouritesHolder
-      }
+      // var datatostore = {
+      //   "name":{"first":req.body.first,"last":req.body.last},
+      //   "email":req.body.email,
+      //   "login":{"username":req.body.username,"password":req.body.password},
+      //   "favourites":req.body.favouritesHolder
+      // }
 
       db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
-        db.collection('people').update({"_id":result._id}, datatostore, function(err, result) {
-          if (err) throw err;
-          console.log('saved to database')
-          //when complete redirect to the index
-          res.redirect('/profile')
-        })
+        db.collection('people').update({"_id":result._id}, {$set: {result.name.first: req.body.first, result.name.last: req.body.last, result.email: req.body.email, result.login.username: req.body.username, result.login.password: req.body.password}})
+        // db.collection('people').update({"_id":result._id}, datatostore, function(err, result) {
+        //   if (err) throw err;
+        //   console.log('saved to database')
+        //   //when complete redirect to the index
+        //   res.redirect('/profile')
+        // })
+        res.redirect('/profile');
       });
     } else {
       res.redirect('/updateUser');
