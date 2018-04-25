@@ -364,6 +364,8 @@ function loadAllTVMedia(tvID) {
       }
 
       $("#mainSeriesImage").html(image);
+      $("#favouriteBig").attr("value", tvid);
+      $("#typeMedia").attr("value", "series");
       $("#mainTitle").html(seriesTitle);
       $("#mainDesc").html(description);
 
