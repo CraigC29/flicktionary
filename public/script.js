@@ -60,7 +60,7 @@ $(document).ready(function () {
       var seriesid = $(this).attr('id');
       console.log("The id: " + seriesid);
       $.ajax({
-        url: "https://api.themoviedb.org/3/movie/" + seriesid,
+        url: "https://api.themoviedb.org/3/tv/" + seriesid,
         data: { "api_key": "58a54ae83bf16e590e2ef91a25247707" },
         dataType: "json",
         success: function (result, status, xhr) {
