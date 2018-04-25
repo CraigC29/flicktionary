@@ -521,6 +521,12 @@ function logout(){
   window.location.replace(urlHome);
 }
 
+function modifyUser(){
+  var url = "/remUser";
+  isDelving == false;
+  window.location.replace(url);
+}
+
 //------------------------Added for signUp page---------------
 function signUP(){
   var urlHome = "/singUP";
