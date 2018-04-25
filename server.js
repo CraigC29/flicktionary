@@ -141,6 +141,22 @@ app.get('/adduser', function(req, res) {
     }
   });
 
+  app.post('/unFavourite', function (req, res){
+      if(req.session.loggedin){
+
+        //check for the username added in the form, if one exists then you can delete that doccument
+        db.collection('people').deleteOne({"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}, function(err, result) {
+          if (err) throw err;
+          //when complete redirect to the profile
+          res.redirect('/profile');
+        });
+
+
+      }else{
+        res.redirect('/login');
+      }
+  });
+
   app.post('/favourite', function (req, res){
     if(req.session.loggedin){
 
@@ -151,7 +167,6 @@ app.get('/adduser', function(req, res) {
           db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
           // console.log(db.collection('people').count({"_id":result._id}, {"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}));
           db.collection('people').update({"_id":result._id}, {$addToSet:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
-
           console.log("Added Media: " + req.body.favMed);
           console.log("Added Media Type: " + req.body.typeMedia);
         });
