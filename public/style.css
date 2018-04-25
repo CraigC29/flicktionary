@@ -69,6 +69,10 @@ font is set, font size is selected and the weight is also set*/
     margin: 0px;
 }
 
+.homepage{
+  overflow-x: hidden;
+}
+
 .loginLogo{
   padding-top: 5%;
   width: 30%;
