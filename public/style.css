@@ -183,7 +183,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 
 .favouriteIcon:hover{
   opacity: 0.9;
-  filter: brightness(120%);
+  filter: brightness(130%);
 }
 
 .genreButton{
@@ -599,12 +599,13 @@ a {
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
+    height: 8px;
 }
 
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: transparent;
 
 }
 
@@ -830,8 +831,8 @@ a {
 
 
 .result:hover{
-  opacity: 0.4;
-  border: 5px solid blue;
+  filter:brightness(70%);
+  border: 5px solid #ed5f25;
   border-radius: 15px;
   margin: 5px;
   cursor: pointer;
