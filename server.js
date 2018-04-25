@@ -145,7 +145,7 @@ app.get('/adduser', function(req, res) {
       if(req.session.loggedin){
 
         db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
-          db.collection('people').update({"_id":result._id}, {$unset:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}}, upsert: false, multi:true);
+          db.collection('people').update({"_id":result._id}, {$unset:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}}, {multi:true});
         //check for the username added in the form, if one exists then you can delete that doccument
         // db.collection('people').deleteOne(, function(err, result) {
         //   if (err) throw err;
