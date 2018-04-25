@@ -583,6 +583,15 @@ function loadFavourites(){
       $("#moviesFav").append('<div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>');
   }
   }
+
+  if ($(".movieFavs").html() == null || $(".movieFavs").html() == ""){
+    var output = "<div>Favourites Will Appear Here When Added</div>"
+    $(".movieFavs").html() = output;
+  }
+  if ($(".seriesFavs").html() == null || $(".seriesFavs").html() == ""){
+    var output = "<div>Favourites Will Appear Here When Added</div>"
+    $(".seriesFavs").html() = output;
+  }
 }
 
 
