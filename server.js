@@ -123,9 +123,7 @@ app.get('/adduser', function(req, res) {
   //remuser route simply draws our remuser page
   app.get('/remuser', function(req, res) {
     if(!req.session.loggedin){res.redirect('/login');return;}
-    db.collection('people').findOne({
-      "login.username": req.session.user.login.username
-    }, function(err, result) {
+    db.collection('people').findOne({"login.username": req.session.user.login.username}, function(err, result) {
       if (err) throw err;
       //console.log(uname+ ":" + result);
       //finally we just send the result to the user page as "user"
@@ -150,24 +148,8 @@ app.get('/adduser', function(req, res) {
     }
   });
 
-  app.post('/unFavourite', function (req, res){
-      if(req.session.loggedin){
 
-        db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
-          db.collection('people').update({"_id":result._id}, {$pull:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
-        //check for the username added in the form, if one exists then you can delete that doccument
-        // db.collection('people').deleteOne(, function(err, result) {
-        //   if (err) throw err;
-        //   //when complete redirect to the profile
-        //   res.redirect('/');
-        // });
-
-        res.redirect('/profile');
-      });
-      }else{
-        res.redirect('/login');
-      }
-  });
+  //********** POST ROUTES - Deal with processing data from forms ***************************
 
   app.post('/favourite', function (req, res){
     if(req.session.loggedin){
@@ -190,10 +172,24 @@ app.get('/adduser', function(req, res) {
     }
   });
 
+  app.post('/unFavourite', function (req, res){
+      if(req.session.loggedin){
 
+        db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
+          db.collection('people').update({"_id":result._id}, {$pull:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
+        //check for the username added in the form, if one exists then you can delete that doccument
+        // db.collection('people').deleteOne(, function(err, result) {
+        //   if (err) throw err;
+        //   //when complete redirect to the profile
+        //   res.redirect('/');
+        // });
 
-
-  //********** POST ROUTES - Deal with processing data from forms ***************************
+        res.redirect('/profile');
+      });
+      }else{
+        res.redirect('/login');
+      }
+  });
 
 
   //the dologin route detasl with the data from the login screen.
@@ -290,11 +286,12 @@ app.get('/adduser', function(req, res) {
         res.redirect('/login');
         return;
       }
-
+      if (req.session.user.login.password == req.body.currentPassword){
       var datatostore = {
         "name":{"first":req.body.first,"last":req.body.last},
         "email":req.body.email,
-        "login":{"username":req.body.username,"password":req.body.password}
+        "login":{"username":req.body.username,"password":req.body.password},
+        "favourites":{req.body.favouritesHolder}
       }
 
       db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
@@ -305,7 +302,10 @@ app.get('/adduser', function(req, res) {
           res.redirect('/profile')
         })
       });
-
+    } else {
+      res.redirect('/updateUser');
+      return;
+    }
     });
 
 

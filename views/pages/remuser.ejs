@@ -28,34 +28,27 @@
       <form action="/updateUser" method="POST">
         <h4>Name</h4>
         <input type="text" placeholder="First Name" name="first" class="searchInput" value="<%= user.name.first %>">
+        </br>
+        <input type="text" placeholder="Last Name"  name="last" class="searchInput" value="<%= user.name.last %>">
+        </br><h4>Login</h4>
+        <input type="Email" placeholder="me@example.com" name="email" class="searchInput" value="<%= user.email %>">
+        </br>
+        <input type="text" placeholder="Username"     name="username" class="searchInput" value="<%= user.login.username %>">
       </br>
-      <input type="text" placeholder="Last Name"  name="last" class="searchInput" value="<%= user.name.last %>">
-    </br><h4>Login</h4>
-    <input type="Email" placeholder="me@example.com" name="email" class="searchInput" value="<%= user.email %>">
-  </br>
-  <input type="text" placeholder="Username"     name="username" class="searchInput" value="<%= user.login.username %>">
-</br>
-<input type="currentPassword" placeholder="Current Password" name="currentPassword" class="searchInput">
-</br>
-<input type="password" placeholder="New Password"  name="password" class="searchInput">
+      <input type="currentPassword" placeholder="Current Password" name="currentPassword" class="searchInput">
+      <input type="favouritesHolder" placeholder="Favourites" name="favouritesHolder" class="hiddenInput" value="<%= user.favourites %>">
+      </br>
+      <input type="password" placeholder="New Password"  name="password" class="searchInput">
 
-</br><button type="submit" class="submitButton">Change Information</button>
-</form>
+      </br><button type="submit" class="submitButton">Update</button>
+    </form>
 
 <br>
 <br>
-<!-- <form action="/updateUser" method="POST"><button type="submit" class="submitButton">Delete Account</button></form> -->
 
-<div class="cd-popup" role="alert">
-  <div class="cd-popup-container">
-    <p>Are you sure you want to delete your account?</p>
-    <ul class="cd-buttons">
-      <li><form action="/updateUser" method="POST"><button type="submit" class="submitButton">Yes</button></form></li>
-      <li><form action=""><button type="submit" class="submitButton">No</button></form>No</a></li>
-    </ul>
-    <a href="#0" class="cd-popup-close img-replace">Close</a>
-  </div> <!-- cd-popup-container -->
-</div> <!-- cd-popup -->
+
+<form action="/delete" method="POST"><button type="submit" class="submitButton">Delete Account</button></form>
+
 
 
 </div>

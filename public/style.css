@@ -387,6 +387,10 @@ a {
   border-radius: 8px;
 }
 
+.hiddenInput{
+  visibility: hidden;
+}
+
 .username{
   margin-top: 0px;
   font-size: 40px;
