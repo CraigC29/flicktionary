@@ -6,27 +6,67 @@
 </header>
 
 
-<body class="container">
-    <header>
-      <% include ../partials/header %>
-    </header>
+<body class="bodyFlick">
+  <header>
+    <div class="headerBar">
+      <img class="backBut" onclick="openAccount()" src="/public/images/backbutton.png" alt="Back Button"/>
+    </div>
+
+  </header>
 
   <main>
     <div class="jumbotron">
-      <!-- simple form to remove a user via their username-->
-      <h3>Delete a User</h3>
-      <form action="/delete" method="POST">
-        <input type="text" placeholder="username" name="username">
-        <button type="submit">Submit</button>
-      </form>
 
-    </div>
-  </main>
+      <div class="loginLogo">
+        <img src="/public/images/logo.png" class="SiteLogo">
+      </div>
+
+      <!-- form with entry box for each bit of inomfrtaion we want from our user. -->
+      <h3>Edit Info</h3>
+
+      <!-- submits to our /adduser route. -->
+      <form action="/updateUser" method="POST">
+        <h4>Name</h4>
+        <input type="text" placeholder="First Name" name="first" class="searchInput" value="<%= user.name.first %>">
+      </br>
+      <input type="text" placeholder="Last Name"  name="last" class="searchInput" value="<%= user.name.last %>">
+    </br><h4>Login</h4>
+    <input type="Email" placeholder="me@example.com" name="email" class="searchInput" value="<%= user.email %>">
+  </br>
+  <input type="text" placeholder="Username"     name="username" class="searchInput" value="<%= user.login.username %>">
+</br>
+<input type="currentPassword" placeholder="Current Password" name="currentPassword" class="searchInput">
+</br>
+<input type="password" placeholder="New Password"  name="password" class="searchInput">
+
+</br><button type="submit" class="submitButton">Change Information</button>
+</form>
+
+<br>
+<br>
+<!-- <form action="/updateUser" method="POST"><button type="submit" class="submitButton">Delete Account</button></form> -->
+
+<div class="cd-popup" role="alert">
+  <div class="cd-popup-container">
+    <p>Are you sure you want to delete your account?</p>
+    <ul class="cd-buttons">
+      <li><form action="/updateUser" method="POST"><button type="submit" class="submitButton">Yes</button></form></li>
+      <li><form action=""><button type="submit" class="submitButton">No</button></form>No</a></li>
+    </ul>
+    <a href="#0" class="cd-popup-close img-replace">Close</a>
+  </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
 
 
-  <footer>
-    <% include ../partials/footer %>
-  </footer>
+</div>
+</main>
+
+<% include ../partials/upButton %>
+
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
 
 </body>
 

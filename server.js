@@ -226,11 +226,9 @@ app.get('/adduser', function(req, res) {
   app.post('/delete', function(req, res) {
     //check we are logged in.
     if(!req.session.loggedin){res.redirect('/login');return;}
-    //if so get the username variable
-    var uname = req.body.username;
 
     //check for the username added in the form, if one exists then you can delete that doccument
-    db.collection('people').deleteOne({"login.username":uname}, function(err, result) {
+    db.collection('people').deleteOne({"login.username":req.session.user.login.username}, function(err, result) {
       if (err) throw err;
       //when complete redirect to the index
       res.redirect('/');
@@ -264,13 +262,9 @@ app.get('/adduser', function(req, res) {
 
     var datatostore = {
       "gender":req.body.gender,
-      "name":{"title":req.body.title,"first":req.body.first,"last":req.body.last},
-      "location":{"street":req.body.street,"city":req.body.city,"state":req.body.state,"postcode":req.body.postcode},
+      "name":{"first":req.body.first,"last":req.body.last},
       "email":req.body.email,
-      "login":{"username":req.body.username,"password":req.body.password},
-      "dob":req.body.dob,"registered":Date(),
-      "picture":{"large":req.body.large,"medium":req.body.medium,"thumbnail":req.body.thumbnail},
-      "nat":req.body.nat}
+      "login":{"username":req.body.username,"password":req.body.password}
 
 
       //once created we just run the data string against the database and all our new data will be saved/
@@ -281,6 +275,31 @@ app.get('/adduser', function(req, res) {
         res.redirect('/')
       })
     });
+
+    app.post('/updateUser', function(req, res) {
+      if(!req.session.loggedin){
+        console.log("not logged in");
+        res.redirect('/login');
+        return;
+      }
+
+      var datatostore = {
+        "gender":req.body.gender,
+        "name":{"first":req.body.first,"last":req.body.last},
+        "email":req.body.email,
+        "login":{"username":req.body.username,"password":req.body.password}
+
+      db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
+        db.collection('people').update({"_id":result._id}, datatostore, function(err, result) {
+          if (err) throw err;
+          console.log('saved to database')
+          //when complete redirect to the index
+          res.redirect('/profile')
+        })
+      });
+
+    });
+
 
     //---------------------------Unsure if this works-----------------------
     //Actually adding data to the database
