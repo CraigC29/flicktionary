@@ -470,6 +470,7 @@ a {
 
 .loginText{
   width: 10%;
+  min-width: 250px;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
