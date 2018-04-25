@@ -34,10 +34,10 @@
       </div>
 
       <div>
-        <h2 class="favHeader">Favourite Movies</h2>
+        <h4 class="favHeader">Favourite Movies</h4>
         <!-- <div class="favMovies" id="moviesFav"> -->
           <div id="resultsbox"  >
-            <div id="results" class="resultDiv container">
+            <div id="results" class="resultDiv favContainer">
             <%for (var favourite in user.favourites){%>
               <% if (user.favourites[favourite].favouriteMedia.type == "movie") { %>
                     <div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>
@@ -49,7 +49,7 @@
           </div>
         </br>
         <div>
-          <h2 class="favHeader">Favourite Series</h2>
+          <h4 class="favHeader">Favourite Series</h4>
           <div>
             <div id="resultsbox"  >
               <div id="results" class="resultDiv favContainer">
