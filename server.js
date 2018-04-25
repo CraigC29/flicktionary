@@ -153,7 +153,7 @@ app.get('/adduser', function(req, res) {
         //   res.redirect('/');
         // });
 
-        res.redirect('/');
+        res.redirect('/profile');
       });
       }else{
         res.redirect('/login');
