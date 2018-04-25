@@ -397,6 +397,7 @@ a {
   background-color: #211d23;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
   overflow-x: auto;
+  overflow-y:hidden;
 }
 
 .favHeader{
