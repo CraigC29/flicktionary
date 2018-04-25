@@ -151,6 +151,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   visibility: hidden;
   z-index: 20; */
   position: absolute;
+  height: 231px;
 }
 
 .posterOverlay:hover{
