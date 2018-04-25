@@ -148,7 +148,7 @@ app.get('/adduser', function(req, res) {
         db.collection('people').deleteOne({"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}, function(err, result) {
           if (err) throw err;
           //when complete redirect to the profile
-          res.redirect('/profile');
+          res.redirect('/');
         });
 
 
