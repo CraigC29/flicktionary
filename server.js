@@ -306,7 +306,7 @@ app.get('/adduser', function(req, res) {
         res.redirect('/profile');
       });
     } else {
-      res.redirect('/updateUser');
+      res.redirect('/remuser');
       return;
     }
     });
