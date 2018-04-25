@@ -291,7 +291,7 @@ app.get('/adduser', function(req, res) {
         "name":{"first":req.body.first,"last":req.body.last},
         "email":req.body.email,
         "login":{"username":req.body.username,"password":req.body.password},
-        "favourites":{req.body.favouritesHolder}
+        "favourites":req.body.favouritesHolder
       }
 
       db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
