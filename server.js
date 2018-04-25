@@ -265,7 +265,7 @@ app.get('/adduser', function(req, res) {
       "name":{"first":req.body.first,"last":req.body.last},
       "email":req.body.email,
       "login":{"username":req.body.username,"password":req.body.password}
-
+    }
 
       //once created we just run the data string against the database and all our new data will be saved/
       db.collection('people').save(datatostore, function(err, result) {
