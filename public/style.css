@@ -210,6 +210,25 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   filter: brightness(130%);
 }
 
+.favouriteIconBigSeries{
+  opacity: 0.6;
+  float: right;
+  border: none;
+  top: 7.5%;
+  right: 14%;
+  /* z-index: 98; */
+  width: 40px;
+  height: auto;
+  position: absolute;
+  /* display: none; */
+  color: rgba(0, 0, 0, 0);
+}
+
+.favouriteIconBigSeries:hover{
+  opacity: 0.9;
+  filter: brightness(130%);
+}
+
 .genreButton{
   float: left;
   padding: 7px;
