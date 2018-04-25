@@ -150,7 +150,7 @@ app.get('/adduser', function(req, res) {
         // } else{
           db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
           // console.log(db.collection('people').count({"_id":result._id}, {"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}));
-          db.collection('people').update({"_id":result._id}, {$push:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}}, {upsert: true});
+          db.collection('people').update({"_id":result._id}, {$addToSet:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
 
           console.log("Added Media: " + req.body.favMed);
           console.log("Added Media Type: " + req.body.typeMedia);
