@@ -1,4 +1,4 @@
-seriesid// This is the list of variables being set. pagePos is set to 3,
+// This is the list of variables being set. pagePos is set to 3,
 //amountPages is set to 1, allResults is all possible results of a search,
 //searchType is for searching movies, numSeries is setting the number of series to 0 and numEpisodes is setting the number of episodes to 0,
 //seriesSelected and episodeSelected is set to 1, isDelving being set to false means that a user has no onger selected a media typer (movies or series)
