@@ -321,6 +321,8 @@ function loadAllMovieMedia(movieid) {
 
       $("#mainImage").html(image);
       $("#mainTitle").html(movieTitle);
+      $("#favouriteBig").attr("value", movieid);
+      $("#typeMedia").attr("value", "movie");
       $("#littleMovieInfo").html(littleInfoMovie);
       $("#mainDesc").html(description);
 
