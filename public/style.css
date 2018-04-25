@@ -353,7 +353,7 @@ a {
   align-content: flex-start;
   background-color: #211d23;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .favHeader{
@@ -604,13 +604,13 @@ a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #888;
+    background: #f1f1f1;
 
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #f1f1f1;
+    background: #939393;
     border-radius: 10px;
 
 }
@@ -618,7 +618,7 @@ a {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
-    width: 20px;
+    width: 10px;
 }
 
 .seriesBlock{
