@@ -144,7 +144,8 @@ app.get('/adduser', function(req, res) {
   app.post('/unFavourite', function (req, res){
       if(req.session.loggedin){
 
-        db.people.remove({"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}});
+        db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
+          db.collection('people').remove({"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}});
         //check for the username added in the form, if one exists then you can delete that doccument
         // db.collection('people').deleteOne(, function(err, result) {
         //   if (err) throw err;
@@ -152,7 +153,7 @@ app.get('/adduser', function(req, res) {
         //   res.redirect('/');
         // });
 
-
+        res.redirect('/');
       }else{
         res.redirect('/login');
       }
