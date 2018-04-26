@@ -72,7 +72,8 @@ font is set, font size is selected and the weight is also set*/
 .homepage{
   overflow-x: hidden;
 }
-
+/* padding area around the logo is set, the size of the logo is changed
+and margin is set*/
 .loginLogo{
   padding-top: 5%;
   width: 30%;
@@ -80,12 +81,12 @@ font is set, font size is selected and the weight is also set*/
   margin-left: 35%;
   margin-right:35%;
 }
-
+/* Size of the button is set*/
 .loginBack{
   max-width: 40px;
   max-height: 40px;
 }
-
+/*margins are set*/
 h4{
   margin-top: 20px;
   margin-bottom: 20px;
@@ -104,7 +105,8 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   margin-bottom: 0px;
   font-size: medium;
 }
-
+/* font size is set to 20 pixels, text is aligned to the left hand side of the page,
+width is 100%, background colour is set, height, margin and padding all set*/
 .headerBar{
   font-size: 20px;
   text-align: left;
@@ -117,7 +119,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
   font-family: "Century Gothic";
 }
-
+/* movie button is floated to the left, padding is set and colours are selected*/
 .movieButton{
   float: left;
   padding: 7px;
@@ -128,11 +130,11 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   width: inherit;
   font-family: Lato;
 }
-
+/* background colour set*/
 #movieContainer{
   background-color: #ed5f25;
 }
-
+/* series button perameters set */
 .seriesButton{
   float: left;
   padding: 7px;
@@ -143,7 +145,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   color: #bc4f23;
   width: inherit;
 }
-
+/* positioning and height of poster overlay set*/
 .posterOverlay{
   /* position: absolute;
   width: 100%;
@@ -153,15 +155,15 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   position: absolute;
   height: 231px;
 }
-
+/* poster overlay set to hover*/
 .posterOverlay:hover{
   /* visibility: visible; */
 }
-
+/* hides media type */
 .mediaTypePass{
   visibility: hidden;
 }
-
+/* image overlay poster position and height set*/
 .imageOverlayPoster{
   position: relative;
   height: 231px;
@@ -170,7 +172,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 .imageOverlayPoster:hover .posterOverlay{
   /* visibility: visible; */
 }
-
+/* favourite icon perameters set*/
 .favouriteIcon{
   opacity: 0.6;
   float: right;
@@ -185,12 +187,12 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   /* display: none; */
   color: rgba(0, 0, 0, 0);
 }
-
+/* favourite icon set to hover, opacity and brightness also selected*/
 .favouriteIcon:hover{
   opacity: 0.9;
   filter: brightness(130%);
 }
-
+/* favourite icon big peramters set*/
 .favouriteIconBig{
   opacity: 0.6;
   float: right;
@@ -204,12 +206,12 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   /* display: none; */
   color: rgba(0, 0, 0, 0);
 }
-
+/* set to hover, opacity and brightness set*/
 .favouriteIconBig:hover{
   opacity: 0.9;
   filter: brightness(130%);
 }
-
+/* favorite icon big within sries perameteres set*/
 .favouriteIconBigSeries{
   opacity: 0.6;
   float: right;
@@ -223,12 +225,12 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   /* display: none; */
   color: rgba(0, 0, 0, 0);
 }
-
+/* set to hover, opacity and brightness set*/
 .favouriteIconBigSeries:hover{
   opacity: 0.9;
   filter: brightness(130%);
 }
-
+/* genre button perameters all set*/
 .genreButton{
   float: left;
   padding: 7px;
@@ -244,11 +246,11 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   font-size: 20px;
   font-weight: bold;
 }
-
+/* genre button set to hover and colour is selected*/
 .genreButton:hover{
   color: #ed5f25;
 }
-
+/* item container sizes set and set to float on the left*/
 .itemContainer{
   height: inherit;
   width: 75px;
@@ -257,11 +259,11 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 }
 
 
-
+/* movie button set to hover and colour set*/
 .movieButton:hover{
   color: #ed5f25;
 }
-
+/* series button set to hover and colour is set*/
 .seriesButton:hover{
   color: #ed5f25;
 }
@@ -269,7 +271,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
 /* .itemContainer:hover{
   background-color: #2ee1e8;
 } */
-
+/* back button perameters are all set*/
 .backBut{
   float: right;
   top:0;
@@ -279,14 +281,14 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   height: 90%;
   width: auto;
 }
-
+/* back button hovers and brightness is set*/
 .backBut:hover{
   filter: brightness(80%);
   cursor:pointer;
 }
 
 /* API CSS ----------------------------- */
-
+/* heading text padding and fonts set, colour set and text aligned to centre of page*/
 .headText {
   padding-top: 100px;
   font-size: 200px;
@@ -303,7 +305,7 @@ body {
 a {
   display: none;
 }
-
+/* image click perameters all set*/
 .imageClick {
   width: 154px;
   height: 231px;
@@ -331,7 +333,7 @@ a {
   width: 100%;
   /* max-width: 80%; */
 }
-
+/* side text alignment set to left and flex, width and colour also selected*/
 .sideText {
   text-align: left;
   align-items: flex-start;
@@ -341,7 +343,7 @@ a {
   width: 100%;
   background-color: #6A6564;
 }
-
+/* thumbnail image perameters all set*/
 .thumbnailImage {
   margin: 6px;
   background-color: #393534;
@@ -349,13 +351,13 @@ a {
   padding-top: 4px;
   max-width: 165px;
 }
-
+/* item2 midth and max width set and set to hidden*/
 .item2 {
   max-width: 30%;
   width: 30%;
   visibility: hidden;
 }
-
+/* the alignment of all movies is set*/
 .allMovies {
   align-items: flex-start;
   display: flex;
@@ -364,7 +366,7 @@ a {
   height: 0px;
   align-content: flex-start;
 }
-
+/* large item perameters are set*/
 .large-item {
   align-items: flex-start;
   display: flex;
@@ -379,7 +381,7 @@ a {
   background-color: #6A6564;
   height: 60%; */
 }
-
+/* container alignment selected*/
 .container {
   align-items: flex-start;
   display: flex;
@@ -387,7 +389,7 @@ a {
   justify-content: flex-start;
   align-content: flex-start;
 }
-
+/* favourite container perameters are all set*/
 .favContainer {
   align-items: flex-start;
   display: flex;
@@ -399,7 +401,7 @@ a {
   overflow-x: auto;
   overflow-y:hidden;
 }
-
+/* favheader text is aligned to the left of the page and margin set to 0 pixels*/
 .favHeader{
   text-align: left;
   margin: 0px;
@@ -408,9 +410,9 @@ a {
 .titleText {
   /* visibility: hidden; */
 }
-
+/* search imput perameters all set*/
 #searchInput {
-  max-width: 600px
+  max-width: 600px;
   min-width: 250px;
   width: auto;
   height: 30px;
@@ -419,7 +421,7 @@ a {
 }
 
 .searchInput{
-  max-width: 600px
+  max-width: 600px;
   min-width: 250px;
   width: auto;
   height: 30px;
@@ -428,11 +430,11 @@ a {
   margin-top: 8px;
   border-radius: 8px;
 }
-
+/* imput set to hidden*/
 .hiddenInput{
   visibility: hidden;
 }
-
+/* username margin and font set*/
 .username{
   margin-top: 0px;
   font-size: 40px;
@@ -443,7 +445,7 @@ a {
 }
 
 
-
+/* submit button margins, sizes, borders colours and text alignment all set*/
 .submitButton{
   margin-top: 10px;
   margin-bottom: 20px;
@@ -463,12 +465,12 @@ a {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
-
+/* submit button set to hover and background colour and colours are set*/
 .submitButton:hover{
   background-color: #bc4f23;
   color: #211d23;
 }
-
+/* login text peramters all set*/
 .loginText{
   width: 10%;
   min-width: 250px;
@@ -905,7 +907,7 @@ a {
   height: 231px;
   transition: .3s ease-in-out;
 }
-
+/*
 #apiDiv {
     border: dashed 2px #CCC;
     padding: 10px;
@@ -951,7 +953,7 @@ a {
                 height: 300px;
                 padding: 6px;
                 /* float: left; */
-                text-align: center;
+                /* text-align: center;
                 cursor: pointer;
                 visibility: hidden;
             }
@@ -1013,4 +1015,4 @@ a {
 
     .is-visible .cd-popup-container {
       transform: translateY(0);
-    }
+    } */

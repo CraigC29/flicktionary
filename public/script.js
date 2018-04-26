@@ -20,10 +20,8 @@ var seriesFavourited = "";
 var hasMovies = false;
 var hasSeries = false;
 
-// app.get('/login', function(req, res) {
-//   res.render('login');
-// });
 
+// Search terms are set so that the user gets resulsts for what they search
 $(function(){
   $('#searchform').submit(function() {
     var searchterms = $("#searchterms").val();
@@ -35,7 +33,7 @@ $(function(){
 
 $(document).ready(function () {
 
-
+// favourite media function allows user to select favourite movies/series to save for later
   $(".favMedia").each(function() {
       $("#movieText").text("Favourite Movies");
       var movieid = $(this).attr('id');
@@ -84,7 +82,7 @@ $(document).ready(function () {
       });
   });
 
-
+// genre button allows user to select genre
   $(document).on('click', ".genreSelectButton", function() {
     var genre = $(this).attr('id');
     if (genre != "clear"){
@@ -101,28 +99,7 @@ $(document).ready(function () {
     loadHomepage();
     // loadFavourites();
     });
-
-
-
-  //     $(document).on('click', ".posterOverlay", function() {
-  //
-  //       console.log(path);
-  //       if (path !== "favourite"){
-  //
-  //         console.log("not favourite");
-  //
-  //       } else {
-  //         console.log("Clicked Favourite");
-  //       }
-  //     });
-  //
-  //     $('.favouriteIcon').on('click', function(e){
-  //       console.log("stopping propogation");
-  //     // stop the event from bubbling.
-  //     e.stopPropagation();
-  // });
-
-
+// Search bar is set up and can type in it
   $("#searchInput").keyup(function() {
     if (event.keyCode === 13) {
       document.getElementById("submit").click();
@@ -141,8 +118,8 @@ $(document).ready(function () {
     }
   });
 
-
-
+  // If the media type is movie it will search movies and if not it will search TV series
+  // Request api key, page position of results set
   function CallAPI(page, media) {
 
     if(media == "movie"){
@@ -167,7 +144,7 @@ $(document).ready(function () {
 
           allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + " name=" + searchType + ">" + '<form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
         }
-
+// This sets which/where results appear and also inserts an image unavailable image
         if (amountPages == 1){
           allResults.append("</div>");
           printResults();
@@ -181,16 +158,16 @@ $(document).ready(function () {
     });
   }
 
-
+// loads different genres
   function loadGenre(genre){
     genreSelected = genre;
     console.log(genreSelected);
   }
-
+// allows favourites to be added
   function addFavourite(){
     console.log("adding favourite function called");
   }
-
+// Sets all results to appear on the same page
   function loadAllPages(numOfPages, media){
     var complete = false;
     if (numOfPages > 10) {numOfPages = 10;}
@@ -248,7 +225,7 @@ $(document).ready(function () {
     });
 
   }
-
+// validates to check there is a search input
   function Validate() {
     var errorMessage = "";
     if ($("#searchInput").val() == "") {
@@ -257,7 +234,7 @@ $(document).ready(function () {
     return errorMessage;
   }
 
-
+// shows classes imageDiv and image
   $(document).ajaxStart(function () {
     $(".imageDiv img").show();
   });
@@ -267,7 +244,7 @@ $(document).ready(function () {
   });
 
 });
-
+// changes results to movies only
 function changeToMovie(){
   searchType = "movie";
   // console.log("Movie");
@@ -278,12 +255,12 @@ function changeToMovie(){
   $("#message").html("");
   goHomeMovies();
 }
-
+// loads the sign up page
 function loadSignUp(){
   var url = "/adduser";
   window.location.replace(url);
 }
-
+// changes results to series only
 function changeToSeries(){
   searchType = "series";
   // console.log("Series");
@@ -295,18 +272,19 @@ function changeToSeries(){
   goHomeSeries();
 }
 
-
+// loads movies
 function loadMovies(){
   var movieID = getUrlVars()["id"];
   loadAllMovieMedia(movieID);
   isDelving == true;
 }
+// loads series
 function loadSeries(){
   var tvID = getUrlVars()["id"];
   loadAllTVMedia(tvID);
   isDelving == true;
 }
-
+// loads both movies and series
 function loadAllMovieMedia(movieid) {
   $.ajax({
     url: "https://api.themoviedb.org/3/movie/" + movieid,
@@ -331,7 +309,7 @@ function loadAllMovieMedia(movieid) {
 
       document.getElementById("blurredImageMovie").src = imageSRC;
       console.log(imageSRC);
-
+// sets height of window
       var windowHeight = $(window).height() - 40;
       console.log("window height: " + windowHeight);
       document.getElementById("movieMediaContainer").setAttribute("style","height:" + windowHeight + "px");
@@ -341,7 +319,7 @@ function loadAllMovieMedia(movieid) {
     }
   });
 }
-
+// loads all information about tv series
 function loadAllTVMedia(tvID) {
   $.ajax({
     url: "https://api.themoviedb.org/3/tv/" + tvID,
@@ -355,7 +333,7 @@ function loadAllTVMedia(tvID) {
       var seriesTitle = result["name"];
       var description = result["overview"];
       numSeries = result["number_of_seasons"];
-
+// sets the area information about series is stored
       $("#seriesInfo").html(numSeries + " Season");
       if (numSeries > 1){$("#seriesInfo").append("s");}
 
@@ -375,19 +353,19 @@ function loadAllTVMedia(tvID) {
       $("#blockSeries").html(seriesDiv);
       document.getElementById("blurredImage").src = imageSRC;
       document.getElementById("1").click();
-
+// sets the height of image
       var heightImage = $("#seriesMediaHeight").height() + 60;
       console.log("height is: " + heightImage);
       document.getElementById("blurredImage").height = heightImage;
-
+// sets the height of the window
       var windowHeight = $(window).height();
       console.log("window height: " + windowHeight);
 
 
-
+// sets the size of the area the series information is stored
       var elementSize = (windowHeight - heightImage);
       document.getElementById("seriesInfoHolder").height = elementSize;
-
+// sets height of the block
       var blockHeight = (elementSize * 0.6);
       console.log("blockHeight: " + blockHeight);
 
@@ -401,7 +379,7 @@ function loadAllTVMedia(tvID) {
     }
   });
 }
-
+// resizes window
 $(window).resize(function(){
   if (searchType == "series" && isDelving == true){
     var imageHeight = $("#seriesMediaHeight").height();
@@ -418,7 +396,7 @@ $(window).resize(function(){
   }
 });
 
-
+// loads all information about individual episodes
 function loadEpisodeData(season){
   var tvID = getUrlVars()["id"];
   $.ajax({
@@ -443,7 +421,7 @@ function loadEpisodeData(season){
       }
       allEpisodes += "</div>"
 
-
+// sets html of the block episodes to all episodes
       $("#blockEp").html(allEpisodes);
       $('#episodeNums').text("Episodes (" + numEps + ")");
 
@@ -456,7 +434,7 @@ function loadEpisodeData(season){
     }
   });
 }
-
+// loads information about movies
 function loadIndividualEpisodeData(){
   var tvID = getUrlVars()["id"];
   var actualEpisode = episodeSelected - 100;
@@ -493,67 +471,55 @@ function getUrlVars() {
   });
   return vars;
 }
-
+// opens IMDB url
 function openIMDB(){
   var tmdbID = event.path[0].id;
   var link = "http://www.imdb.com/title/" + tmdbID;
   openInNewTab(link);
 }
-
+// opens IMDB in a new tab
 function openInNewTab(url) {
   var win = window.open(url, '_blank');
   win.focus();
 }
-
+// takes user to homepage from series
 function goHomeSeries(){
   var urlHome = "/?id=Series";
   isDelving == false;
   window.location.replace(urlHome);
 }
+// takes user to homepage from movies
 function goHomeMovies(){
   var urlHome = "/?id=Movies";
   isDelving == false;
   window.location.replace(urlHome);
 }
-
+// takes user to the login page
 function login(){
   var urlHome = "/login";
   isDelving == false;
   window.location.replace(urlHome);
 }
-
+// takes user to the logout page
 function logout(){
   var urlHome = "/logout";
   isDelving == false;
   window.location.replace(urlHome);
 }
-
+// takes user to the modify user page
 function modifyUser(){
   var url = "/remUser";
   isDelving == false;
   window.location.replace(url);
 }
-
-//------------------------Added for signUp page---------------
-function signUP(){
-  var urlHome = "/singUP";
-  isDelving == false;
-  window.location.replace(urlHome);
-}
-
+// takes user the the account page
 function openAccount(){
   var urlHome = "/profile";
   isDelving == false;
   window.location.replace(urlHome);
 }
-
-// function loadFavouriteMedia(){
-//   var mediaId = $(this).attr("id");
-//   console.log(mediaId);
-// }
-
-
-
+// loads the home page
+// search for tv series
 function loadHomepage(){
   var typeSearch = getUrlVars()["id"];
   if (typeSearch == "Series"){
@@ -576,32 +542,7 @@ function loadHomepage(){
     }
   }
 };
-
-
-// function loadFavourites(){
-//   var hasMovies = false;
-//   var hasSeries = false;
-//   for (var favourite in '<%user.favourites%>'){
-//     var movieType = '<%user.favourites[favourite].favouriteMedia.type%>';
-//      if (movieType == "movie") {
-//        hasMovies = true;
-//       $("#moviesFav").append('<div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia" onLoad="loadFavouriteMedia();"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>');
-//   }
-//   }
-//
-//   if (hasMovies == false){
-//     var output = "<div>Favourites Will Appear Here When Added</div>"
-//     $(".movieFavs").html() = output;
-//   }
-//   if ($(".seriesFavs").html() == null || $(".seriesFavs").html() == ""){
-//     var output = "<div>Favourites Will Appear Here When Added</div>"
-//     $(".seriesFavs").html() = output;
-//   }
-// }
-
-
-
-
+// calls the API of most popular genres, films and tv
 function CallAPILoadPopularMedia(media, page) {
   if (genreSelected !== null){
     console.log("genre has been selected: " + genreSelected);
@@ -641,7 +582,7 @@ function CallAPILoadPopularMedia(media, page) {
     }
   });
 }
-
+// When a series block is seleceted it runs that code
 $(document).on('click', ".seriesBlock", function() {
   for(i = 1; i <= numSeries; i++){
     var location = i;
@@ -652,42 +593,7 @@ $(document).on('click', ".seriesBlock", function() {
   seriesSelected = series;
   loadEpisodeData(seriesSelected);
 });
-
-// $(".favouriteIcon").click(function(event){
-//       event.stopPropagation();
-//       alert("Favourite Was clicked");
-//   });
-// $(".posterOverlay").click(function(event){
-//     alert("Overlay clicked");
-// });
-
-// $(document).on('click', ".favouriteIcon", function(event) {
-//   event.stopPropagation();
-//   console.log("favourite clicked");
-//   var id = $(this).parent().attr('id');
-//   console.log("media id: " + id)
-//   $.ajax({
-//     url: '/favourite',
-//     type: 'POST',
-//     data: {'mediaId': id },
-//     success: function(data){
-//       alert('Success!')
-//     }
-//   })
-  // $.post("/favourite", //Required URL of the page on server
-  // { // Data Sending With Request To Server
-  //   mediaId:id
-  // },
-  // function(response,status){ // Required Callback Function
-  //   alert("*----Received Data----*nnResponse : " + response+"nnStatus : " + status);//"response" receives - whatever written in echo of above PHP script.
-  //   $("#form")[0].reset();
-  // });
-
-  // xmlhttp.open("POST","/favourite");
-  // xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
-  // xmlhttp.send("mediaId=" + id);
-// });
-
+// When a poster is selected it runs that code
 $(document).on('click', ".posterOverlay", function(event) {
   console.log("poster clicked");
   var path = $(this).attr('id');
@@ -719,7 +625,7 @@ $(document).on('click', ".episodeBlock", function() {
 
 });
 
-
+// submit button
 $("#submit").click(function() {
   $('html, body').animate({
     scrollTop: $("#mainStuff").offset().top
@@ -760,28 +666,3 @@ window.onclick = function(event) {
     }
   }
 }
-
-//LOGIN BUTTON
-// function onSignIn(googleUser) {
-//   var profile = googleUser.getBasicProfile();
-//   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-//   console.log('Name: ' + profile.getName());
-//   console.log('Image URL: ' + profile.getImageUrl());
-//   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-// }
-//
-// const {OAuth2Client} = require('google-auth-library');
-// const client = new OAuth2Client(CLIENT_ID);
-// async function verify() {
-//   const ticket = await client.verifyIdToken({
-//       idToken: token,
-//       audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
-//       // Or, if multiple clients access the backend:
-//       //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
-//   });
-//   const payload = ticket.getPayload();
-//   const userid = payload['sub'];
-//   // If request specified a G Suite domain:
-//   //const domain = payload['hd'];
-// }
-// verify().catch(console.error);
