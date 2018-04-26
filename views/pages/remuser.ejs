@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html>
 
+<!--Standard header code -->
 <header>
   <% include ../partials/head %>
 </header>
 
 
 <body class="bodyFlick">
+  <!--header tags to put a back button onto the bar.
+  This will take you back to your account screen -->
   <header>
     <div class="headerBar">
       <img class="backBut" onclick="openAccount()" src="/public/images/backbutton.png" alt="Back Button"/>
     </div>
-
   </header>
 
   <main>
+    <!--Jumbotron showing our site logo. This is displayed
+    in the middle of the screen-->
     <div class="jumbotron">
-
       <div class="loginLogo">
         <img src="/public/images/logo.png" class="SiteLogo">
       </div>
 
-      <!-- form with entry box for each bit of inomfrtaion we want from our user. -->
+      <!-- form with entry box for each bit of information we want from our user. -->
       <h3>Edit Info</h3>
 
-      <!-- submits to our /adduser route. -->
+      <!-- submits to our /adduser route.
+      This section is where the user will inputs there data. This site allows you to change your
+      first and last name, an email address, username a current and new password.-->
       <form action="/updateUser" method="POST">
         <h4>Name</h4>
         <input type="text" placeholder="First Name" name="first" class="searchInput" value="<%= user.name.first %>">
         </br>
         <input type="text" placeholder="Last Name"  name="last" class="searchInput" value="<%= user.name.last %>">
-        </br><h4>Login</h4>
+        </br>
+        <h4>Login</h4>
         <input type="Email" placeholder="me@example.com" name="email" class="searchInput" value="<%= user.email %>">
         </br>
         <input type="text" placeholder="Username"     name="username" class="searchInput" value="<%= user.login.username %>">
-      </br>
-      <input type="password" placeholder="Current Password" name="currentPassword" class="searchInput">
-      </br>
-      <input type="password" placeholder="New Password"  name="password" class="searchInput">
-      </br>
-      <input type="favouritesHolder" placeholder="Favourites" name="favouritesHolder" class="hiddenInput" value="<%= user.favourites %>">
-      </br>
-      </br><button type="submit" class="submitButton">Update</button>
-    </form>
+        </br>
+        <input type="password" placeholder="Current Password" name="currentPassword" class="searchInput">
+        </br>
+        <input type="password" placeholder="New Password"  name="password" class="searchInput">
+        </br>
+        <input type="favouritesHolder" placeholder="Favourites" name="favouritesHolder" class="hiddenInput" value="<%= user.favourites %>">
+        </br>
+        </br><button type="submit" class="submitButton">Update</button>
+      </form>
 
-<br>
-<br>
+      <br>
+      <br>
 
+      <form action="/delete" method="POST"><button type="submit" class="submitButton">Delete Account</button></form>
+    </div>
+  </main>
 
-<form action="/delete" method="POST"><button type="submit" class="submitButton">Delete Account</button></form>
+  <!--Partial code for the back to top button -->
+  <% include ../partials/upButton %>
 
-
-
-</div>
-</main>
-
-<% include ../partials/upButton %>
-
-
-<footer>
-  <% include ../partials/footer %>
-</footer>
+  <!--Partial code for the footer-->
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
 
 </body>
-
 </html>

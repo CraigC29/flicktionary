@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 
+<!--Standard header code -->
 <header>
   <% include ../partials/head %>
 </header>
 
-
 <body class="bodyFlick">
+  <!--header tags to put a back button onto the bar.
+  This will take you back to the movies search homepage -->
   <header>
     <div class="headerBar">
       <img class="backBut" onclick="goHomeMovies()" src="/public/images/backbutton.png" alt="Back Button"/>
     </div>
-
   </header>
 
   <main>
     <div class="jumbotron">
-
       <div class="loginLogo">
         <img src="/public/images/logo.png" class="SiteLogo">
       </div>
@@ -24,33 +24,34 @@
       <!-- form with entry box for each bit of inomfrtaion we want from our user. -->
       <h3>Sign Up!</h3>
 
-      <!-- submits to our /adduser route. -->
+      <!-- submits to our /adduser route.
+      This code is used for getting the user to add their info to actually
+      sign up to our website. -->
       <form action="/adduser" method="POST">
         <h4>Name</h4>
         <input type="text" placeholder="First Name" name="first" class="searchInput">
         </br>
         <input type="text" placeholder="Last Name"  name="last" class="searchInput">
-        </br><h4>Login</h4>
+        </br>
+        <h4>Login</h4>
         <input type="Email" placeholder="me@example.com" name="email" class="searchInput">
         </br>
         <input type="text" placeholder="Username"     name="username" class="searchInput">
         </br>
         <input type="password" placeholder="Password"  name="password" class="searchInput">
-      </br><button type="submit" class="submitButton">Sign Up</button>
+        </br>
+        <button type="submit" class="submitButton">Sign Up</button>
       </form>
-
-
-
     </div>
   </main>
 
+  <!--Partial code for the back to top button -->
   <% include ../partials/upButton %>
 
-
+  <!--Partial code for the footer-->
   <footer>
     <% include ../partials/footer %>
   </footer>
 
 </body>
-
 </html>
