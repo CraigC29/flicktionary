@@ -118,7 +118,7 @@ width is 100%, background colour is set, height, margin and padding all set*/
   padding: 0px;
   z-index: 2;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
-  font-family: "Century Gothic";
+  font-family: Lato;
 }
 
 /* movie button is floated to the left, padding is set and colours are selected*/
@@ -288,7 +288,7 @@ width is 100%, background colour is set, height, margin and padding all set*/
   padding-top: 100px;
   font-size: 200px;
   color: #EA6B00;
-  font-family: "Century Gothic";
+  font-family: Lato;
   text-align: center;
   width: screenWidth;
 }
@@ -314,7 +314,7 @@ a {
 /*base id has its text and font set*/
 #base{
   text-align: center;
-  font-family: "Century Gothic";
+  font-family: Lato;
 }
 
 /*class item1 has its width set*/
@@ -443,7 +443,7 @@ a {
   width: auto;
   height: 30px;
   font-size: 16px;
-  font-family: "Century Gothic";
+  font-family: Lato;
   background-color: #211d23;
   border: none;
   color: white;
