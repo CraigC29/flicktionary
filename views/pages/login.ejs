@@ -3,24 +3,28 @@
 
 <body class="bodyFlick">
 
+  <!--Standard header code -->
   <header>
     <% include ../partials/head %>
   </header>
 
+  <!--head tags to display back button -->
   <head>
     <img class="backBut loginBack" onclick="goHomeMovies()" src="/public/images/backbutton.png" alt="Back Button"/>
   </head>
 
   <main>
-
     <!-- div tags with the logo image, image is called from a file -->
     <div class="loginLogo">
       <img src="/public/images/logo.png" class="SiteLogo">
     </div>
-    <div class="jumbotron">
 
+    <div class="jumbotron">
       <h2 class="loginHead">Login</h2>
-      <!-- simple login form, submits to our /dologin route -->
+
+      <!-- simple login form, submits to our /dologin route
+        The user will be asked to enter their username and password. They
+        will then hit the submit button to login-->
       <form action="/dologin" method="POST">
         <input type="text" placeholder="username" name="username" class="loginText">
         <br>
@@ -30,20 +34,21 @@
       </form>
 
       <h4>OR</h4>
-      <!-- Added Form Tags to route to our <doSignUP route -->
-      <!-- <form action="/adduser" method="POST"> -->
-        <button type="submit" class="submitButton" onclick="loadSignUp()">Sign Up</button>
-      <!-- </form> -->
+
+      <!--This is used to sign up as a new user. This takes you to the
+      addUser page-->
+      <button type="submit" class="submitButton" onclick="loadSignUp()">Sign Up</button>
 
     </div>
-  </main>
+  </main> <!--main closed-->
 
+  <!--Partial code for the back to top button -->
   <% include ../partials/upButton %>
 
+  <!--Partial code for the footer-->
   <footer>
     <% include ../partials/footer %>
   </footer>
 
 </body>
-
 </html>
