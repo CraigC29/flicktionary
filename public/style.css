@@ -301,10 +301,12 @@ width is 100%, background colour is set, height, margin and padding all set*/
   width: screenWidth;
 }
 
+/*body background color us set*/
 body {
   background-color: gray;
 }
 
+/*The a tags has its display set */
 a {
   display: none;
 }
@@ -328,14 +330,15 @@ a {
     transition: 0.2s linear; */
 }
 
+/*base id has its text and font set*/
 #base{
   text-align: center;
   font-family: "Century Gothic";
 }
 
+/*class item1 has its width set*/
 .item1 {
   width: 100%;
-  /* max-width: 80%; */
 }
 
 /* side text alignment set to left and flex, width and colour also selected*/
@@ -423,7 +426,7 @@ a {
   /* visibility: hidden; */
 }
 
-/* search imput perameters all set*/
+/* search input perameters all set*/
 #searchInput {
   max-width: 600px;
   min-width: 250px;
@@ -433,6 +436,7 @@ a {
   text-align: center;
 }
 
+/*searchInput widths, height, text and borders are set*/
 .searchInput{
   max-width: 600px;
   min-width: 250px;
@@ -444,7 +448,7 @@ a {
   border-radius: 8px;
 }
 
-/* imput set to hidden*/
+/* input set to hidden*/
 .hiddenInput{
   visibility: hidden;
 }
@@ -455,11 +459,12 @@ a {
   font-size: 40px;
 }
 
+/* fullName margin*/
 .fullName{
   margin-bottom: 0px;
 }
 
-/* submit button margins, sizes, borders colours and text alignment all set*/
+/* submit button margins, sizes, borders colours and text allignment all set*/
 .submitButton{
   margin-top: 10px;
   margin-bottom: 20px;
@@ -498,6 +503,7 @@ a {
   box-sizing: border-box;
 }
 
+/*myBtn attributes are set*/
 #myBtn {
   position: fixed;
   bottom: 40px;
@@ -514,36 +520,44 @@ a {
   display: none;
 }
 
+/* myBtn set to hover and the brightness changes to make it stand out more*/
 #myBtn:hover {
   filter: brightness(120%);
 }
 
+/* lower text allign is set*/
 .lower {
   text-align: center;
 }
 
+/*loadMore visibility is set to hidden*/
 #loadMore {
   visibility: hidden;
 }
 
+/* the thunbNail images width is set */
 .thumbnailImage {
   width: 50%;
 }
 
+/* the sideInfo width is set */
 .sideInfo {
   width: 50%;
 }
 
+/* gridTile color and padding is set*/
 .gridTile {
   color: #EA6B00;
   padding-left: 10px;
   padding-right: 10px;
 }
 
+/* the centerText is alligned */
 .centerText{
   text-align: center;
 }
 
+/* thesideText is alligned and displayed */
 .sideText {
   align-items: flex-start;
   display: flex;
@@ -551,19 +565,21 @@ a {
   justify-content: space-around;
 }
 
+/*The posterImage height and width is set*/
 .posterImage{
   height: 200px;
   width: auto;
 }
 
+/*seriesHead has a padding set*/
 .seriesHeads{
   padding-bottom: 5px;
 }
 
+/*The mainImage has both widths and margins set*/
 #mainImage{
   max-width: 40%;
   min-width: 30%;
-  /* float: left; */
   margin: 0px;
   margin-right: 4%;
 }
