@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
-<!--test-->
+
+<!--Standard header code -->
 <header>
   <% include ../partials/head %>
 </header>
@@ -10,115 +11,101 @@
 
 
 
-<div class="headerBar">
-  <!--Opening a button tag, with class loginBut of type button -->
-  <div class="itemContainer" id="movieContainer">
-    <div class="movieButton" onclick="changeToMovie()" id="movieButton">Movies</div>
-  </div>
-  <!--Opening a button tag, with class loginBut of type button -->
-  <div class="itemContainer" id="seriesContainer">
-    <div class="seriesButton" onclick="changeToSeries()" id="seriesButton">Series</div>
-  </div>
-  <div class="dropdown" id="seriesContainer">
-    <button onclick="showDropdown()" class="genreButton" id="genreButtonMain">Genre</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a id="28" class="genreSelectButton">Action</a>
-      <a id="12" class="genreSelectButton">Adventure</a>
-      <a id="16" class="genreSelectButton">Animation</a>
-      <a id="80" class="genreSelectButton">Crime</a>
-      <a id="99" class="genreSelectButton">Documentary</a>
-      <a id="18" class="genreSelectButton">Drama</a>
-      <a id="14" class="genreSelectButton">Fantasy</a>
-      <a id="36" class="genreSelectButton">History</a>
-      <a id="27" class="genreSelectButton">Horror</a>
-      <a id="878" class="genreSelectButton">Science Fiction</a>
-      <a id="53" class="genreSelectButton">Thriller</a>
-      <a id="10752" class="genreSelectButton">War</a>
-      <a id="37" class="genreSelectButton">Western</a>
-      <a id="clear" class="genreSelectButton">Clear</a>
+  <div class="headerBar">
+
+    <!--Item Contanier to allow the user to select the Movies section -->
+    <div class="itemContainer" id="movieContainer">
+      <div class="movieButton" onclick="changeToMovie()" id="movieButton">Movies</div>
     </div>
-  </div>
-  <!--Opening a button tag, with class loginBut of type button -->
 
-  <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <!--Item Contanier to allow the user to select the Movies section -->
+    <div class="itemContainer" id="seriesContainer">
+      <div class="seriesButton" onclick="changeToSeries()" id="seriesButton">Series</div>
+    </div>
 
-
-  LOGOUT
-  <a href="#" onclick="signOut();">Sign out</a>
-  <script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-  </script> -->
-
-
-<button class="loginBut" type="button" name="login" id="headButton">
-  <% if (loggedIn == false) { %>
-    <img src="/public/images/loginButtonImage.png" alt="LOGIN" class="loginBut" onClick="login()" title="loggedOut"><a>Login</a>
-  <% } else { %>
-    <img src="/public/images/myAccount.png" alt="LOGIN" class="loginBut" onClick="openAccount()" href="/profile" title="loggedIn"><a>Login</a>
-  <% } %>
-</button>
-
-  <!--Creating logo image, with class logoimage. Calling image from file -->
-
-</div>
-
-<!--main class-->
-<main class="mainBody" id="mainBody">
-
-  <!-- div tags with the logo image, image is called from a file -->
-  <div>
-    <img src="/public/images/logo.png" class="SiteLogo">
-  </div>
-  <input type="text" class="searchbar" id="searchInput" name="Search Media" placeholder="Search Movies"> </input>
-  <br>
-  <button id="submit" class="submitButton">Search</button>
-
-  <!-- P tag to give the user an idea of what to search for.
-  This is so that there is no uncertainty over what the site does -->
-  <p>Streamed Media Search Engine</p>
-
-</main> <!--Closing main tag -->
-
-<% include ../partials/upButton %>
-
-<div class="allMovies" id="allMovies">
-
-
-  <div class="item1" id="movieBar">
-    <div class="large-item">
-
-      <div id="message"></div>
-      <ul id="pagination"></ul>
-
-      <div id="resultsbox"  >
-
-        <div id="results">
-          <!-- content will be loaded here (promise) -->
-        </div>
-
+    <!--Dropdown menu to allow the user to select a specific genre.
+      The ids are whats given in the api used. There is also a clear
+      class, this is to just go back to the most popular movie. i.e
+      the ones shown when you load the site up.-->
+    <div class="dropdown" id="seriesContainer">
+      <button onclick="showDropdown()" class="genreButton" id="genreButtonMain">Genre</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a id="28" class="genreSelectButton">Action</a>
+        <a id="12" class="genreSelectButton">Adventure</a>
+        <a id="16" class="genreSelectButton">Animation</a>
+        <a id="80" class="genreSelectButton">Crime</a>
+        <a id="99" class="genreSelectButton">Documentary</a>
+        <a id="18" class="genreSelectButton">Drama</a>
+        <a id="14" class="genreSelectButton">Fantasy</a>
+        <a id="36" class="genreSelectButton">History</a>
+        <a id="27" class="genreSelectButton">Horror</a>
+        <a id="878" class="genreSelectButton">Science Fiction</a>
+        <a id="53" class="genreSelectButton">Thriller</a>
+        <a id="10752" class="genreSelectButton">War</a>
+        <a id="37" class="genreSelectButton">Western</a>
+        <a id="clear" class="genreSelectButton">Clear</a>
       </div>
     </div>
 
+
+    <!--Button: If the user isn't logged in the a login image will appear on screen.
+      Otherwise an account image will appear so you can look at your account.-->
+    <button class="loginBut" type="button" name="login" id="headButton">
+      <% if (loggedIn == false) { %>
+        <img src="/public/images/loginButtonImage.png" alt="LOGIN" class="loginBut" onClick="login()" title="loggedOut"><a>Login</a>
+      <% } else { %>
+        <img src="/public/images/myAccount.png" alt="LOGIN" class="loginBut" onClick="openAccount()" href="/profile" title="loggedIn"><a>Login</a>
+      <% } %>
+    </button>
+
   </div>
 
-  <div class="item2" id="sideBar">
+  <!--main class,div tags with the logo image, image is called from a file.
+    Searchbar and submit button is also implemented here-->
+  <main class="mainBody" id="mainBody">
+    <div>
+      <img src="/public/images/logo.png" class="SiteLogo">
+    </div>
+    <input type="text" class="searchbar" id="searchInput" name="Search Media" placeholder="Search Movies"> </input>
+    <br>
+    <button id="submit" class="submitButton">Search</button>
 
-    <div class="large-item-2" id="moreDetails">
-      <p>Movie:</p>
+  <!--P tag to give the user an idea of what to search for.
+  This is so that there is no uncertainty over what the site does -->
+  <p>Streamed Media Search Engine</p>
+
+  </main> <!--Closing main tag -->
+
+  <!--Partial code for the back to top button -->
+  <% include ../partials/upButton %>
+
+
+  <!--Div class here to actually display the movies(This is effectively the homepage) -->
+  <div class="allMovies" id="allMovies">
+    <div class="item1" id="movieBar">
+      <div class="large-item">
+        <div id="message"></div>
+        <ul id="pagination"></ul>
+        <div id="resultsbox"  >
+          <div id="results">
+            <!--content is loaded here-->
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!--Helps display -->
+    <div class="item2" id="sideBar">
+      <div class="large-item-2" id="moreDetails">
+        <p>Movie:</p>
+      </div>
+    </div>
   </div>
 
-</div>
-
-<footer>
-  <% include ../partials/footer %>
-</footer>
+  <!--Partial code for the footer-->
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
 
 </body><!--Closing body tag -->
 </html><!--Closing html tag -->
