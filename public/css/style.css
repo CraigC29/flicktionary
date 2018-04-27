@@ -1,0 +1,945 @@
+/* The width of the page is set to 100%, there is padding at the
+top of the page for 300 pixels*/
+.mainBody{
+  width: 100% ;
+  margin-right:auto;
+  margin-left: auto;
+  padding-top: 170px;
+}
+
+/*Font used throughout main classes */
+main{
+  font-family: Lato;
+}
+
+/* The login button is kept to the right hand side of the page,
+the background is transparent and the border is set to 0 pixels*/
+.loginBut{
+  float: right;
+  top:0;
+  padding-left: 10px;
+  border: 0px;
+  background: transparent;
+  height: 90%;
+  width: auto;
+}
+
+/*logoutBut has attributes set to it*/
+.logoutBut{
+  float: left;
+  top:0;
+  padding-right: 10px;
+  border: 0px;
+  background: transparent;
+  height: 80%;
+  width: auto;
+}
+
+/* The logo button is kept to the right hand side of the page,
+the width of the page is automatically set, the image is kept to
+right of page and margins and borders are set at 0 pixels*/
+.logoimage{
+  height: 30px;
+  width: auto;
+  float: right;
+  margin-left: 0px;
+  margin-top: 0px;
+  border: 0px;
+}
+
+/*maximum width of the logo is 100% and the height and widths of
+the logo are automatically set*/
+.SiteLogo {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+/*background colour is set to grey, text is alligned to the centre,
+font is set, font size is selected and the weight is also set*/
+.bodyFlick{
+    background-color: #2f2833;
+    text-align: center;
+    color: #ed5f25;
+    font-family: Lato;
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.homepage{
+  overflow-x: hidden;
+}
+
+/* padding area around the logo is set, the size of the logo is changed
+and margin is set*/
+.loginLogo{
+  padding-top: 5%;
+  width: 30%;
+  min-width: 400px;
+  margin-left: 35%;
+  margin-right:35%;
+}
+
+/* Size of the button is set*/
+.loginBack{
+  max-width: 40px;
+  max-height: 40px;
+}
+
+/*margins are set*/
+h4{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*the footer is set to black, the text colour is white, the position of the
+footer is fixed, the width is set at 100% and the font size is medium*/
+.page-footer{
+  background-color: black;
+  color: white;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  left: 0px;
+  margin-bottom: 0px;
+  font-size: medium;
+}
+
+/* font size is set to 20 pixels, text is aligned to the left hand side of the page,
+width is 100%, background colour is set, height, margin and padding all set*/
+.headerBar{
+  font-size: 20px;
+  text-align: left;
+  width: 100%;
+  background-color: #211d23;
+  height: 40px;
+  margin: 0px;
+  padding: 0px;
+  z-index: 2;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Century Gothic";
+}
+
+/* movie button is floated to the left, padding is set and colours are selected*/
+.movieButton{
+  float: left;
+  padding: 7px;
+  padding-right: 10px;
+  background-color: #211d23;
+  cursor: pointer;
+  color: #bc4f23;
+  width: inherit;
+  font-family: Lato;
+}
+
+/* background colour set*/
+#movieContainer{
+  background-color: #ed5f25;
+}
+
+/* series button perameters set */
+.seriesButton{
+  float: left;
+  padding: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #211d23;
+  cursor: pointer;
+  color: #bc4f23;
+  width: inherit;
+}
+
+/* positioning and height of poster overlay set*/
+.posterOverlay{
+  position: absolute;
+  height: 231px;
+}
+
+/* hides media type */
+.mediaTypePass{
+  visibility: hidden;
+}
+
+/* image overlay poster position and height set*/
+.imageOverlayPoster{
+  position: relative;
+  height: 231px;
+}
+
+/* favourite icon perameters set*/
+.favouriteIcon{
+  opacity: 0.6;
+  float: right;
+  border: none;
+  top: 2%;
+  right: 14%;
+  width: 20%;
+  height: auto;
+  position: absolute;
+  margin-top: 6px;
+  color: rgba(0, 0, 0, 0);
+}
+
+/* favourite icon set to hover, opacity and brightness also selected*/
+.favouriteIcon:hover{
+  opacity: 0.9;
+  filter: brightness(130%);
+}
+
+/* favourite icon big peramters set*/
+.favouriteIconBig{
+  opacity: 0.6;
+  float: right;
+  border: none;
+  top: 7.5%;
+  right: 14%;
+  width: 40px;
+  height: auto;
+  position: absolute;
+  color: rgba(0, 0, 0, 0);
+}
+
+/* set to hover, opacity and brightness set*/
+.favouriteIconBig:hover{
+  opacity: 0.9;
+  filter: brightness(130%);
+}
+
+/* favorite icon big within sries perameteres set*/
+.favouriteIconBigSeries{
+  opacity: 0.6;
+  float: right;
+  border: none;
+  top: 14%;
+  right: 9%;
+  width: 40px;
+  height: auto;
+  position: absolute;
+  color: rgba(0, 0, 0, 0);
+}
+
+/* set to hover, opacity and brightness set*/
+.favouriteIconBigSeries:hover{
+  opacity: 0.9;
+  filter: brightness(130%);
+}
+
+/* genre button perameters all set*/
+.genreButton{
+  float: left;
+  padding: 7px;
+  padding-left: 5px;
+  padding-right: 10px;
+  background-color: #211d23;
+  cursor: pointer;
+  color: #bc4f23;
+  width: inherit;
+  border: none;
+  height: inherit;
+  font-family: Lato;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* genre button set to hover and colour is selected*/
+.genreButton:hover{
+  color: #ed5f25;
+}
+
+/* item container sizes set and set to float on the left*/
+.itemContainer{
+  height: inherit;
+  width: 75px;
+  float: left;
+  font-family: Lato;
+}
+
+/* movie button set to hover and colour set*/
+.movieButton:hover{
+  color: #ed5f25;
+}
+
+/* series button set to hover and colour is set*/
+.seriesButton:hover{
+  color: #ed5f25;
+}
+
+/* back button perameters are all set*/
+.backBut{
+  float: right;
+  top:0;
+  padding-left: 10px;
+  border: 0px;
+  background: transparent;
+  height: 90%;
+  width: auto;
+}
+
+/* back button hovers and brightness is set*/
+.backBut:hover{
+  filter: brightness(80%);
+  cursor:pointer;
+}
+
+/* API CSS ----------------------------- */
+/* heading text padding and fonts set, colour set and text aligned to centre of page*/
+.headText {
+  padding-top: 100px;
+  font-size: 200px;
+  color: #EA6B00;
+  font-family: "Century Gothic";
+  text-align: center;
+  width: screenWidth;
+}
+
+/*body background color us set*/
+body {
+  background-color: gray;
+}
+
+/*The a tags has its display set */
+a {
+  display: none;
+}
+
+/* image click perameters all set*/
+.imageClick {
+  width: 154px;
+  height: 231px;
+  border-radius: 10px;
+  border-color: blue;
+}
+
+/*base id has its text and font set*/
+#base{
+  text-align: center;
+  font-family: "Century Gothic";
+}
+
+/*class item1 has its width set*/
+.item1 {
+  width: 100%;
+}
+
+/* side text alignment set to left and flex, width and colour also selected*/
+.sideText {
+  text-align: left;
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #6A6564;
+}
+
+/* thumbnail image perameters all set*/
+.thumbnailImage {
+  margin: 6px;
+  background-color: #393534;
+  text-align: center;
+  padding-top: 4px;
+  max-width: 165px;
+}
+
+/* item2 midth and max width set and set to hidden*/
+.item2 {
+  max-width: 30%;
+  width: 30%;
+  visibility: hidden;
+}
+
+/* the alignment of all movies is set*/
+.allMovies {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  height: 0px;
+  align-content: flex-start;
+}
+
+/* large item perameters are set*/
+.large-item {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  height: 0px;
+}
+
+/* container alignment selected*/
+.container {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+/* favourite container perameters are all set*/
+.favContainer {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  background-color: #211d23;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+  overflow-y:hidden;
+}
+
+/* favheader text is aligned to the left of the page and margin set to 0 pixels*/
+.favHeader{
+  text-align: left;
+  margin: 0px;
+}
+
+/* search input perameters all set*/
+#searchInput {
+  max-width: 600px;
+  min-width: 250px;
+  width: auto;
+  height: 30px;
+  font-size: 30px;
+  text-align: center;
+}
+
+/*searchInput widths, height, text and borders are set*/
+.searchInput{
+  max-width: 600px;
+  min-width: 250px;
+  width: auto;
+  height: 30px;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+/* input set to hidden*/
+.hiddenInput{
+  visibility: hidden;
+}
+
+/* username margin and font set*/
+.username{
+  margin-top: 0px;
+  font-size: 40px;
+}
+
+/* fullName margin*/
+.fullName{
+  margin-bottom: 0px;
+}
+
+/* submit button margins, sizes, borders colours and text allignment all set*/
+.submitButton{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  min-width: 100px;
+  width: auto;
+  height: 30px;
+  font-size: 16px;
+  font-family: "Century Gothic";
+  background-color: #211d23;
+  border: none;
+  color: white;
+  padding: 4px 14px;
+  border: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+/* submit button set to hover and background colour and colours are set*/
+.submitButton:hover{
+  background-color: #bc4f23;
+  color: #211d23;
+}
+
+/* login text peramters all set*/
+.loginText{
+  width: 10%;
+  min-width: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/*myBtn attributes are set*/
+#myBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #bc4f23;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+  display: none;
+}
+
+/* myBtn set to hover and the brightness changes to make it stand out more*/
+#myBtn:hover {
+  filter: brightness(120%);
+}
+
+/* lower text allign is set*/
+.lower {
+  text-align: center;
+}
+
+/*loadMore visibility is set to hidden*/
+#loadMore {
+  visibility: hidden;
+}
+
+/* the thunbNail images width is set */
+.thumbnailImage {
+  width: 50%;
+}
+
+/* the sideInfo width is set */
+.sideInfo {
+  width: 50%;
+}
+
+/* gridTile color and padding is set*/
+.gridTile {
+  color: #EA6B00;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* the centerText is alligned */
+.centerText{
+  text-align: center;
+}
+
+/* thesideText is alligned and displayed */
+.sideText {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/*The posterImage height and width is set*/
+.posterImage{
+  height: 200px;
+  width: auto;
+}
+
+/*seriesHead has a padding set*/
+.seriesHeads{
+  padding-bottom: 5px;
+}
+
+/*The mainImage has both widths and margins set*/
+#mainImage{
+  max-width: 40%;
+  min-width: 30%;
+  margin: 0px;
+  margin-right: 4%;
+}
+
+/*The mediaInfoMovie has text alligned,
+padding and margins set along with te width */
+.mediaInfoMovie{
+  text-align: left;
+  margin: 0px;
+  Padding-right: 8%;
+  max-width: 50%;
+  min-width: 20%;
+}
+
+/* dropbtn:hover and dropbtn:focus have their background color set*/
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+/*dropdown has its position and display set*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/*dropdown-content has attributes set. Including dispaly
+position and background-color*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2f2833;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 40px;
+}
+
+/*genreSelectButton has its width and cursor entity set*/
+.genreSelectButton{
+  width: 80%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/*genericSelectButton has its width and cursor entity set*/
+.genericSelectButton{
+  width: 80%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/*the a tag inside the dropdown-content has color, padding and text set*/
+.dropdown-content a {
+    color: #ed5f25;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+}
+
+/*the a tag inside the dropdown, when hovered over,
+the brihtness increases*/
+.dropdown a:hover {
+  filter: brightness(120%);}
+
+/*the show has its display set*/
+.show {
+  display:block;
+}
+
+/*the seriesBlockContainer has its width, margin, padding
+and color set*/
+#seriesBlockContainer{
+  width: 13%;
+  font-size: 20px;
+  padding-left: 3%;
+  margin-right: 2%;
+  margin-top: 20px;
+  color: white;
+}
+
+/*the blockSeries, blockEp and blockInfo overflow set*/
+#blockSeries, #blockEp, #blockInfo{
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+/*the seriesEpisodeContainer has its width, color, text and margin set*/
+#seriesEpisodeContainer{
+  width: 45%;
+  font-size: 20px;
+  color: white;
+  height: 100%;
+  margin-bottom: 5%;
+  margin-top: 20px;
+  max-height: 230px;
+}
+
+/*the moreLittleInfo has its font-size and color set*/
+.moreLittleInfo{
+  font-size: 12px;
+  color: grey;
+}
+
+/*the episodeDescription has its font-size and color and padding set*/
+.episodeDescription{
+  font-size: 12px;
+  color: white;
+  padding-top: 10px;
+}
+
+/*the seriesEpisodeInfoContainer has its width, color, padding and margin set*/
+#seriesEpisodeInfoContainer{
+  width: 33%;
+  bottom: 0;
+  margin-left: 1%;
+  font-size: 20px;
+  color: white;
+  padding-top: 20px;
+  margin-right: 3px;
+  max-height: 230px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #939393;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    width: 10px;
+}
+
+/*seriesBlock has its background color, sizing, and margins set.  */
+.seriesBlock{
+  background-color: #2f2833;
+  width: 97%;
+  height: 22px;
+  font-size: 16px;
+  padding-left: 6px;
+  margin-top: 4px;
+  color: white;
+}
+
+/* when hovering over seriesBlock, brightness increasing along
+with the type of cursor taht appears*/
+.seriesBlock:hover{
+  filter: brightness(140%);
+  cursor: pointer;
+}
+
+/*episodeBlock has its background color, sizing, and margins set.  */
+.episodeBlock{
+  background-color: #2f2833;
+  width: 97%;
+  height: 22px;
+  font-size: 16px;
+  padding-left: 6px;
+  margin-top: 4px;
+  color: white;
+}
+
+/* when hovering over episodeBlock, brightness increasing along
+with the type of cursor taht appears*/
+.episodeBlock:hover{
+  filter: brightness(140%);
+  cursor: pointer;
+}
+
+/*the seriesEpisodeNumberContainer has its margin, font and height set*/
+#seriesEpisodeNumberContainer{
+  margin-top: 20px;
+  font-size: 16px;
+  height: 22px;
+}
+
+/*the mediaContainer has itspadding and display set*/
+.mediaContainer{
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0px;
+  padding-bottom: 20px;
+  padding-top: 40px;
+  background-color: transparent;
+}
+
+/*the movieLocation has its margins set*/
+.movieLocation{
+  margin-top: 7%;
+  margin-left: 4%;
+}
+
+/*the movseriesInfoHolder has its attributes set*/
+#seriesInfoHolder{
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 40%;
+  justify-content: flex-start;
+  text-align: left;
+  margin: 0px;
+  font-family: Lato;
+  background-color: #201b23;
+}
+
+/* The blurred Image that appear behnd movie or series when reading
+info about the item*/
+.blurImageContainer{
+  overflow: hidden;
+   -webkit-box-shadow: inset 0 0 200px #000000;
+   -moz-box-shadow: inset 0 0 200px #000000;
+   box-shadow: inset 0 0 200px #000000;
+}
+
+/* seriesBody has its background-color, text alligned along with
+its color, marign and border*/
+.seriesBody{
+  background-color: #201b23;
+  text-align: center;
+  color: #ed5f25;
+  margin: 0px;
+  border: 0px;
+}
+
+/*blurredImageContainer has its position, border and overflow set */
+.blurredImageContainer{
+  position: relative;
+  border: 0px;
+  overflow: hidden;
+}
+
+/*blurredImageContainerMovie as above but also has
+height and min-width set */
+.blurredImageContainerMovie{
+  position: relative;
+  border: 0px;
+  overflow: hidden;
+  height: 100%;
+  min-width: 500px;
+}
+
+/* attributes that effect the burredImage*/
+#blurredImage{
+  width: 100%;
+  object-fit: cover;
+  filter: blur(20px) brightness(0.7);
+    -webkit-filter: blur(20px) brightness(70%);
+    -moz-filter: blur(20px) brightness(70%);
+    -o-filter: blur(20px) brightness(70%);
+    -ms-filter: blur(20px) brightness(70%);
+}
+
+/*attributes that effect the blurredImageMovie*/
+#blurredImageMovie{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(15px) brightness(0.7);
+    -webkit-filter: blur(15px) brightness(70%);
+    -moz-filter: blur(15px) brightness(70%);
+    -o-filter: blur(15px) brightness(70%);
+    -ms-filter: blur(15px) brightness(70%);
+  top: 0px;
+}
+
+/*back image has its position set*/
+.backImage{
+  position: relative;
+}
+
+/*seriesContainer has its position, borders and background set*/
+.seriesContainer{
+  position: absolute;
+   left: 0px;
+   top: 0px;
+   background-color: transparent;
+   z-index: 1;
+}
+
+/*mainSeriesImage and mainSeriesImageBlur has its min-width and margin set*/
+#mainSeriesImage, #mainSeriesImageBlur{
+  min-width: 30%;
+  margin: 0px;
+}
+
+/*mediaInfo has its widths,paddings and margin set*/
+.mediaInfo{
+  min-width: 50%;
+  max-width: 60%;
+  text-align: left;
+  margin: 0px;
+  padding-left: 2%;
+  padding-right: 8%;
+}
+
+/*mainTitle and mainTitleBlur has font attributes along with width set*/
+#mainTitle, #mainTitleBlur{
+  font-size: 40px;
+  font-family: Lato;
+  color: white;
+  width: 90%;
+}
+
+/*seriesInfo and seriesInfo has font attributes set*/
+#seriesInfo, #seriesInfo{
+  color: white;
+  font-size: 20px;
+  font-family: Lato;
+}
+
+/*mainDesc and mainDescBlur has font attributes and some padding set*/
+#mainDesc, #mainDescBlur{
+  padding-top: 30px;
+  font-size: 15px;
+  font-family: Lato;
+  color: white;
+}
+
+/*littleMovieInfo has font attributes set*/
+#littleMovieInfo{
+  color: lightgrey;
+  font-size: 16px;
+  font-family: Lato;
+}
+
+/*largeImage has its margin, width/height and border-radius set*/
+#largeImage{
+  border-radius: 5px;
+  margin-left: 10%;
+  width: 342px;
+  height: 513px;
+}
+
+/*mediaContainer has its width set*/
+.mediaContainer{
+  width: 100%;
+}
+
+/*imdbLink has been assigned attributes. cursor changes to
+signify a link */
+.imdbLink{
+  float: right;
+  text-align: left;
+  cursor: pointer;
+}
+
+/*imdbLink when hovered over changes the color*/
+#imdbLink:hover{
+  color: white;
+}
+
+/*logoHeaderImagehas its height,width and padding set. The cursor also changes*/
+.logoHeaderImage{
+  width: 180px;
+  height: 30px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+  cursor: pointer;
+}
+
+/*when hovering over result, attributes are applied to it. */
+.result:hover{
+  filter:brightness(70%);
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 8pt 3pt #ed5f25;
+  transform: scale(1.03);
+}
+
+/*result has its margin, height and transition set*/
+.result{
+  margin: 10px;
+  height: 231px;
+  transition: .3s ease-in-out;
+}

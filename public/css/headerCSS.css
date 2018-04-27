@@ -1,0 +1,131 @@
+.bodyFlick{
+    background-color: #2f2833;
+    text-align: center;
+    color: #ed5f25;
+    font-family: Lato;
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 0px;
+}
+
+
+.headerBar{
+  font-size: 20px;
+  text-align: left;
+  width: 100%;
+  background-color: #211d23;
+  height: 40px;
+  margin: 0px;
+  padding: 0px;
+  z-index: 2;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Century Gothic";
+}
+
+.itemContainer{
+  height: inherit;
+  width: 75px;
+  float: left;
+  font-family: Lato;
+}
+
+.movieButton{
+  float: left;
+  padding: 7px;
+  padding-right: 10px;
+  background-color: #211d23;
+  cursor: pointer;
+  color: #bc4f23;
+  width: inherit;
+  font-family: Lato;
+}
+
+.movieButton{
+  float: left;
+  padding: 7px;
+  padding-right: 10px;
+  background-color: #211d23;
+  cursor: pointer;
+  color: #bc4f23;
+  width: inherit;
+  font-family: Lato;
+}
+
+.seriesButton{
+  float: left;
+  padding: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #211d23;
+  cursor: pointer;
+  color: #bc4f23;
+  width: inherit;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.seriesContainer{
+  position: absolute;
+   left: 0px;
+   top: 0px;
+   background-color: transparent;
+   z-index: 1;
+}
+
+#movieContainer{
+  background-color: #ed5f25;
+}
+
+.genreButton{
+  float: left;
+  padding: 7px;
+  padding-left: 5px;
+  padding-right: 10px;
+  background-color: #211d23;
+  cursor: pointer;
+  color: #bc4f23;
+  width: inherit;
+  border: none;
+  height: inherit;
+  font-family: Lato;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2f2833;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 40px;
+}
+
+.dropdown-content a {
+    color: #ed5f25;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+}
+
+.genreSelectButton{
+  width: 80%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.loginBut{
+  float: right;
+  top:0;
+  padding-left: 10px;
+  border: 0px;
+  background: transparent;
+  height: 90%;
+  width: auto;
+}

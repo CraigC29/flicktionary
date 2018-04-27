@@ -230,6 +230,7 @@ app.get('/adduser', function(req, res) {
       })
     });
 
+//updates userdata
     app.post('/updateUser', function(req, res) {
       if(!req.session.loggedin){
         console.log("not logged in");
