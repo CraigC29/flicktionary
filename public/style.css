@@ -7,6 +7,7 @@ top of the page for 300 pixels*/
   padding-top: 170px;
 }
 
+/*Font used throughout main classes */
 main{
   font-family: Lato;
 }
@@ -33,9 +34,6 @@ the background is transparent and the border is set to 0 pixels*/
   width: auto;
 }
 
-
-
-
 /* The logo button is kept to the right hand side of the page,
 the width of the page is automatically set, the image is kept to
 right of page and margins and borders are set at 0 pixels*/
@@ -54,7 +52,6 @@ the logo are automatically set*/
   max-width: 100%;
   height: auto;
   width: auto;
-
 }
 
 /*background colour is set to grey, text is alligned to the centre,
@@ -72,6 +69,7 @@ font is set, font size is selected and the weight is also set*/
 .homepage{
   overflow-x: hidden;
 }
+
 /* padding area around the logo is set, the size of the logo is changed
 and margin is set*/
 .loginLogo{
@@ -81,17 +79,18 @@ and margin is set*/
   margin-left: 35%;
   margin-right:35%;
 }
+
 /* Size of the button is set*/
 .loginBack{
   max-width: 40px;
   max-height: 40px;
 }
+
 /*margins are set*/
 h4{
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
 
 /*the footer is set to black, the text colour is white, the position of the
 footer is fixed, the width is set at 100% and the font size is medium*/
@@ -105,6 +104,7 @@ footer is fixed, the width is set at 100% and the font size is medium*/
   margin-bottom: 0px;
   font-size: medium;
 }
+
 /* font size is set to 20 pixels, text is aligned to the left hand side of the page,
 width is 100%, background colour is set, height, margin and padding all set*/
 .headerBar{
@@ -119,6 +119,7 @@ width is 100%, background colour is set, height, margin and padding all set*/
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
   font-family: "Century Gothic";
 }
+
 /* movie button is floated to the left, padding is set and colours are selected*/
 .movieButton{
   float: left;
@@ -130,10 +131,12 @@ width is 100%, background colour is set, height, margin and padding all set*/
   width: inherit;
   font-family: Lato;
 }
+
 /* background colour set*/
 #movieContainer{
   background-color: #ed5f25;
 }
+
 /* series button perameters set */
 .seriesButton{
   float: left;
@@ -145,24 +148,23 @@ width is 100%, background colour is set, height, margin and padding all set*/
   color: #bc4f23;
   width: inherit;
 }
+
 /* positioning and height of poster overlay set*/
 .posterOverlay{
-  /* position: absolute;
-  width: 100%;
-  height: 231px;
-  visibility: hidden;
-  z-index: 20; */
   position: absolute;
   height: 231px;
 }
+
 /* poster overlay set to hover*/
 .posterOverlay:hover{
   /* visibility: visible; */
 }
+
 /* hides media type */
 .mediaTypePass{
   visibility: hidden;
 }
+
 /* image overlay poster position and height set*/
 .imageOverlayPoster{
   position: relative;
@@ -172,6 +174,7 @@ width is 100%, background colour is set, height, margin and padding all set*/
 .imageOverlayPoster:hover .posterOverlay{
   /* visibility: visible; */
 }
+
 /* favourite icon perameters set*/
 .favouriteIcon{
   opacity: 0.6;
@@ -179,19 +182,19 @@ width is 100%, background colour is set, height, margin and padding all set*/
   border: none;
   top: 2%;
   right: 14%;
-  /* z-index: 98; */
   width: 20%;
   height: auto;
   position: absolute;
   margin-top: 6px;
-  /* display: none; */
   color: rgba(0, 0, 0, 0);
 }
+
 /* favourite icon set to hover, opacity and brightness also selected*/
 .favouriteIcon:hover{
   opacity: 0.9;
   filter: brightness(130%);
 }
+
 /* favourite icon big peramters set*/
 .favouriteIconBig{
   opacity: 0.6;
@@ -199,18 +202,18 @@ width is 100%, background colour is set, height, margin and padding all set*/
   border: none;
   top: 7.5%;
   right: 14%;
-  /* z-index: 98; */
   width: 40px;
   height: auto;
   position: absolute;
-  /* display: none; */
   color: rgba(0, 0, 0, 0);
 }
+
 /* set to hover, opacity and brightness set*/
 .favouriteIconBig:hover{
   opacity: 0.9;
   filter: brightness(130%);
 }
+
 /* favorite icon big within sries perameteres set*/
 .favouriteIconBigSeries{
   opacity: 0.6;
@@ -218,18 +221,18 @@ width is 100%, background colour is set, height, margin and padding all set*/
   border: none;
   top: 14%;
   right: 9%;
-  /* z-index: 98; */
   width: 40px;
   height: auto;
   position: absolute;
-  /* display: none; */
   color: rgba(0, 0, 0, 0);
 }
+
 /* set to hover, opacity and brightness set*/
 .favouriteIconBigSeries:hover{
   opacity: 0.9;
   filter: brightness(130%);
 }
+
 /* genre button perameters all set*/
 .genreButton{
   float: left;
@@ -246,10 +249,12 @@ width is 100%, background colour is set, height, margin and padding all set*/
   font-size: 20px;
   font-weight: bold;
 }
+
 /* genre button set to hover and colour is selected*/
 .genreButton:hover{
   color: #ed5f25;
 }
+
 /* item container sizes set and set to float on the left*/
 .itemContainer{
   height: inherit;
@@ -258,19 +263,16 @@ width is 100%, background colour is set, height, margin and padding all set*/
   font-family: Lato;
 }
 
-
 /* movie button set to hover and colour set*/
 .movieButton:hover{
   color: #ed5f25;
 }
+
 /* series button set to hover and colour is set*/
 .seriesButton:hover{
   color: #ed5f25;
 }
 
-/* .itemContainer:hover{
-  background-color: #2ee1e8;
-} */
 /* back button perameters are all set*/
 .backBut{
   float: right;
@@ -281,6 +283,7 @@ width is 100%, background colour is set, height, margin and padding all set*/
   height: 90%;
   width: auto;
 }
+
 /* back button hovers and brightness is set*/
 .backBut:hover{
   filter: brightness(80%);
