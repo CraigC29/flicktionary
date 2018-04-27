@@ -727,6 +727,7 @@ and color set*/
     width: 10px;
 }
 
+/*seriesBlock has its background color, sizing, and margins set.  */
 .seriesBlock{
   background-color: #2f2833;
   width: 97%;
@@ -737,11 +738,14 @@ and color set*/
   color: white;
 }
 
+/* when hovering over seriesBlock, brightness increasing along
+with the type of cursor taht appears*/
 .seriesBlock:hover{
   filter: brightness(140%);
   cursor: pointer;
 }
 
+/*episodeBlock has its background color, sizing, and margins set.  */
 .episodeBlock{
   background-color: #2f2833;
   width: 97%;
@@ -752,17 +756,21 @@ and color set*/
   color: white;
 }
 
+/* when hovering over episodeBlock, brightness increasing along
+with the type of cursor taht appears*/
 .episodeBlock:hover{
   filter: brightness(140%);
   cursor: pointer;
 }
 
+/*the seriesEpisodeNumberContainer has its margin, font and height set*/
 #seriesEpisodeNumberContainer{
   margin-top: 20px;
   font-size: 16px;
   height: 22px;
 }
 
+/*the mediaContainer has itspadding and display set*/
 .mediaContainer{
   align-items: flex-start;
   display: flex;
@@ -772,14 +780,15 @@ and color set*/
   padding-bottom: 20px;
   padding-top: 40px;
   background-color: transparent;
-  /* position: absolute; */
 }
 
+/*the movieLocation has its margins set*/
 .movieLocation{
   margin-top: 7%;
   margin-left: 4%;
 }
 
+/*the movseriesInfoHolder has its attributes set*/
 #seriesInfoHolder{
   align-items: flex-start;
   display: flex;
@@ -793,6 +802,8 @@ and color set*/
   background-color: #201b23;
 }
 
+/* The blurred Image that appear behnd movie or series when reading
+info about the item*/
 .blurImageContainer{
   overflow: hidden;
    -webkit-box-shadow: inset 0 0 200px #000000;
@@ -800,6 +811,8 @@ and color set*/
    box-shadow: inset 0 0 200px #000000;
 }
 
+/* seriesBody has its background-color, text alligned along with
+its color, marign and border*/
 .seriesBody{
   background-color: #201b23;
   text-align: center;
@@ -808,12 +821,15 @@ and color set*/
   border: 0px;
 }
 
+/*blurredImageContainer has its position, border and overflow set */
 .blurredImageContainer{
   position: relative;
   border: 0px;
   overflow: hidden;
 }
 
+/*blurredImageContainerMovie as above but also has
+height and min-width set */
 .blurredImageContainerMovie{
   position: relative;
   border: 0px;
@@ -822,6 +838,7 @@ and color set*/
   min-width: 500px;
 }
 
+/* attributes that effect the burredImage*/
 #blurredImage{
   width: 100%;
   object-fit: cover;
@@ -832,6 +849,7 @@ and color set*/
     -ms-filter: blur(20px) brightness(70%);
 }
 
+/*attributes that effect the blurredImageMovie*/
 #blurredImageMovie{
   width: 100%;
   height: 100%;
@@ -844,10 +862,12 @@ and color set*/
   top: 0px;
 }
 
+/*back image has its position set*/
 .backImage{
   position: relative;
 }
 
+/*seriesContainer has its position, borders and background set*/
 .seriesContainer{
   position: absolute;
    left: 0px;
@@ -856,21 +876,23 @@ and color set*/
    z-index: 1;
 }
 
+/*mainSeriesImage and mainSeriesImageBlur has its min-width and margin set*/
 #mainSeriesImage, #mainSeriesImageBlur{
   min-width: 30%;
   margin: 0px;
 }
 
+/*mediaInfo has its widths,paddings and margin set*/
 .mediaInfo{
   min-width: 50%;
-  max-width: 60%;
-  /* max-width: 60%; */
+  max-width: 60%
   text-align: left;
   margin: 0px;
   padding-left: 2%;
   padding-right: 8%;
 }
 
+/*mainTitle and mainTitleBlur has font attributes along with width set*/
 #mainTitle, #mainTitleBlur{
   font-size: 40px;
   font-family: Lato;
@@ -878,12 +900,14 @@ and color set*/
   width: 90%;
 }
 
+/*seriesInfo and seriesInfo has font attributes set*/
 #seriesInfo, #seriesInfo{
   color: white;
   font-size: 20px;
   font-family: Lato;
 }
 
+/*mainDesc and mainDescBlur has font attributes and some padding set*/
 #mainDesc, #mainDescBlur{
   padding-top: 30px;
   font-size: 15px;
@@ -891,12 +915,14 @@ and color set*/
   color: white;
 }
 
+/*littleMovieInfo has font attributes set*/
 #littleMovieInfo{
   color: lightgrey;
   font-size: 16px;
   font-family: Lato;
 }
 
+/*largeImage has its margin, width/height and border-radius set*/
 #largeImage{
   border-radius: 5px;
   margin-left: 10%;
@@ -904,20 +930,25 @@ and color set*/
   height: 513px;
 }
 
+/*mediaContainer has its width set*/
 .mediaContainer{
   width: 100%;
 }
 
+/*imdbLink has been assigned attributes. cursor changes to
+signify a link */
 .imdbLink{
   float: right;
   text-align: left;
   cursor: pointer;
 }
 
+/*imdbLink when hovered over changes the color*/
 #imdbLink:hover{
   color: white;
 }
 
+/*logoHeaderImagehas its height,width and padding set. The cursor also changes*/
 .logoHeaderImage{
   width: 180px;
   height: 30px;
@@ -926,16 +957,16 @@ and color set*/
   cursor: pointer;
 }
 
+/*when hovering over result, attributes are applied to it. */
 .result:hover{
   filter:brightness(70%);
-  /* border: 5px solid #ed5f25; */
   border-radius: 15px;
-  /* margin: 5px; */
   cursor: pointer;
   box-shadow: 0 0 8pt 3pt #ed5f25;
   transform: scale(1.03);
 }
 
+/*result has its margin, height and transition set*/
 .result{
   margin: 10px;
   height: 231px;
