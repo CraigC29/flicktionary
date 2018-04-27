@@ -1,3 +1,5 @@
+//defines variables
+
 var pagePos = 3;
 var amountPages = 1;
 var allResults = "";
@@ -16,9 +18,12 @@ var hasSeries = false;
 
 // Search terms are set so that the user gets resulsts for what they search
 $(function(){
+  //user searches media
   $('#searchform').submit(function() {
     var searchterms = $("#searchterms").val();
+    //genre set to nothing
     genreSelected = null;
+    //returns searches
     getResultsFromTMDB(searchterms);
     return false;
   });
@@ -68,6 +73,7 @@ function loadSeries(){
 // resizes window
 $(window).resize(function(){
   if (searchType == "series" && isDelving == true){
+    //sets the image height
     var imageHeight = $("#seriesMediaHeight").height();
     document.getElementById("blurredImage").height = imageHeight + 60;
     var blockHeight = ((imageHeight / 10) * 5.5);
@@ -82,6 +88,7 @@ $(window).resize(function(){
   }
 });
 
+//gets the URL
 function getUrlVars() {
   var vars = {};
   var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -144,10 +151,13 @@ function loadHomepage(){
   if (typeSearch == "Series"){
     searchType = "series";
     // console.log("Series");
+    //set background colour to orange
     document.getElementById('seriesContainer').style.backgroundColor = "#ed5f25";
+    //sets background colour to transparent
     document.getElementById('movieContainer').style.backgroundColor = "transparent";
     document.getElementById('mainBody').style.paddingTop = "170px";
     $("#message").html("");
+    //adds a placeholder
     $('#searchInput').attr('placeholder','Search Series');
     allResults = $('<div class="resultDiv container" id="mainStuff">');
     for(i = 1; i <= 8; i++){
