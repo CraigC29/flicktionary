@@ -1,3 +1,19 @@
+var pagePos = 3;
+var amountPages = 1;
+var allResults = "";
+var searchType = "movie";
+var numSeries = 0;
+var numEpisodes = 0;
+var seriesSelected = 1;
+var episodeSelected = 1;
+var isDelving = false;
+var genreSelected = null;
+var loggedIn = false;
+var moviesFavourited = "";
+var seriesFavourited = "";
+var hasMovies = false;
+var hasSeries = false;
+
 // loads both movies and series
 function loadAllMovieMedia(movieid) {
   $.ajax({
