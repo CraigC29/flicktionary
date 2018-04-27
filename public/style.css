@@ -24,6 +24,7 @@ the background is transparent and the border is set to 0 pixels*/
   width: auto;
 }
 
+/*logoutBut has attributes set to it*/
 .logoutBut{
   float: left;
   top:0;
@@ -155,11 +156,6 @@ width is 100%, background colour is set, height, margin and padding all set*/
   height: 231px;
 }
 
-/* poster overlay set to hover*/
-.posterOverlay:hover{
-  /* visibility: visible; */
-}
-
 /* hides media type */
 .mediaTypePass{
   visibility: hidden;
@@ -169,10 +165,6 @@ width is 100%, background colour is set, height, margin and padding all set*/
 .imageOverlayPoster{
   position: relative;
   height: 231px;
-}
-
-.imageOverlayPoster:hover .posterOverlay{
-  /* visibility: visible; */
 }
 
 /* favourite icon perameters set*/
@@ -319,17 +311,6 @@ a {
   border-color: blue;
 }
 
-.imageClick:hover{
-  /* opacity: 0.4;
-  border: 5px solid blue;
-  border-radius: 5px;
-  margin: 5px; */
-  /* -webkit-transition: opacity 0.2s ease-in-out;
-    -moz-transition: opacity 0.2s ease-in-out;
-    transition: opacity 0.2s ease-in-out;
-    transition: 0.2s linear; */
-}
-
 /*base id has its text and font set*/
 #base{
   text-align: center;
@@ -388,12 +369,6 @@ a {
   height: 0px;
 }
 
-.large-item-2 {
-  /* width: 40%;
-  background-color: #6A6564;
-  height: 60%; */
-}
-
 /* container alignment selected*/
 .container {
   align-items: flex-start;
@@ -420,10 +395,6 @@ a {
 .favHeader{
   text-align: left;
   margin: 0px;
-}
-
-.titleText {
-  /* visibility: hidden; */
 }
 
 /* search input perameters all set*/
