@@ -1,44 +1,54 @@
 <!doctype html>
 <html>
 
+<!--Standard header code -->
 <header>
   <% include ../partials/head %>
 </header>
 
-
+<!--header to display logo image along with a back button. This is put
+  inside the class header bar-->
 <header>
   <div class="headerBar">
     <div class="itemContainer">
       <img class="logoHeaderImage"  src="/public/images/logo.png" alt="Logo"/>
     </div>
-
     <img class="backBut" onclick="goHomeSeries()" src="/public/images/backbutton.png" alt="Back Button"/>
   </div>
 </header>
 
-<body onload="loadSeries()" class="seriesBody">
 
-<div class="blurredImageContainer">
-  <div class="seriesContainer">
-    <div class="mediaContainer" id="seriesMediaHeight">
-      <div id="mainSeriesImage" class="imageClick">Image</div>
-      <div class="mediaInfo">
-        <div id="mainTitle">Title</div>
-        <form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIconBigSeries" name="favMed" id="favouriteBig"> <input name="typeMedia" class="mediaTypePass" id="typeMedia"></form>
-        <div id="seriesInfo">Series</div>
-        <div id="mainDesc">Description</div>
+<!--Once a Series is clicked on, the image will display along with
+  the movies name, a little description. The background is an enlarged
+  version of the image and blurred out. -->
+<body onload="loadSeries()" class="seriesBody">
+  <div class="blurredImageContainer">
+    <div class="seriesContainer">
+      <div class="mediaContainer" id="seriesMediaHeight">
+        <div id="mainSeriesImage" class="imageClick">Image</div>
+        <div class="mediaInfo">
+          <div id="mainTitle">Title</div>
+
+          <!--form action to display our favourite button. The movie will be added
+            to the users faourites only if they are logged in. The number of
+            seasons is also shown in the series info id. -->
+          <form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIconBigSeries" name="favMed" id="favouriteBig"> <input name="typeMedia" class="mediaTypePass" id="typeMedia"></form>
+          <div id="seriesInfo">Series</div>
+          <div id="mainDesc">Description</div>
+        </div>
       </div>
     </div>
+    <img src="/public/images/logo.png" id="blurredImage">
   </div>
-  <img src="/public/images/logo.png" id="blurredImage">
-</div>
 
-<div id="seriesInfoHolder">
-  <div id="seriesBlockContainer"><div class="seriesHeads">Season</div><div id="blockSeries"></div></div>
-  <div id="seriesEpisodeContainer"><div class='seriesHeads' id="episodeNums"></div><div id="blockEp"></div></div>
-  <div id="seriesEpisodeInfoContainer"><div id="blockInfo"></div></div>
-</div>
+  <!--More series info is held here. There is a section for a specific sesaon,
+    along with all of the episodes in that series. This is folowed by a brief
+    descriptoin of that specific episode-->
+  <div id="seriesInfoHolder">
+    <div id="seriesBlockContainer"><div class="seriesHeads">Season</div><div id="blockSeries"></div></div>
+    <div id="seriesEpisodeContainer"><div class='seriesHeads' id="episodeNums"></div><div id="blockEp"></div></div>
+    <div id="seriesEpisodeInfoContainer"><div id="blockInfo"></div></div>
+  </div>
 
 </body>
-
 </html><!--Closing html tag -->
