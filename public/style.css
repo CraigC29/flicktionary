@@ -584,24 +584,29 @@ a {
   margin-right: 4%;
 }
 
+/*The mediaInfoMovie has text alligned,
+padding and margins set along with te width */
 .mediaInfoMovie{
   text-align: left;
   margin: 0px;
   Padding-right: 8%;
   max-width: 50%;
   min-width: 20%;
-
 }
 
+/* dropbtn:hover and dropbtn:focus have their background color set*/
 .dropbtn:hover, .dropbtn:focus {
     background-color: #2980B9;
 }
 
+/*dropdown has its position and display set*/
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
+/*dropdown-content has attributes set. Including dispaly
+position and background-color*/
 .dropdown-content {
     display: none;
     position: absolute;
@@ -613,18 +618,21 @@ a {
     margin-top: 40px;
 }
 
+/*genreSelectButton has its width and cursor entity set*/
 .genreSelectButton{
   width: 80%;
   cursor: pointer;
   overflow: hidden;
 }
 
+/*genericSelectButton has its width and cursor entity set*/
 .genericSelectButton{
   width: 80%;
   cursor: pointer;
   overflow: hidden;
 }
 
+/*the a tag inside the dropdown-content has color, padding and text set*/
 .dropdown-content a {
     color: #ed5f25;
     padding: 10px 14px;
@@ -633,11 +641,18 @@ a {
     font-size: 15px;
 }
 
+/*the a tag inside the dropdown, when hovered over,
+the brihtness increases*/
 .dropdown a:hover {
   filter: brightness(120%);}
 
-.show {display:block;}
+/*the show has its display set*/
+.show {
+  display:block;
+}
 
+/*the seriesBlockContainer has its width, margin, padding
+and color set*/
 #seriesBlockContainer{
   width: 13%;
   font-size: 20px;
@@ -647,11 +662,13 @@ a {
   color: white;
 }
 
+/*the blockSeries, blockEp and blockInfo overflow set*/
 #blockSeries, #blockEp, #blockInfo{
   overflow: auto;
   overflow-x: hidden;
 }
 
+/*the seriesEpisodeContainer has its width, color, text and margin set*/
 #seriesEpisodeContainer{
   width: 45%;
   font-size: 20px;
@@ -662,17 +679,20 @@ a {
   max-height: 230px;
 }
 
+/*the moreLittleInfo has its font-size and color set*/
 .moreLittleInfo{
   font-size: 12px;
   color: grey;
 }
 
+/*the episodeDescription has its font-size and color and padding set*/
 .episodeDescription{
   font-size: 12px;
   color: white;
   padding-top: 10px;
 }
 
+/*the seriesEpisodeInfoContainer has its width, color, padding and margin set*/
 #seriesEpisodeInfoContainer{
   width: 33%;
   bottom: 0;
