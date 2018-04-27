@@ -1,3 +1,8 @@
+// This is the list of variables being set. pagePos is set to 3,
+//amountPages is set to 1, allResults is all possible results of a search,
+//searchType is for searching movies, numSeries is setting the number of series to 0 and numEpisodes is setting the number of episodes to 0,
+//seriesSelected and episodeSelected is set to 1, isDelving being set to false means that a user has no onger selected a media typer (movies or series)
+//test
 var pagePos = 3;
 var amountPages = 1;
 var allResults = "";
@@ -73,6 +78,7 @@ $(document).ready(function () {
       $("#genreButtonMain").text("Genre: " + genreText);
       genreSelected = genre;
       console.log(genreSelected);
+      
 
     } else {
       $("#genreButtonMain").text("Genre");
@@ -128,10 +134,12 @@ $(document).ready(function () {
           allResults.append("<div id=" + movieid + " class=\"result\" resourceId=\" titleText=\"" + result["results"][i]["title"] + "\">" + "<div class='imageOverlayPoster'> <div class='posterOverlay' id=" + movieLocation + " name=" + searchType + ">" + '<form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIcon" name="favMed" id="favourite" value="' + movieid + '"> <input name="typeMedia" value="' + media +'" class="mediaTypePass"></form>' + "</div>" + "<img id=" + movieLocation + " class ='imageClick' src=\"" + image + "\"/>"  + "</div></div>")
         }
 // This sets which/where results appear and also inserts an image unavailable image
+        //if there is only one page
         if (amountPages == 1){
           allResults.append("</div>");
           printResults();
         } else {
+          //load amount of pages and media attached to it
           loadAllPages(amountPages, media);
         }
       },
@@ -213,6 +221,7 @@ $(document).ready(function () {
 // validates to check there is a search input
   function Validate() {
     var errorMessage = "";
+    //if there is nothing in the search bar comes back with error message
     if ($("#searchInput").val() == "") {
       errorMessage += "Please Enter Search Text";
     }
@@ -223,7 +232,7 @@ $(document).ready(function () {
   $(document).ajaxStart(function () {
     $(".imageDiv img").show();
   });
-
+//hides classes imageDiv and image
   $(document).ajaxStop(function () {
     $(".imageDiv img").hide();
   });
