@@ -1,37 +1,41 @@
 <!doctype html>
 <html>
 
+<!--Standard header code -->
 <header>
   <% include ../partials/head %>
 </header>
 
+<!--header to display logo image along with a back button. This is put
+  inside the class header bar-->
 <header>
   <div class="headerBar">
     <div class="itemContainer">
       <img class="logoHeaderImage"  src="/public/images/logo.png" alt="Logo"/>
     </div>
-
     <img class="backBut" onclick="goHomeMovies()" src="/public/images/backbutton.png" alt="Back Button"/>
   </div>
 </header>
 
+<!--Once a movie is clicked on, the image will display along with
+  the movies name, a little description. The background is an enlarged
+  version of the image and blurred out. -->
 <body onload="loadMovies()" class="bodyFlick">
-<div class="blurredImageContainerMovie" id="movieMediaContainer">
-  <div class="mediaContainer seriesContainer movieLocation">
-    <div id="mainImage">Image</div>
-    <div class="mediaInfoMovie">
-      <div id="mainTitle">Title </div>
-      <form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIconBig" name="favMed" id="favouriteBig"> <input name="typeMedia" class="mediaTypePass" id="typeMedia"></form>
+  <div class="blurredImageContainerMovie" id="movieMediaContainer">
+    <div class="mediaContainer seriesContainer movieLocation">
+      <div id="mainImage">Image</div>
+      <div class="mediaInfoMovie">
+        <div id="mainTitle">Title </div>
 
-      <div id="littleMovieInfo">Little Info</div>
-      <div id="mainDesc">Description</div>
+        <!--form action to display our favourite button. The movie will be added
+          to the users faourites only if they are logged in-->
+        <form action="/favourite" method="POST"> <input type="image" src="/public/images/favourite.png" class="favouriteIconBig" name="favMed" id="favouriteBig"> <input name="typeMedia" class="mediaTypePass" id="typeMedia"></form>
+        <div id="littleMovieInfo">Little Info</div>
+        <div id="mainDesc">Description</div>
+      </div>
     </div>
+    <img src="/public/images/logo.png" id="blurredImageMovie">
   </div>
 
-  <img src="/public/images/logo.png" id="blurredImageMovie">
-</div>
-
-
 </body>
-
 </html><!--Closing html tag -->
