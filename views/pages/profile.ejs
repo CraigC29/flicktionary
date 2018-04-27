@@ -1,19 +1,17 @@
-<!-- views/pages/about.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 
+<!--Standard header code -->
 <head>
   <% include ../partials/head %>
 </head>
 
 <body class="bodyFlick">
 
+  <!--header tag to display dropdown menu. This lets the user select their
+    account settings or to logout.-->
   <header>
     <div class="headerBar">
-      <!-- <button class="logoutBut" type="button" name="logout">
-        <img class="logoutBut"  src="/public/images/logoutbutton.png" alt="Logo" onClick="logout()"/>
-      </button> -->
       <div class="dropdown" id="seriesContainer">
         <button onclick="showDropdown()" class="genreButton">Account</button>
         <div id="myDropdown" class="dropdown-content">
@@ -22,61 +20,61 @@
         </div>
       </div>
 
+      <!--Back button displayed here -->
       <img class="backBut" onclick="goHomeMovies()" src="/public/images/backbutton.png" alt="Back Button"/>
-
     </div>
-
   </header>
 
   <main>
-    <div >
+    <div>
       <div>
         <div>
           <!-- Page to display a single profile. The "user" object is passed through from express -->
-          <!-- get the first name -->
+          <!-- get the first name and the username -->
           <h1 class="loginHead fullName"><%= user.name.first %> <%= user.name.last %></h1>
-          <!-- get the username -->
           <h2 class="username"><%= user.login.username %></h2>
         </div>
       </div>
 
       <div>
+        <!--This section is to display the users favourite movies -->
         <h4 class="favHeader" id="movieText">Favourite Movies Will Appear Here When Added</h4>
-        <!-- <div class="favMovies" id="moviesFav"> -->
-          <div id="resultsbox"  >
-            <div id="results" class="resultDiv favContainer movieFavs">
+        <div id="resultsbox"  >
+          <div id="results" class="resultDiv favContainer movieFavs">
             <%for (var favourite in user.favourites){%>
               <% if (user.favourites[favourite].favouriteMedia.type == "movie") { %>
-                    <div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>
-                <%}%>
-                <%}%>
-              </div>
-            </div>
-            <!-- </div> -->
+                <div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favMedia"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>
+              <%}%>
+            <%}%>
           </div>
-        </br>
-        <div>
-          <h4 class="favHeader" id="seriesText">Favourite Series Will Appear Here When Added</h4>
-          <div>
-            <div id="resultsbox"  >
-              <div id="results" class="resultDiv favContainer seriesFavs">
-              <%for (var favourite in user.favourites){%>
-                <% if (user.favourites[favourite].favouriteMedia.type !== "movie") { %>
-                      <div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favSeries"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>
-                  <%}%>
-                  <%}%>
-                </div>
-              </div>
+        </div>
+      </div>
 
+      </br>
+
+      <div>
+        <!--This section is to display the users favourite series -->
+        <h4 class="favHeader" id="seriesText">Favourite Series Will Appear Here When Added</h4>
+        <div id="resultsbox"  >
+          <div id="results" class="resultDiv favContainer seriesFavs">
+            <%for (var favourite in user.favourites){%>
+              <% if (user.favourites[favourite].favouriteMedia.type !== "movie") { %>
+                <div id="<%=user.favourites[favourite].favouriteMedia.mediaId %>" class="favSeries"><%=favourite%>:<%=user.favourites[favourite].favouriteMedia.mediaId %></div>
+              <%}%>
+            <%}%>
           </div>
-        </main>
+        </div>
+      </div>
+    </div>
+  </main>
 
-        <% include ../partials/upButton %>
+  <!--Partial code for the back to top button -->
+  <% include ../partials/upButton %>
 
-        <footer>
-          <% include ../partials/footer %>
-        </footer>
+  <!--Partial code for the footer-->
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
 
-      </body>
-
-      </html>
+</body>
+</html>
