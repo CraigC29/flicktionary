@@ -7,7 +7,6 @@
 */
 
 
-
 const MongoClient = require('mongodb').MongoClient; //npm install mongodb@2.2.32
 const url = "mongodb://localhost:27017/profiles";
 const express = require('express'); //npm install express
@@ -30,7 +29,6 @@ app.set('view engine', 'ejs');
 
 var db;
 
-
 //this is our connection to the mongo db, ts sets the variable db as our database
 MongoClient.connect(url, function(err, database) {
   if (err) throw err;
@@ -41,7 +39,6 @@ MongoClient.connect(url, function(err, database) {
 
 
 //********** GET ROUTES - Deal with displaying pages ***************************
-
 //this is our root route
 app.get('/', function(req, res) {
   if(!req.session.loggedin){
@@ -77,21 +74,6 @@ app.get('/login', function(req, res) {
     res.render('pages/profile?username=' + req.query.username);
     return;
   }
-
-  // var uname = req.query.username;
-  // //this query finds the first document in the array with that username.
-  // //Because the username value sits in the login section of the user data we use login.username
-  // db.collection('people').findOne({
-  //   "login.username": uname
-  // }, function(err, result) {
-  //   if (err) throw err;
-  //   //console.log(uname+ ":" + result);
-  //   //finally we just send the result to the user page as "user"
-  //   res.render('pages/users', {
-  //     users: result
-  //   })
-  // });
-
 });
 
 //this is our profile route, it takes in a username and uses that to search the database for a specific user
@@ -111,8 +93,8 @@ app.get('/profile', function(req, res) {
       user: result
     })
   });
-
 });
+
 //adduser route simply draws our adduser page
 app.get('/adduser', function(req, res) {
   if(req.session.loggedin){
@@ -120,6 +102,7 @@ app.get('/adduser', function(req, res) {
     return;}
     res.render('pages/adduser')
   });
+
   //remuser route simply draws our remuser page
   app.get('/remuser', function(req, res) {
     if(!req.session.loggedin){res.redirect('/login');return;}
@@ -132,7 +115,8 @@ app.get('/adduser', function(req, res) {
       })
     });
   });
-  //logour route cause the page to Logout.
+
+  //logout route cause the page to Logout.
   //it sets our session.loggedin to false and then redirects the user to the login
   app.get('/logout', function(req, res) {
     req.session.loggedin = false;
@@ -148,24 +132,14 @@ app.get('/adduser', function(req, res) {
     }
   });
 
-
   //********** POST ROUTES - Deal with processing data from forms ***************************
-
   app.post('/favourite', function (req, res){
     if(req.session.loggedin){
-
-        // if (db.collection('people').findOne({"favourites.favouriteMedia.mediaId":req.session.user.favourites.favouriteMedia.mediaId}) !== null){
-        //   console.log("already in favourites");
-        //   return false;
-        // } else{
           db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
-          // console.log(db.collection('people').count({"_id":result._id}, {"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}));
           db.collection('people').update({"_id":result._id}, {$addToSet:{"favourites" : {"favouriteMedia" : {"type":req.body.typeMedia, "mediaId":req.body.favMed}}}});
           console.log("Added Media: " + req.body.favMed);
           console.log("Added Media Type: " + req.body.typeMedia);
         });
-
-      // }
       res.redirect('/profile');
     } else{
       res.redirect('/login');
@@ -190,7 +164,6 @@ app.get('/adduser', function(req, res) {
         res.redirect('/login');
       }
   });
-
 
   //the dologin route detasl with the data from the login screen.
   //the post variables, username and password ceom from the form on the login page.
@@ -218,15 +191,6 @@ app.get('/adduser', function(req, res) {
   });
 
 
-  // app.post('/addFavourite', function(req, res) {
-  //   db.collection('people').update(
-  //     var id = req.session.user._id
-  //     { _id: id },
-  //     { $push: { favourites: stringFavourite } }
-  //   )
-  //
-  // });
-
   //the delete route deals with user deletion based on entering a username
   app.post('/delete', function(req, res) {
     //check we are logged in.
@@ -241,20 +205,6 @@ app.get('/adduser', function(req, res) {
     });
   });
 
-
-  //the adduser route deals with adding a new user
-  //dataformat for storing new users.
-
-  //{"_id":18,
-  //"gender":"female",
-  //"name":{"title":"miss","first":"allie","last":"austin"},
-  //"location":{"street":"9348 high street","city":"canterbury","state":"leicestershire","postcode":"N7N 1WE"},
-  //"email":"allie.austin@example.com",
-  //"login":{"username":"smalldog110","password":"lickit"},
-  //"dob":"1970-07-06 16:32:37","registered":"2011-02-08 07:10:24",
-  //"picture":{"large":"https://randomuser.me/api/portraits/women/42.jpg","medium":"https://randomuser.me/api/portraits/med/women/42.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/42.jpg"},
-  //"nat":"GB"}
-
   app.post('/adduser', function(req, res) {
     //check we are logged in
     if(req.session.loggedin){
@@ -265,7 +215,6 @@ app.get('/adduser', function(req, res) {
     }
 
     //we create the data string from the form components that have been passed in
-
     var datatostore = {
       "name":{"first":req.body.first,"last":req.body.last},
       "email":req.body.email,
@@ -288,36 +237,12 @@ app.get('/adduser', function(req, res) {
         return;
       }
       if (req.session.user.login.password == req.body.currentPassword){
-      // var datatostore = {
-      //   "name":{"first":req.body.first,"last":req.body.last},
-      //   "email":req.body.email,
-      //   "login":{"username":req.body.username,"password":req.body.password},
-      //   "favourites":req.body.favouritesHolder
-      // }
-
-      db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
-        db.collection('people').update({"_id":result._id}, {$set: {"name.first": req.body.first, "name.last": req.body.last, "email": req.body.email, "login.username": req.body.username, "login.password": req.body.password}})
-        // db.collection('people').update({"_id":result._id}, datatostore, function(err, result) {
-        //   if (err) throw err;
-        //   console.log('saved to database')
-        //   //when complete redirect to the index
-        //   res.redirect('/profile')
-        // })
-        res.redirect('/profile');
-      });
-    } else {
-      res.redirect('/remuser');
-      return;
-    }
+        db.collection('people').findOne({"login.username":req.session.user.login.username}, function(err, result) {
+          db.collection('people').update({"_id":result._id}, {$set: {"name.first": req.body.first, "name.last": req.body.last, "email": req.body.email, "login.username": req.body.username, "login.password": req.body.password}})
+          res.redirect('/profile');
+        });
+      } else {
+        res.redirect('/remuser');
+        return;
+      }
     });
-
-
-    //---------------------------Unsure if this works-----------------------
-    //Actually adding data to the database
-    // app.post('/signUP', function(req, res){
-    //   db.collection(quotes('quotes').save(req.body, function(error, result){
-    //     if (error) throw error;
-    //     console.log('saved to database')
-    //     res.redirect('/flicktionary')
-    //   })
-    // })
