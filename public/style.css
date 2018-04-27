@@ -856,7 +856,7 @@ height and min-width set */
 /*mediaInfo has its widths,paddings and margin set*/
 .mediaInfo{
   min-width: 50%;
-  max-width: 60%
+  max-width: 60%;
   text-align: left;
   margin: 0px;
   padding-left: 2%;
@@ -944,7 +944,7 @@ signify a link */
   transition: .3s ease-in-out;
 }
 
--#apiDiv {
+/* -#apiDiv {
  -    border: dashed 2px #CCC;
  -    padding: 10px;
  -    padding-left: 20px;
@@ -989,7 +989,7 @@ signify a link */
  -                height: 300px;
  -                padding: 6px;
  -                /* float: left; */
- -                text-align: center;
+ /* -                text-align: center;
  -                cursor: pointer;
  -                visibility: hidden;
  -            }
@@ -1028,4 +1028,4 @@ signify a link */
  -    #reset:hover {
  -        color: #4CAF50;
  -        background: #FFF;
- -    }
+ -    } */
