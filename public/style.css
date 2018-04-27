@@ -299,8 +299,8 @@ width is 100%, background colour is set, height, margin and padding all set*/
   font-family: "Century Gothic";
   text-align: center;
   width: screenWidth;
-
 }
+
 body {
   background-color: gray;
 }
@@ -308,6 +308,7 @@ body {
 a {
   display: none;
 }
+
 /* image click perameters all set*/
 .imageClick {
   width: 154px;
@@ -336,6 +337,7 @@ a {
   width: 100%;
   /* max-width: 80%; */
 }
+
 /* side text alignment set to left and flex, width and colour also selected*/
 .sideText {
   text-align: left;
@@ -346,6 +348,7 @@ a {
   width: 100%;
   background-color: #6A6564;
 }
+
 /* thumbnail image perameters all set*/
 .thumbnailImage {
   margin: 6px;
@@ -354,12 +357,14 @@ a {
   padding-top: 4px;
   max-width: 165px;
 }
+
 /* item2 midth and max width set and set to hidden*/
 .item2 {
   max-width: 30%;
   width: 30%;
   visibility: hidden;
 }
+
 /* the alignment of all movies is set*/
 .allMovies {
   align-items: flex-start;
@@ -369,6 +374,7 @@ a {
   height: 0px;
   align-content: flex-start;
 }
+
 /* large item perameters are set*/
 .large-item {
   align-items: flex-start;
@@ -384,6 +390,7 @@ a {
   background-color: #6A6564;
   height: 60%; */
 }
+
 /* container alignment selected*/
 .container {
   align-items: flex-start;
@@ -392,6 +399,7 @@ a {
   justify-content: flex-start;
   align-content: flex-start;
 }
+
 /* favourite container perameters are all set*/
 .favContainer {
   align-items: flex-start;
@@ -404,6 +412,7 @@ a {
   overflow-x: auto;
   overflow-y:hidden;
 }
+
 /* favheader text is aligned to the left of the page and margin set to 0 pixels*/
 .favHeader{
   text-align: left;
@@ -413,6 +422,7 @@ a {
 .titleText {
   /* visibility: hidden; */
 }
+
 /* search imput perameters all set*/
 #searchInput {
   max-width: 600px;
@@ -433,10 +443,12 @@ a {
   margin-top: 8px;
   border-radius: 8px;
 }
+
 /* imput set to hidden*/
 .hiddenInput{
   visibility: hidden;
 }
+
 /* username margin and font set*/
 .username{
   margin-top: 0px;
@@ -446,7 +458,6 @@ a {
 .fullName{
   margin-bottom: 0px;
 }
-
 
 /* submit button margins, sizes, borders colours and text alignment all set*/
 .submitButton{
@@ -468,11 +479,13 @@ a {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
+
 /* submit button set to hover and background colour and colours are set*/
 .submitButton:hover{
   background-color: #bc4f23;
   color: #211d23;
 }
+
 /* login text peramters all set*/
 .loginText{
   width: 10%;
@@ -564,8 +577,6 @@ a {
 
 }
 
-
-
 .dropbtn:hover, .dropbtn:focus {
     background-color: #2980B9;
 }
@@ -625,9 +636,6 @@ a {
   overflow-x: hidden;
 }
 
-
-
-
 #seriesEpisodeContainer{
   width: 45%;
   font-size: 20px;
@@ -666,18 +674,15 @@ a {
     height: 8px;
 }
 
-
 /* Track */
 ::-webkit-scrollbar-track {
     background: transparent;
-
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #939393;
     border-radius: 10px;
-
 }
 
 /* Handle on hover */
@@ -695,6 +700,7 @@ a {
   margin-top: 4px;
   color: white;
 }
+
 .seriesBlock:hover{
   filter: brightness(140%);
   cursor: pointer;
@@ -709,6 +715,7 @@ a {
   margin-top: 4px;
   color: white;
 }
+
 .episodeBlock:hover{
   filter: brightness(140%);
   cursor: pointer;
@@ -718,7 +725,6 @@ a {
   margin-top: 20px;
   font-size: 16px;
   height: 22px;
-
 }
 
 .mediaContainer{
@@ -737,8 +743,6 @@ a {
   margin-top: 7%;
   margin-left: 4%;
 }
-
-
 
 #seriesInfoHolder{
   align-items: flex-start;
@@ -759,7 +763,6 @@ a {
    -moz-box-shadow: inset 0 0 200px #000000;
    box-shadow: inset 0 0 200px #000000;
 }
-
 
 .seriesBody{
   background-color: #201b23;
@@ -791,7 +794,6 @@ a {
     -moz-filter: blur(20px) brightness(70%);
     -o-filter: blur(20px) brightness(70%);
     -ms-filter: blur(20px) brightness(70%);
-
 }
 
 #blurredImageMovie{
@@ -805,8 +807,6 @@ a {
     -ms-filter: blur(15px) brightness(70%);
   top: 0px;
 }
-
-
 
 .backImage{
   position: relative;
@@ -835,8 +835,6 @@ a {
   padding-right: 8%;
 }
 
-
-
 #mainTitle, #mainTitleBlur{
   font-size: 40px;
   font-family: Lato;
@@ -849,14 +847,13 @@ a {
   font-size: 20px;
   font-family: Lato;
 }
+
 #mainDesc, #mainDescBlur{
   padding-top: 30px;
   font-size: 15px;
   font-family: Lato;
   color: white;
 }
-
-
 
 #littleMovieInfo{
   color: lightgrey;
@@ -893,8 +890,6 @@ a {
   cursor: pointer;
 }
 
-
-
 .result:hover{
   filter:brightness(70%);
   /* border: 5px solid #ed5f25; */
@@ -910,112 +905,3 @@ a {
   height: 231px;
   transition: .3s ease-in-out;
 }
-/*
-#apiDiv {
-    border: dashed 2px #CCC;
-    padding: 10px;
-    padding-left: 20px;
-}
-
-    #apiDiv input, #apiDiv button {
-        font-size: 25px;
-        color: #000;
-    }
-
-    #apiDiv h4 {
-        margin: 10px 0;
-    }
-
-    #apiDiv .imageDiv {
-        text-align: center;
-    }
-
-        #apiDiv .imageDiv img {
-            display: none;
-        }
-
-    #apiDiv #message {
-        padding-top: 10px;
-    }
-
-        #apiDiv #message .resultDiv {
-            background: #FFF;
-            display: inline-block;
-        }
-
-            #apiDiv #message .resultDiv &gt; p {
-                color: #000;
-                display: inline-block;
-                width: 95%;
-                padding: 10px;
-                border-bottom: double 2px #CCC;
-            }
-
-            #apiDiv #message .resultDiv .result {
-                width: 23%;
-                height: 300px;
-                padding: 6px;
-                /* float: left; */
-                /* text-align: center;
-                cursor: pointer;
-                visibility: hidden;
-            }
-
-                #apiDiv #message .resultDiv .result img {
-                    width: 75%;
-                }
-
-                #apiDiv #message .resultDiv .result p {
-                    margin: 0;
-                }
-
-                    #apiDiv #message .resultDiv .result p a {
-                        color: #808080;
-                        text-decoration: none;
-                        font-size: 20px;
-                        height: 100px;
-                    }
-
-                        #apiDiv #message .resultDiv .result p a:hover {
-                            text-decoration: underline;
-                        }
-
-#myModal {
-    color: #000;
-}
-
-#reset {
-    padding: 5px 10px;
-    background: #4CAF50;
-    border: none;
-    color: #FFF;
-    cursor: pointer;
-}
-
-    #reset:hover {
-        color: #4CAF50;
-        background: #FFF;
-    }
-
-
-    .cd-popup {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s 0s, visibility 0s 0.3s;
-    }
-
-    .cd-popup.is-visible {
-      opacity: 1;
-      visibility: visible;
-      transition: opacity 0.3s 0s, visibility 0s 0s;
-    }
-
-    .cd-popup-container {
-      transform: translateY(-40px);
-      transition-property: transform;
-      transition-duration: 0.3s;
-    }
-
-    .is-visible .cd-popup-container {
-      transform: translateY(0);
-    } */
