@@ -2,25 +2,28 @@
 <html>
 
 <!--Standard header code -->
-<header>
+<head>
   <% include ../partials/head %>
-</header>
+</head>
 
-<!--header to display logo image along with a back button. This is put
-  inside the class header bar-->
-<header>
-  <div class="headerBar">
-    <div class="itemContainer">
-      <img class="logoHeaderImage"  src="/public/images/logo.png" alt="Logo"/>
-    </div>
-    <img class="backBut" onclick="goHomeMovies()" src="/public/images/backbutton.png" alt="Back Button"/>
-  </div>
-</header>
+
 
 <!--Once a movie is clicked on, the image will display along with
   the movies name, a little description. The background is an enlarged
   version of the image and blurred out. -->
 <body onload="loadMovies()" class="bodyFlick">
+
+  <!--header to display logo image along with a back button. This is put
+    inside the class header bar-->
+  <header>
+    <div class="headerBar">
+      <div class="itemContainer">
+        <img class="logoHeaderImage"  src="/public/images/logo.png" alt="Logo"/>
+      </div>
+      <img class="backBut" onclick="goHomeMovies()" src="/public/images/backbutton.png" alt="Back Button"/>
+    </div>
+  </header>
+  
   <div class="blurredImageContainerMovie" id="movieMediaContainer">
     <div class="mediaContainer seriesContainer movieLocation">
       <div id="mainImage">Image</div>
